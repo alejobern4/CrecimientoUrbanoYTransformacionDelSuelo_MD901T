@@ -1,0 +1,6 @@
+/Proyecto/__pycache__
+/Proyecto/.venv
+/Proyecto/.vscode
+*.pyc
+Proyecto/.env
+
