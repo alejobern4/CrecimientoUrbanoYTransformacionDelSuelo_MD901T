@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Etapa 1 | Crecimiento Urbano</title>
+
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                PROYECTO
+            </a>
+
+            <nav>
+                <a href="index.html">Inicio</a>
+
+                <div class="dropdown">
+                    <a href="etapa1.html" class="active">Etapa 1 ▾</a>
+
+                    <div class="dropdown-content">
+                        <a href="#problema">1. Problema y contexto</a>
+                        <a href="#preguntas">2. Pregunta principal y preguntas secundarias</a>
+                        <a href="#necesidades">3. Necesidades de información</a>
+                        <a href="#fuentes">4. Fuentes de datos</a>
+                        <a href="#dataset">5. Dataset</a>
+                        <a href="#diccionario">6. Diccionario de datos</a>
+                        <a href="#calidad">7. Calidad inicial de los datos</a>
+                        <a href="#limitaciones">8. Limitaciones y consideraciones</a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Encabezado de la etapa -->
+    <main class="content">
+
+        <section class="page-header">
+
+            <span class="section-label">ETAPA 1</span>
+
+            <h1>
+                Problema, contexto y
+                <span>necesidades de información</span>
+            </h1>
+
+            <p>
+                Análisis del crecimiento urbano y la transformación del uso
+                del suelo en las escalas global, nacional y regional.
+            </p>
+
+        </section>
+
+
+        <!-- 1. Problema y contexto -->
+        <section class="content-section" id="problema">
+
+            <div class="section-number">01</div>
+
+            <div class="section-content">
+
+                <h2>Problema y contexto</h2>
+
+                <h3>1.1 Contexto general del tema</h3>
+
+                <p>
+                    El crecimiento urbano y la transformación del uso del suelo
+                    son procesos estrechamente vinculados: a medida que las
+                    ciudades crecen en población, la mancha urbana se expande
+                    físicamente sobre suelos que antes tenían uso rural,
+                    agrícola, forestal o de protección ambiental.
+                </p>
+
+                <p>
+                    Según las proyecciones de Naciones Unidas, más de la mitad
+                    de la población mundial vive hoy en áreas urbanas y se
+                    espera que esta proporción continúe creciendo en las
+                    próximas décadas, concentrándose especialmente en ciudades
+                    intermedias de países de ingreso medio y bajo.
+                </p>
+
+                <p>
+                    Este proceso no es solo demográfico: implica la conversión
+                    física del suelo, de cobertura natural o agrícola a
+                    cobertura construida, cambios en los patrones de movilidad,
+                    presión sobre la infraestructura de servicios públicos,
+                    fragmentación de ecosistemas y, en muchos casos, expansión
+                    informal fuera de los límites de planificación oficial.
+                </p>
+
+                <p>
+                    Naciones Unidas incluye este fenómeno dentro del Objetivo
+                    de Desarrollo Sostenible 11 (Ciudades y Comunidades
+                    Sostenibles), que busca lograr un uso del suelo urbano más
+                    eficiente e inclusivo.
+                </p>
+
+                <p>
+                    Colombia es uno de los países más urbanizados de América
+                    Latina, con cerca del 77-80 % de su población viviendo en
+                    cabeceras municipales. Este proceso se ha intensificado
+                    particularmente en las áreas metropolitanas y en las
+                    periferias de las grandes ciudades, donde la expansión
+                    urbana compite con suelos agrícolas de alta productividad
+                    y con áreas de importancia ambiental.
+                </p>
+
+
+                <h3>1.2 Delimitación del problema específico de investigación</h3>
+
+                <p>
+                    El problema específico que abordará el grupo es la
+                    conversión de suelo rural y de uso agrícola/ambiental hacia
+                    suelo urbano y suburbano en los municipios de la Sabana de
+                    Bogotá (Cundinamarca) durante las últimas dos décadas, y su
+                    relación con los patrones de urbanización observados a
+                    escala nacional y global.
+                </p>
+
+                <p>
+                    Interesa comprender qué tan rápido avanza esta
+                    transformación, qué factores la explican, como el
+                    crecimiento poblacional, la migración desde Bogotá, el
+                    precio del suelo y la infraestructura vial, y qué tan
+                    comparable es este proceso con las dinámicas de otras
+                    regiones del país y del mundo.
+                </p>
+
+
+                <h3>1.3 Análisis del fenómeno por niveles</h3>
+
+                <div class="info-card">
+
+                    <h4>Nivel global</h4>
+
+                    <p>
+                        A escala global, el fenómeno se expresa en el
+                        crecimiento sostenido de la población urbana, la
+                        expansión de las áreas construidas medida mediante
+                        sensores remotos, por ejemplo Global Human Settlement
+                        Layer, y el debate sobre la eficiencia del uso del suelo
+                        urbano: densidad frente a expansión dispersa o
+                        <em>urban sprawl</em>.
+                    </p>
+
+                    <p>
+                        Interesan las tendencias de urbanización por regiones
+                        del mundo y su relación con la pérdida de tierras
+                        agrícolas y cobertura natural.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h4>Nivel nacional: Colombia</h4>
+
+                    <p>
+                        A escala nacional, el interés está en la evolución de
+                        la población urbana y rural por departamento y
+                        municipio, la expansión de las cabeceras municipales,
+                        los procesos de conurbación, por ejemplo Bogotá y su
+                        área de influencia, el Valle de Aburrá y el Área
+                        Metropolitana de Barranquilla.
+                    </p>
+
+                    <p>
+                        También se analizará el marco normativo de los Planes
+                        de Ordenamiento Territorial (POT), que regulan
+                        formalmente el uso del suelo.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <h4>Nivel regional: Sabana de Bogotá / Cundinamarca</h4>
+
+                    <p>
+                        A escala regional se analizarán los municipios de la
+                        Sabana de Bogotá, entre ellos Chía, Cajicá, Cota,
+                        Zipaquirá, Funza, Mosquera, Madrid y Facatativá.
+                    </p>
+
+                    <p>
+                        Esta es una de las zonas del país con mayor presión de
+                        expansión urbana debido a su cercanía con Bogotá, la
+                        migración de población y empresas hacia estos
+                        municipios, y la coexistencia de suelo urbano en
+                        expansión con suelos de alta vocación agrícola y áreas
+                        de protección ambiental, como humedales y zonas de
+                        recarga hídrica.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. Preguntas -->
+        <section class="content-section" id="preguntas">
+
+            <div class="section-number">02</div>
+
+            <div class="section-content">
+
+                <h2>Pregunta principal y preguntas secundarias</h2>
+
+                <div class="question-main">
+
+                    <span class="question-label">
+                        PREGUNTA PRINCIPAL
+                    </span>
+
+                    <p>
+                        ¿Cómo ha evolucionado el crecimiento urbano y la
+                        transformación del uso del suelo en Colombia entre los
+                        años 2000 y 2024, y qué relación guarda esta dinámica
+                        con los patrones observados a escala global y con el
+                        caso específico de los municipios de la Sabana de
+                        Bogotá?
+                    </p>
+
+                </div>
+
+
+                <h3>Preguntas secundarias</h3>
+
+                <div class="questions-list">
+
+                    <div class="question-item">
+                        <span>01</span>
+
+                        <p>
+                            ¿Cuál ha sido la tasa anual de expansión del área
+                            urbana construida en los municipios de la Sabana de
+                            Bogotá entre 2000 y 2024, y cómo se compara con la
+                            tasa de crecimiento de la población urbana en la
+                            misma región?
+                        </p>
+                    </div>
+
+
+                    <div class="question-item">
+                        <span>02</span>
+
+                        <p>
+                            ¿Qué relación existe entre el crecimiento de la
+                            población urbana y la pérdida de suelo agrícola y
+                            de cobertura natural a nivel nacional en Colombia
+                            durante el periodo de estudio?
+                        </p>
+                    </div>
+
+
+                    <div class="question-item">
+                        <span>03</span>
+
+                        <p>
+                            ¿Cómo se compara la velocidad y el patrón de
+                            urbanización de Colombia, y en particular de la
+                            región Sabana de Bogotá, con las tendencias
+                            globales y de América Latina reportadas por
+                            Naciones Unidas y el Banco Mundial?
+                        </p>
+                    </div>
+
+
+                    <div class="question-item">
+                        <span>04</span>
+
+                        <p>
+                            ¿Qué variables socioeconómicas, como densidad
+                            poblacional, distancia a Bogotá, valor del suelo y
+                            cobertura vial, están más asociadas con la
+                            intensidad de la expansión urbana en los municipios
+                            analizados?
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. Necesidades de información -->
+        <section class="content-section placeholder-section" id="necesidades">
+
+            <div class="section-number">03</div>
+
+            <div class="section-content">
+
+                <h2>Necesidades de información</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se incorporará la información
+                        necesaria para desarrollar el análisis del proyecto.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 4. Fuentes de datos -->
+        <section class="content-section placeholder-section" id="fuentes">
+
+            <div class="section-number">04</div>
+
+            <div class="section-content">
+
+                <h2>Fuentes de datos</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se incorporarán las fuentes de datos
+                        utilizadas en la investigación.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 5. Dataset -->
+        <section class="content-section placeholder-section" id="dataset">
+
+            <div class="section-number">05</div>
+
+            <div class="section-content">
+
+                <h2>Dataset</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se presentará el dataset seleccionado
+                        para el análisis.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 6. Diccionario de datos -->
+        <section class="content-section placeholder-section" id="diccionario">
+
+            <div class="section-number">06</div>
+
+            <div class="section-content">
+
+                <h2>Diccionario de datos</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se incorporará el diccionario de datos
+                        del proyecto.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 7. Calidad inicial -->
+        <section class="content-section placeholder-section" id="calidad">
+
+            <div class="section-number">07</div>
+
+            <div class="section-content">
+
+                <h2>Calidad inicial de los datos</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se documentará la evaluación inicial
+                        de la calidad de los datos.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- 8. Limitaciones -->
+        <section class="content-section placeholder-section" id="limitaciones">
+
+            <div class="section-number">08</div>
+
+            <div class="section-content">
+
+                <h2>Limitaciones y consideraciones</h2>
+
+                <div class="placeholder">
+                    <span>PRÓXIMAMENTE</span>
+                    <p>
+                        En esta sección se describirán las limitaciones,
+                        consideraciones y aspectos metodológicos del proyecto.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Crecimiento Urbano y Transformación del Uso del Suelo
+        </p>
+
+        <p>
+            Etapa 1 · Proyecto de investigación
+        </p>
+
+        <p>
+            Minería de Datos · Universidad de Cundinamarca · 2026
+        </p>
+
+    </footer>
+
+</body>
+</html>
