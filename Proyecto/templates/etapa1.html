@@ -20,20 +20,20 @@
 
     <div class="nav-container">
 
-        <a href="index.html" class="logo">
+        <a href="{{ url_for('home') }}" class="logo">
             PROYECTO
         </a>
 
         <nav>
 
-            <a href="index.html">
+            <a href="{{ url_for('home') }}">
                 Inicio
             </a>
 
 
             <div class="dropdown">
 
-                <a href="etapa1.html" class="active">
+                <a href="{{ url_for('etapa1') }}" class="active">
                     Etapa 1 ▾
                 </a>
 
