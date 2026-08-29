@@ -1,6 +1,4 @@
-/* =========================================================
-   CONFIGURACIÓN GENERAL
-   ========================================================= */
+/*conf general*/
 
 * {
     margin: 0;
@@ -20,9 +18,7 @@ body {
 }
 
 
-/* =========================================================
-   BARRA DE NAVEGACIÓN
-   ========================================================= */
+/*barra de navegacion*/
 
 .navbar {
     width: 100%;
@@ -77,9 +73,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   MENÚ DESPLEGABLE
-   ========================================================= */
+/*submenu*/
 
 .dropdown {
     position: relative;
@@ -139,9 +133,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   PÁGINA DE INICIO
-   ========================================================= */
+/*pagina de inicio*/
 
 .home {
     min-height: calc(100vh - 72px);
@@ -212,9 +204,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   INTEGRANTES
-   ========================================================= */
+/*integrantes*/
 
 .team {
     margin-bottom: 40px;
@@ -271,9 +261,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   BOTÓN PRINCIPAL
-   ========================================================= */
+/*boton principal*/
 
 .main-button {
     display: inline-block;
@@ -304,9 +292,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   CONTENIDO DE ETAPA 1
-   ========================================================= */
+/*contenido etapa 1*/
 
 .content {
     max-width: 1100px;
@@ -343,9 +329,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   SECCIONES
-   ========================================================= */
+/*ssecciones*/
 
 .content-section {
     display: grid;
@@ -400,9 +384,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   TARJETAS DE INFORMACIÓN
-   ========================================================= */
+/*tarjetas de informacion*/
 
 .info-card {
     background: #ffffff;
@@ -433,9 +415,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   PREGUNTA PRINCIPAL
-   ========================================================= */
+/*pregunta principal*/
 
 .question-main {
     background: #26362e;
@@ -476,9 +456,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   PREGUNTAS SECUNDARIAS
-   ========================================================= */
+/*preguntas secundarias*/
 
 .questions-list {
     display: flex;
@@ -529,9 +507,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   SECCIONES PENDIENTES
-   ========================================================= */
+/*secciones pendientes*/
 
 .placeholder-section {
     min-height: 300px;
@@ -572,9 +548,7 @@ nav .active {
 }
 
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/*footer*/
 
 footer {
     background: #18231f;
@@ -592,10 +566,199 @@ footer p {
     margin: 3px 0;
 }
 
+/*tablas*/
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
+.table-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin: 25px 0 35px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe2de;
+
+    border-radius: 5px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.035);
+}
+
+
+.data-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    font-size: 14px;
+}
+
+
+/*encabezado de tabla*/
+
+.data-table thead {
+    background: #26362e;
+
+    color: #ffffff;
+}
+
+
+.data-table th {
+    padding: 13px 14px;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    line-height: 1.4;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+
+    vertical-align: middle;
+}
+
+
+.data-table th:last-child {
+    border-right: none;
+}
+
+
+/*celdas*/
+
+.data-table td {
+    padding: 13px 14px;
+
+    color: #3f4842;
+
+    line-height: 1.55;
+
+    vertical-align: middle;
+
+    border-bottom: 1px solid #dfe2de;
+
+    border-right: 1px solid #dfe2de;
+}
+
+
+.data-table td:last-child {
+    border-right: none;
+}
+
+
+.data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* filas alternadas*/
+
+.data-table tbody tr:nth-child(even) {
+    background: #f3f4f2;
+}
+
+
+.data-table tbody tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+
+/*efecto hover*/
+
+.data-table tbody tr {
+    transition: 0.2s ease;
+}
+
+
+.data-table tbody tr:hover {
+    background: #eef1ed;
+}
+
+
+/*primera columna*/
+
+.data-table tbody td:first-child {
+    color: #26362e;
+
+    font-weight: 500;
+}
+
+
+/*texto destacado*/
+
+.data-table strong {
+    color: #26362e;
+
+    font-weight: 700;
+}
+
+
+/*estado de verificacion*/
+
+.data-table .status {
+    color: #536b5d;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/*diccionario de datos*/
+
+.dictionary-table th:first-child {
+    width: 25%;
+}
+
+
+.dictionary-table th:nth-child(2) {
+    width: 16%;
+}
+
+
+.dictionary-table th:nth-child(3) {
+    width: 20%;
+}
+
+
+.dictionary-table th:nth-child(4) {
+    width: 39%;
+}
+
+
+.dictionary-table td {
+    vertical-align: top;
+}
+
+
+/*tablas responsive*/
+
+@media (max-width: 768px) {
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+
+    .data-table {
+        min-width: 700px;
+
+        font-size: 13px;
+    }
+
+
+    .data-table th,
+    .data-table td {
+        padding: 11px 12px;
+    }
+
+}
+
+
+/*responsive*/
 
 @media (max-width: 768px) {
 
