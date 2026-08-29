@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Etapa 1 | Crecimiento Urbano</title>
+
+<link rel="stylesheet" href="../static/styles/style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            PROYECTO
+        </a>
+
+        <nav>
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+
+            <div class="dropdown">
+
+                <a href="etapa1.html" class="active">
+                    Etapa 1 ▾
+                </a>
+
+                <div class="dropdown-content">
+
+                    <a href="#problema">
+                        1. Problema y contexto
+                    </a>
+
+                    <a href="#preguntas">
+                        2. Pregunta principal y preguntas secundarias
+                    </a>
+
+                    <a href="#necesidades">
+                        3. Necesidades de información
+                    </a>
+
+                    <a href="#fuentes">
+                        4. Fuentes de datos
+                    </a>
+
+                    <a href="#dataset">
+                        5. Dataset
+                    </a>
+
+                    <a href="#diccionario">
+                        6. Diccionario de datos
+                    </a>
+
+                    <a href="#calidad">
+                        7. Calidad inicial de los datos
+                    </a>
+
+                    <a href="#limitaciones">
+                        8. Limitaciones y consideraciones
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+
+<main class="content">
+
+
+    <section class="page-header">
+
+        <span class="section-label">
+            ETAPA 1
+        </span>
+
+        <h1>
+            Problema, contexto y
+            <span>
+                necesidades de información
+            </span>
+        </h1>
+
+        <p>
+            Análisis del crecimiento urbano y la transformación del uso
+            del suelo en las escalas global, nacional y regional.
+        </p>
+
+    </section>
+
+    <section class="content-section" id="problema">
+
+        <div class="section-number">
+            01
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Problema y contexto
+            </h2>
+
+
+            <h3>
+                1.1 Contexto general
+            </h3>
+
+            <p>
+                La urbanización es uno de los procesos de transformación
+                territorial más importantes del planeta. Según el Atlas of
+                Urban Expansion (NYU, UN-Habitat y Lincoln Institute of Land
+                Policy), entre 1990 y 2015 el área ocupada por ciudades en
+                países en desarrollo se multiplicó por 3,5, mientras que la
+                densidad de población urbana ha venido cayendo de forma
+                sostenida (aproximadamente 2,1% anual), lo que evidencia un
+                patrón de crecimiento cada vez más disperso ("sprawl") en
+                muchas regiones del mundo.
+            </p>
+
+            <p>
+                En Colombia, el proyecto MapBiomas Colombia (Colección 3.0,
+                Fundación Gaia Amazonas, octubre de 2025) documenta que
+                entre 1985 y 2024 el país perdió 5,68 millones de hectáreas
+                de bosque, en un proceso donde la expansión de áreas
+                agropecuarias y de infraestructura urbana ha sido uno de
+                los principales motores de cambio de cobertura del suelo a
+                nivel nacional.
+            </p>
+
+            <p>
+                A escala regional, la subregión de Sabana Centro
+                (Cundinamarca) —integrada por los municipios de Cajicá, Chía,
+                Cogua, Cota, Gachancipá, Nemocón, Sopó, Tabio, Tenjo,
+                Tocancipá y Zipaquirá— es uno de los territorios de mayor
+                presión de transformación del suelo en el país, por su
+                cercanía a Bogotá, la llegada de proyectos de vivienda,
+                bodegas logísticas e industria, y la progresiva sustitución
+                de suelo rural, agropecuario y de importancia ambiental
+                (páramos, humedales, rondas hídricas) por infraestructura
+                urbana.
+            </p>
+
+
+            <h3>
+                1.2 Problema específico de investigación
+            </h3>
+
+            <p>
+                Existe evidencia dispersa sobre el crecimiento urbano y la
+                transformación del uso del suelo en Sabana Centro, pero
+                pocas veces se analiza de manera integrada y cuantitativa
+                en el tiempo, ni se contrasta contra la dinámica nacional
+                colombiana ni contra patrones internacionales de expansión
+                urbana. El problema que delimita este trabajo es:
+            </p>
+
+            <div class="question-main">
+
+                <span class="question-label">
+                    PROBLEMA DE INVESTIGACIÓN
+                </span>
+
+                <p>
+                    ¿Cómo ha evolucionado, entre 1985 y 2024, la conversión
+                    de cobertura natural y agropecuaria hacia infraestructura
+                    urbana en los municipios de la subregión Sabana Centro,
+                    y qué tan comparable es este proceso con la dinámica
+                    nacional de cambio de cobertura del suelo en Colombia y
+                    con los patrones de expansión física observados en una
+                    muestra representativa de ciudades del mundo?
+                </p>
+
+            </div>
+
+
+            <h3>
+                1.3 Análisis del fenómeno en tres niveles
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Nivel
+                            </th>
+
+                            <th>
+                                Enfoque y fuente de evidencia
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Global</strong>
+                            </td>
+
+                            <td>
+                                Patrones de forma y densidad del crecimiento
+                                urbano (densidad, compacidad, fragmentación,
+                                tipo de expansión: infill, extensión o
+                                leapfrog) en 200 ciudades de 78 países,
+                                medidos por el Atlas of Urban Expansion entre
+                                aproximadamente 1990 y 2015. Sirve como
+                                marco de referencia internacional para
+                                interpretar si el crecimiento de Sabana
+                                Centro es comparativamente compacto o
+                                disperso, y qué tan rápido es frente a otras
+                                ciudades intermedias del mundo.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Nacional: Colombia</strong>
+                            </td>
+
+                            <td>
+                                Dinámica agregada del cambio de cobertura y
+                                uso del suelo en todo el territorio
+                                colombiano entre 1985 y 2024 (MapBiomas
+                                Colombia, Colección 3.0), en particular la
+                                transición desde bosque y áreas
+                                agropecuarias hacia infraestructura urbana y
+                                otras coberturas antrópicas. Permite
+                                dimensionar qué tan representativo (o
+                                atípico) es el caso de Sabana Centro frente
+                                al promedio nacional.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Regional: Sabana Centro</strong>
+                            </td>
+
+                            <td>
+                                Transformación de cobertura del suelo
+                                municipio por municipio (los 11 municipios
+                                de la subregión), año a año y por periodos
+                                agregados (quinquenales, decenales), a partir
+                                del mismo dataset de MapBiomas Colombia
+                                recortado geográficamente. Es el nivel de
+                                mayor granularidad y el foco principal del
+                                problema de investigación.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="preguntas">
+
+        <div class="section-number">
+            02
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Pregunta principal y preguntas secundarias
+            </h2>
+
+
+            <h3>
+                2.1 Pregunta principal de investigación
+            </h3>
+
+            <div class="question-main">
+
+                <span class="question-label">
+                    PREGUNTA PRINCIPAL
+                </span>
+
+                <p>
+                    ¿En qué medida y a qué ritmo se ha transformado el uso
+                    del suelo hacia infraestructura urbana en los
+                    municipios de Sabana Centro entre 1985 y 2024, y cómo
+                    se compara este proceso con la dinámica nacional
+                    colombiana de cambio de cobertura del suelo y con los
+                    patrones de crecimiento físico de ciudades del mundo?
+                </p>
+
+            </div>
+
+
+            <h3>
+                2.2 Preguntas secundarias
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+
+                    <span>01</span>
+
+                    <p>
+                        ¿Qué clases de cobertura del suelo (bosque,
+                        formación natural no boscosa, área agropecuaria)
+                        han cedido más superficie hacia infraestructura
+                        urbana en cada municipio de Sabana Centro, y en qué
+                        periodos (1985-2000, 2000-2010, 2010-2024) se
+                        aceleró ese proceso?
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>02</span>
+
+                    <p>
+                        ¿Cómo se compara la magnitud y la velocidad de la
+                        conversión de suelo hacia infraestructura urbana en
+                        Sabana Centro con la tendencia agregada de Colombia
+                        como país en el mismo periodo?
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>03</span>
+
+                    <p>
+                        ¿El patrón de crecimiento urbano de Bogotá —medido
+                        en el Atlas of Urban Expansion mediante sus índices
+                        de compacidad, fragmentación y tipo de área añadida
+                        (infill, extensión, leapfrog)— es representativo del
+                        tipo de expansión que cabría esperar en los
+                        municipios vecinos de Sabana Centro?
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>04</span>
+
+                    <p>
+                        ¿Existen diferencias relevantes entre los 11
+                        municipios de Sabana Centro en la velocidad y el
+                        origen (bosque vs. área agropecuaria) de la
+                        transformación del suelo hacia usos urbanos?
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>05</span>
+
+                    <p>
+                        ¿Cómo ha cambiado, a nivel nacional, la proporción
+                        de cobertura natural (bosque + formación natural no
+                        boscosa) frente a área antrópica entre 1985 y 2024,
+                        y qué papel relativo tiene la infraestructura urbana
+                        frente a la expansión agropecuaria dentro de ese
+                        cambio?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <h3>
+                2.3 Conocimiento esperado a partir de los datos
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+
+                    <span>01</span>
+
+                    <p>
+                        Cuantificar, en hectáreas y por periodo, el ritmo de
+                        conversión de suelo natural y agropecuario hacia
+                        infraestructura urbana en cada municipio de Sabana
+                        Centro.
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>02</span>
+
+                    <p>
+                        Identificar los municipios con mayor y menor
+                        velocidad de transformación, y el tipo de cobertura
+                        de origen predominante en cada uno (deforestación
+                        directa vs. reconversión de suelo agropecuario).
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>03</span>
+
+                    <p>
+                        Establecer si la magnitud de cambio en Sabana Centro
+                        es proporcionalmente mayor, menor o similar al
+                        promedio nacional colombiano, usando periodos
+                        comparables (1985-2000, 2000-2010, 2010-2024).
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>04</span>
+
+                    <p>
+                        Contrastar el tipo de crecimiento urbano esperado
+                        (compacto vs. disperso) usando como referencia los
+                        índices de forma urbana de ciudades del Atlas Global
+                        con características socioeconómicas similares a
+                        Bogotá y su periferia.
+                    </p>
+
+                </div>
+
+
+                <div class="question-item">
+
+                    <span>05</span>
+
+                    <p>
+                        Generar una línea base cuantitativa y documentada
+                        que sirva de insumo para etapas posteriores de
+                        limpieza, modelado y visualización del proyecto.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="necesidades">
+
+        <div class="section-number">
+            03
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Necesidades de información
+            </h2>
+
+
+            <h3>
+                3.1 Entidades involucradas
+            </h3>
+
+            <p>
+                <strong>Territorios:</strong> ciudades del mundo (nivel
+                Global), Colombia como país (nivel Nacional), departamento
+                de Cundinamarca y sus 11 municipios de Sabana Centro (nivel
+                Regional).
+            </p>
+
+            <p>
+                <strong>Clases de cobertura y uso del suelo:</strong>
+                bosque, formación natural no boscosa, área agropecuaria,
+                área sin vegetación (incluye infraestructura urbana y
+                minería), cuerpo de agua y clases no observadas, en tres
+                niveles de detalle jerárquico (nivel 0, 1 y 2 de la leyenda
+                MapBiomas).
+            </p>
+
+            <p>
+                <strong>Periodos de tiempo:</strong> años individuales,
+                quinquenios, decenios y el periodo completo 1985-2024
+                (nacional/regional); años T1, T2 y T3 específicos de cada
+                ciudad (global, aproximadamente 1990-2015).
+            </p>
+
+            <p>
+                <strong>Instituciones productoras de los datos:</strong>
+                NYU Urban Expansion Program / UN-Habitat / Lincoln Institute
+                of Land Policy (nivel Global); Fundación Gaia Amazonas y la
+                red MapBiomas Colombia (niveles Nacional y Regional).
+            </p>
+
+
+            <h3>
+                3.2 Variables relevantes y su justificación
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Variable
+                            </th>
+
+                            <th>
+                                Nivel
+                            </th>
+
+                            <th>
+                                Tipo
+                            </th>
+
+                            <th>
+                                Justificación
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>area_ha (hectáreas transicionadas)</strong></td>
+                            <td>Nacional / Regional</td>
+                            <td>Numérica</td>
+                            <td>
+                                Es la variable central para medir cuánta
+                                superficie cambió de una clase de cobertura
+                                a otra; permite cuantificar directamente la
+                                magnitud de la transformación del suelo.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>class_level_1 / class_level_2 (from/to)</strong></td>
+                            <td>Nacional / Regional</td>
+                            <td>Categórica</td>
+                            <td>
+                                Identifica qué tipo de cobertura se pierde
+                                y en qué se convierte (p. ej. bosque →
+                                infraestructura urbana), necesario para
+                                distinguir crecimiento urbano de otras
+                                transformaciones.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>anio_inicio / anio_fin / periodo</strong></td>
+                            <td>Nacional / Regional</td>
+                            <td>Temporal</td>
+                            <td>
+                                Permite ubicar cada transición en el tiempo
+                                y construir series temporales comparables
+                                entre municipios y con el nivel nacional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>municipio / departamento / pais</strong></td>
+                            <td>Regional / Nacional</td>
+                            <td>Geográfica / Categórica</td>
+                            <td>
+                                Define la unidad territorial de cada
+                                registro y permite agregar o desagregar
+                                resultados por municipio, departamento o
+                                país.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Built-up Area Total / Urban Extent (ha)</strong></td>
+                            <td>Global</td>
+                            <td>Numérica</td>
+                            <td>
+                                Mide el área físicamente construida y el
+                                área urbana total de cada ciudad en tres
+                                momentos, equivalente conceptual al área
+                                urbanizada que se busca rastrear en Sabana
+                                Centro.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Urban Extent Population</strong></td>
+                            <td>Global</td>
+                            <td>Numérica</td>
+                            <td>
+                                Permite calcular densidad urbana y
+                                relacionar crecimiento físico con
+                                crecimiento demográfico, algo que el
+                                dataset regional aún no tiene y que se
+                                identifica como necesidad pendiente.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Built-up/Urban Extent Density (personas/ha)</strong></td>
+                            <td>Global</td>
+                            <td>Numérica</td>
+                            <td>
+                                Índice clave para comparar si el crecimiento
+                                observado en ciudades similares a Bogotá
+                                tiende a ser compacto (alta densidad) o
+                                disperso (baja densidad).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fragmentation / Compactness indices</strong></td>
+                            <td>Global</td>
+                            <td>Numérica</td>
+                            <td>
+                                Permiten caracterizar la forma del
+                                crecimiento urbano (saturación, apertura,
+                                proximidad, cohesión), insumo para
+                                contrastar el tipo de expansión esperable
+                                en la periferia de Bogotá.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Added Area: Infill / Extension / Leapfrog</strong></td>
+                            <td>Global</td>
+                            <td>Numérica / Categórica</td>
+                            <td>
+                                Clasifica el tipo de crecimiento urbano
+                                (relleno interno, extensión contigua o
+                                salto discontinuo), variable clave para
+                                responder si el crecimiento es ordenado o
+                                disperso.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>City Name / Country / Region</strong></td>
+                            <td>Global</td>
+                            <td>Categórica / Geográfica</td>
+                            <td>
+                                Permite filtrar ciudades comparables a
+                                Bogotá (tamaño, región, velocidad de
+                                crecimiento) para construir el grupo de
+                                referencia internacional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>tipo_periodo (anual, quinquenal, decenal, total)</strong></td>
+                            <td>Nacional / Regional</td>
+                            <td>Categórica</td>
+                            <td>
+                                Evita mezclar periodos de distinta duración
+                                en un mismo cálculo agregado y permite
+                                elegir el nivel de agregación temporal
+                                adecuado para cada pregunta de
+                                investigación.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h3>
+                3.3 Periodo de análisis
+            </h3>
+
+            <p>
+                1985-2024 para los niveles Nacional y Regional (39 años,
+                con cortes anuales, quinquenales y decenales). Para el nivel
+                Global, cada ciudad tiene tres fechas propias de observación
+                satelital (T1 ≈ 1984-1994, T2 intermedio, T3 ≈ 2009-2016),
+                por lo que el periodo comparable entre ciudades es
+                aproximadamente 1990-2015.
+            </p>
+
+
+            <h3>
+                3.4 Cobertura geográfica
+            </h3>
+
+            <p>
+                <strong>Mundial:</strong> 200 ciudades en 78 países (nivel
+                Global). <strong>Nacional:</strong> la totalidad del
+                territorio continental colombiano (nivel Nacional).
+                <strong>Regional:</strong> los 11 municipios de la
+                subregión Sabana Centro, departamento de Cundinamarca
+                (nivel Regional).
+            </p>
+
+
+            <h3>
+                3.5 Población o unidad de análisis
+            </h3>
+
+            <p>
+                <strong>Nivel Global:</strong> cada ciudad de la muestra,
+                en cada uno de sus tres momentos de observación (unidad
+                ciudad-año).
+            </p>
+
+            <p>
+                <strong>Nivel Nacional y Regional:</strong> cada transición
+                de cobertura del suelo (par de clases origen-destino)
+                observada en un territorio durante un periodo específico
+                (unidad transición-periodo-territorio).
+            </p>
+
+
+            <h3>
+                3.6 Nivel de granularidad requerido
+            </h3>
+
+            <p>
+                Se priorizó el mayor nivel de detalle disponible en las
+                fuentes: a nivel regional, municipio por municipio y año
+                por año (formato largo, una fila por combinación de clases
+                y periodo, en vez de la tabla agregada original de 58
+                columnas de periodo). A nivel nacional, país agregado pero
+                también desagregado por periodo. A nivel global, ciudad por
+                ciudad. Se evitó trabajar únicamente con totales agregados
+                de todo el periodo 1985-2024, de forma que el dataset permite
+                análisis interanual.
+            </p>
+
+
+            <h3>
+                3.7 Variables que permiten comparar las escalas global,
+                nacional y regional
+            </h3>
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        <strong>Variable temporal común:</strong> año/periodo
+                        permite alinear en el tiempo la evolución de Sabana
+                        Centro, Colombia y las ciudades del Atlas Global,
+                        aunque las ventanas de observación no sean
+                        idénticas.
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        <strong>Clase de cobertura "Infraestructura
+                        urbana":</strong> variable puente entre Nacional y
+                        Regional, al ser exactamente la misma definición y
+                        metodología en ambos niveles.
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        <strong>Área en hectáreas:</strong> area_ha en
+                        Nacional/Regional; Built-up Area / Urban Extent en
+                        Global. Representan el mismo concepto físico de
+                        superficie urbanizada, aunque calculado mediante
+                        metodologías distintas.
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>04</span>
+                    <p>
+                        <strong>Densidad y forma urbana:</strong> las
+                        variables Globales pueden contrastarse
+                        conceptualmente con la proporción de territorio
+                        transicionado en los niveles Nacional y Regional,
+                        aunque no existe comparación numérica directa sin
+                        procesamiento adicional.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="fuentes">
+
+        <div class="section-number">
+            04
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Fuentes de datos
+            </h2>
+
+
+            <p>
+                El ecosistema de datos actual del proyecto se construyó a
+                partir de dos fuentes ya incorporadas y verificadas
+                (secundaria y terciaria, respectivamente), que en conjunto
+                cubren los tres niveles de análisis. La rúbrica exige un
+                mínimo de dos fuentes por nivel; por transparencia, la
+                tabla de la sección 4.3 documenta también las fuentes
+                complementarias identificadas como necesarias para cumplir
+                ese mínimo de forma rigurosa, y que el grupo debe gestionar
+                en la siguiente iteración del proyecto.
+            </p>
+
+
+            <h3>
+                4.1 Fuente 1 — Atlas of Urban Expansion (nivel Global)
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Nombre de la fuente</strong></td>
+                            <td>
+                                Atlas of Urban Expansion — 2016 Edition,
+                                Volumen I: Areas and Densities
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Institución responsable</strong></td>
+                            <td>
+                                NYU Urban Expansion Program (Marron
+                                Institute of Urban Management, New York
+                                University), en alianza con UN-Habitat y el
+                                Lincoln Institute of Land Policy
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>URL</strong></td>
+                            <td>
+                                <a href="http://atlasofurbanexpansion.org/data" target="_blank">Atlas of Urban Expansion</a> - http://atlasofurbanexpansion.org/data
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Tipo de fuente</strong></td>
+                            <td>
+                                Secundaria (datos ya procesados por los
+                                investigadores del Atlas a partir de
+                                imágenes satelitales y censos, no
+                                recolectados directamente por el grupo)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Cobertura geográfica</strong></td>
+                            <td>
+                                Muestra estratificada mundial de 200
+                                ciudades en 78 países, representativa del
+                                universo de 4.231 ciudades y áreas
+                                metropolitanas con más de 100.000
+                                habitantes en 2010
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Periodo disponible</strong></td>
+                            <td>
+                                Tres momentos por ciudad (T1, T2, T3),
+                                aproximadamente entre 1990 y 2015. En el
+                                archivo suministrado, T1 varía entre 1984 y
+                                1994 y T3 entre 2009 y 2016 según la ciudad.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Formato</strong></td>
+                            <td>
+                                CSV (Areas_and_Densities_Table_1.csv)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Método de adquisición</strong></td>
+                            <td>
+                                Descarga directa y gratuita desde el sitio
+                                del Atlas of Urban Expansion; archivo
+                                suministrado por el equipo del proyecto
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Número aproximado de registros</strong></td>
+                            <td>
+                                200 ciudades con datos completos. El
+                                archivo trae 706 filas, pero solo 200
+                                contienen información; el resto son filas
+                                vacías de plantilla.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Variables disponibles</strong></td>
+                            <td>
+                                Nombre y ubicación de la ciudad; fechas de
+                                observación; población del extent urbano;
+                                área construida total y por tipo
+                                (urbana/suburbana/rural); espacio abierto
+                                urbanizado; extent urbano; densidades;
+                                índices de fragmentación y compacidad; tipo
+                                de área añadida (infill, extensión,
+                                leapfrog, inclusión). 79 columnas en total.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fecha de consulta/descarga</strong></td>
+                            <td>
+                                Archivo suministrado por el equipo del
+                                proyecto; analizado el 29 de agosto de 2026
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Restricciones o condiciones de uso</strong></td>
+                            <td>
+                                Datos e imágenes de libre descarga para
+                                fines académicos, de investigación y de
+                                política pública; se recomienda citar la
+                                fuente original (Angel et al., 2016).
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>
+                4.2 Fuente 2 — MapBiomas Colombia, Colección 3.0
+                (niveles Nacional y Regional)
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Campo</th>
+                            <th>Descripción</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Nombre de la fuente</strong></td>
+                            <td>
+                                Base de datos de transiciones de cobertura y
+                                uso del suelo — MapBiomas Colombia,
+                                Colección 3.0
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Institución responsable</strong></td>
+                            <td>
+                                Fundación Gaia Amazonas, en el marco de la
+                                red colaborativa MapBiomas Colombia (con
+                                Universidad Nacional, Universidad del
+                                Rosario, Universidad Javeriana, CIAT y
+                                Fundación AVINA) y la Red Amazónica de
+                                Información Socioambiental
+                                Georreferenciada (RAISG)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>URL</strong></td>
+                            <td>
+                                <a href="https://colombia.mapbiomas.org/estadisticas/" target="_blank">MapBiomas Colombia</a> - https://colombia.mapbiomas.org/estadisticas/
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Tipo de fuente</strong></td>
+                            <td>
+                                Terciaria (agrega, procesa y redistribuye
+                                datos derivados de imágenes satelitales
+                                Landsat mediante clasificación automática
+                                con Google Earth Engine; integra insumos de
+                                múltiples instituciones y colecciones
+                                previas)
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Cobertura geográfica</strong></td>
+                            <td>
+                                Totalidad del territorio continental de
+                                Colombia, con desagregación por país,
+                                departamento y municipio. 696 registros
+                                originales corresponden a los 11 municipios
+                                de Sabana Centro, Cundinamarca, usados en el
+                                nivel Regional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Periodo disponible</strong></td>
+                            <td>
+                                1985-2024 (40 mapas anuales; 58
+                                combinaciones de periodo entre años
+                                consecutivos, quinquenios, decenios y el
+                                rango completo).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Formato</strong></td>
+                            <td>
+                                XLSX
+                                (statistics_for_website_mb_colombia_transision_col3.xlsx),
+                                con hojas separadas por nivel territorial
+                                (país, departamento, municipio, entre
+                                otras).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Método de adquisición</strong></td>
+                            <td>
+                                Descarga directa y gratuita desde la
+                                plataforma colombia.mapbiomas.org; archivo
+                                suministrado por el equipo del proyecto.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Número aproximado de registros</strong></td>
+                            <td>
+                                428 transiciones a nivel país; 64.726
+                                transiciones a nivel municipio para todo
+                                Colombia (696 corresponden a los 11
+                                municipios de Sabana Centro). En este
+                                proyecto se reestructuraron a formato largo,
+                                generando 24.396 registros a nivel Nacional
+                                y 39.672 a nivel Regional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Variables disponibles</strong></td>
+                            <td>
+                                Territorio
+                                (país/departamento/municipio); clase de
+                                cobertura de origen y destino en tres
+                                niveles jerárquicos; código de leyenda;
+                                área transicionada (ha) para cada uno de
+                                los 58 periodos disponibles.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fecha de consulta/descarga</strong></td>
+                            <td>
+                                Colección publicada en octubre de 2025;
+                                archivo suministrado por el equipo del
+                                proyecto; analizado el 29 de agosto de 2026.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Restricciones o condiciones de uso</strong></td>
+                            <td>
+                                Datos públicos, abiertos y gratuitos, con la
+                                condición de citar la fuente en el formato
+                                indicado por Gaia Amazonas: "Fundación Gaia
+                                Amazonas (2025). Proyecto MapBiomas
+                                Colombia Colección 3.0 - Mapeo Anual de
+                                Cobertura y Uso del Suelo".
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>
+                4.3 Fuentes adicionales requeridas para cumplir el mínimo
+                de dos fuentes por nivel
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Nivel</th>
+                            <th>Fuente propuesta</th>
+                            <th>Tipo</th>
+                            <th>Aporte esperado</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Global</strong></td>
+                            <td>
+                                World Urbanization Prospects — División de
+                                Población de Naciones Unidas
+                                (population.un.org)
+                            </td>
+                            <td>Secundaria</td>
+                            <td>
+                                Series de población urbana/rural por país,
+                                para contextualizar y validar las cifras
+                                de población del Atlas frente a
+                                estimaciones oficiales de la ONU.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Global</strong></td>
+                            <td>
+                                World Bank Open Data — indicador "Urban
+                                population" (data.worldbank.org)
+                            </td>
+                            <td>Terciaria</td>
+                            <td>
+                                Serie histórica de población urbana por
+                                país, de libre acceso, para comparar
+                                tendencias nacionales de urbanización con
+                                el crecimiento físico medido en el Atlas.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Nacional</strong></td>
+                            <td>
+                                DANE — Censo Nacional de Población y
+                                Vivienda / proyecciones de población
+                                municipal
+                            </td>
+                            <td>Secundaria</td>
+                            <td>
+                                Datos demográficos oficiales para Colombia,
+                                necesarios para relacionar el cambio de
+                                cobertura del suelo con crecimiento
+                                poblacional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Nacional</strong></td>
+                            <td>
+                                IDEAM — Sistema de Monitoreo de Bosques y
+                                Carbono (SMByC), cifras oficiales de
+                                deforestación
+                            </td>
+                            <td>Secundaria</td>
+                            <td>
+                                Contraste institucional/oficial de las
+                                cifras de pérdida de bosque estimadas por
+                                MapBiomas.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Regional</strong></td>
+                            <td>
+                                IGAC / Catastro Multipropósito —
+                                información predial y de uso del suelo de
+                                los municipios de Sabana Centro
+                            </td>
+                            <td>Primaria</td>
+                            <td>
+                                Uso del suelo normativo, no solo cobertura
+                                satelital, con mayor precisión geométrica a
+                                escala municipal.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Regional</strong></td>
+                            <td>
+                                Secretaría de Planeación de Cundinamarca /
+                                POT municipales de Sabana Centro
+                            </td>
+                            <td>Primaria</td>
+                            <td>
+                                Instrumentos de planeación oficial que
+                                documentan el uso del suelo autorizado y
+                                las proyecciones de expansión urbana por
+                                municipio.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>
+                4.4 Pertinencia, confiabilidad, actualidad y cobertura
+            </h3>
+
+            <p>
+                <strong>Pertinencia:</strong> ambas fuentes miden
+                directamente los dos fenómenos del problema de investigación
+                —forma/crecimiento urbano (Atlas) y cambio de cobertura del
+                suelo (MapBiomas)— con series temporales largas (25+ y 39
+                años respectivamente) que permiten un análisis histórico
+                robusto.
+            </p>
+
+            <p>
+                <strong>Confiabilidad:</strong> ambas son producidas por
+                consorcios académicos e institucionales reconocidos
+                (NYU/UN-Habitat/Lincoln Institute; red MapBiomas con
+                universidades colombianas y coordinación de Gaia Amazonas),
+                con metodologías documentadas y revisadas por pares, y son
+                citadas ampliamente en literatura científica sobre
+                expansión urbana y cambio de cobertura del suelo.
+            </p>
+
+            <p>
+                <strong>Actualidad:</strong> MapBiomas Colombia Colección
+                3.0 se publicó en octubre de 2025 y llega hasta 2024, por lo
+                que es altamente actual. El Atlas of Urban Expansion es más
+                antiguo (su tercer corte, T3, llega hasta 2016 según la
+                ciudad); se identifica como limitación y se recomienda
+                complementarlo con fuentes más recientes si el análisis
+                global requiere mayor actualidad.
+            </p>
+
+            <p>
+                <strong>Cobertura:</strong> el Atlas cubre 78 países de forma
+                representativa pero no exhaustiva (200 de 4.231 ciudades
+                elegibles); MapBiomas cubre el 100% del territorio
+                continental colombiano con resolución de 30 metros, lo que
+                garantiza cobertura completa a nivel nacional y regional.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="dataset">
+
+        <div class="section-number">
+            05
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Dataset
+            </h2>
+
+
+            <p>
+                El dataset consolidado se construyó integrando y
+                reestructurando las dos fuentes descritas en la sección 4.
+                Las tablas originales de MapBiomas (una fila por transición,
+                con 58 columnas —una por periodo—) se transformaron a
+                formato largo (tidy data): una fila por cada combinación
+                única de transición y periodo.
+            </p>
+
+            <p>
+                Esta reestructuración no agrega ni inventa información;
+                solo despliega los mismos datos de forma que cada
+                observación (transición-periodo-territorio) sea una fila,
+                cumpliendo el requisito de granularidad y evitando trabajar
+                con datos excesivamente agregados.
+            </p>
+
+            <p>
+                Link del dataset consolidado: <a href="https://mailunicundiedu-my.sharepoint.com/:x:/g/personal/danielabernal_ucundinamarca_edu_co/IQAw3Qmm8CpbT4a5k7P8gK8aAYOCVGWp1ir7-b4HLC_69gM?e=gUTYSl" target="_blank">Dataset Consolidado</a>
+            </p>
+
+
+            <h3>
+                5.1 Verificación de los requisitos mínimos
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Requisito</th>
+                            <th>Cumple</th>
+                            <th>Evidencia</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Mínimo 10.000 registros consolidados</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                64.268 registros en total: 200 (Global) +
+                                24.396 (Nacional) + 39.672 (Regional).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mínimo 10 variables</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                79 variables en Global; 16 en Nacional; 18
+                                en Regional.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mínimo 3 variables numéricas</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                area_ha, duracion_anios,
+                                anio_inicio/anio_fin (Nacional/Regional);
+                                Built-up Area Total, Urban Extent
+                                Population, densidades e índices de
+                                compacidad, latitud/longitud (Global).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mínimo 3 variables categóricas</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                class_level_0/1/2 (from/to), tipo_periodo,
+                                municipio, departamento, pais
+                                (Nacional/Regional); City Name, Country,
+                                Region (Global).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mínimo 1 variable temporal</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                periodo / anio_inicio / anio_fin
+                                (Nacional/Regional); Land Cover Dates
+                                T1/T2/T3 (Global).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Mínimo 1 variable geográfica</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                municipio / departamento / pais
+                                (Nacional/Regional); City Name / Country /
+                                Region / Latitud / Longitud (Global).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Información suficiente para los 3 niveles</strong></td>
+                            <td class="status">Sí</td>
+                            <td>
+                                Hojas dedicadas Global_Ciudades,
+                                Nacional_Colombia y
+                                Regional_SabanaCentro dentro del mismo
+                                libro de datos.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Integración por variables geográficas y/o temporales</strong></td>
+                            <td class="status">Parcial</td>
+                            <td>
+                                El año/periodo integra los tres niveles; la
+                                clase "Infraestructura urbana" integra
+                                Nacional y Regional; falta una variable
+                                geográfica común plenamente estandarizada
+                                entre Global y Nacional/Regional.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h3>
+                5.2 Estructura final del dataset
+            </h3>
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        <strong>Global_Ciudades (200 filas x 79
+                        columnas):</strong> una fila por ciudad, con sus
+                        tres momentos de observación en columnas separadas
+                        (T1/T2/T3).
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        <strong>Nacional_Colombia (24.396 filas x 16
+                        columnas):</strong> una fila por combinación de
+                        transición de cobertura y periodo de tiempo,
+                        agregada para todo el país.
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        <strong>Regional_SabanaCentro (39.672 filas x 18
+                        columnas):</strong> una fila por combinación de
+                        transición de cobertura, periodo de tiempo y
+                        municipio, para los 11 municipios de la subregión.
+                    </p>
+                </div>
+
+                <div class="question-item">
+                    <span>04</span>
+                    <p>
+                        <strong>Hojas de apoyo:</strong> Portada, resumen
+                        metodológico, Diccionario_Variables y
+                        Leyenda_Coberturas.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <h3>
+                5.3 Unidad de análisis y registro por hoja
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Hoja</th>
+                            <th>Unidad de análisis</th>
+                            <th>Qué representa un registro (fila)</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>Global_Ciudades</strong></td>
+                            <td>Ciudad</td>
+                            <td>
+                                Una ciudad del muestreo mundial, con sus
+                                métricas de forma y densidad urbana en tres
+                                momentos (T1, T2, T3).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Nacional_Colombia</strong></td>
+                            <td>
+                                Transición de cobertura del suelo en el
+                                tiempo
+                            </td>
+                            <td>
+                                El área (ha) que cambió de una clase de
+                                cobertura a otra, en un periodo de tiempo
+                                específico, para todo el territorio
+                                colombiano.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Regional_SabanaCentro</strong></td>
+                            <td>
+                                Transición de cobertura del suelo en el
+                                tiempo, por municipio
+                            </td>
+                            <td>
+                                El área (ha) que cambió de una clase de
+                                cobertura a otra, en un periodo de tiempo
+                                específico, dentro de un municipio de
+                                Sabana Centro.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="diccionario">
+
+        <div class="section-number">
+            06
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Diccionario de datos
+            </h2>
+
+
+            <h3>
+                6.1 Diccionario de datos — Global_Ciudades
+                (Atlas of Urban Expansion)
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table dictionary-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Variable</th>
+                            <th>Tipo</th>
+                            <th>Unidad de medida</th>
+                            <th>Dominio / valores posibles</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>City Name, Country, Region</strong></td>
+                            <td>Categórica / geográfica</td>
+                            <td>N/A</td>
+                            <td>
+                                Texto libre; Region toma 8 valores (p. ej.
+                                "Latin America and the Caribbean",
+                                "Europe and Japan").
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>CBD Location (Latitude, Longitude)</strong></td>
+                            <td>Numérica / geográfica</td>
+                            <td>Grados decimales</td>
+                            <td>
+                                Latitud [-90, 90]; longitud [-180, 180].
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Land Cover Dates (T1, T2, T3)</strong></td>
+                            <td>Temporal</td>
+                            <td>Fecha (texto, formato M/D/AA)</td>
+                            <td>
+                                Fechas entre 1984 y 2016 aproximadamente,
+                                distintas para cada ciudad.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Urban Extent Population (T1/T2/T3)</strong></td>
+                            <td>Numérica</td>
+                            <td>Personas</td>
+                            <td>
+                                Enteros positivos, desde algunas decenas de
+                                miles hasta más de 20 millones.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Built-up Area Total / Urban / Suburban / Rural (ha)</strong></td>
+                            <td>Numérica</td>
+                            <td>Hectáreas</td>
+                            <td>
+                                Valores positivos; 0 o más.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Urban Extent (ha)</strong></td>
+                            <td>Numérica</td>
+                            <td>Hectáreas</td>
+                            <td>
+                                Valores positivos.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Built-up/Urban Extent Density</strong></td>
+                            <td>Numérica</td>
+                            <td>Personas por hectárea</td>
+                            <td>
+                                Valores positivos, típicamente entre 10 y
+                                700.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Fragmentation (Saturation, Openness)</strong></td>
+                            <td>Numérica</td>
+                            <td>Índice adimensional</td>
+                            <td>
+                                Rango aproximado 0 a 1.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Compactness (Proximity, Cohesion)</strong></td>
+                            <td>Numérica</td>
+                            <td>Índice adimensional</td>
+                            <td>
+                                Rango aproximado 0 a 1 (más cercano a 1 =
+                                más compacto).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Added Area: Infill / Extension / Leapfrog / Inclusion (ha y %)</strong></td>
+                            <td>Numérica</td>
+                            <td>Hectáreas y porcentaje</td>
+                            <td>
+                                Valores positivos; los cuatro porcentajes
+                                de cada periodo suman aproximadamente 100%.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>
+                6.2 Diccionario de datos — Nacional_Colombia y
+                Regional_SabanaCentro (MapBiomas)
+            </h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table dictionary-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Variable</th>
+                            <th>Tipo</th>
+                            <th>Unidad de medida</th>
+                            <th>Dominio / valores posibles</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+                            <td><strong>feature_id</strong></td>
+                            <td>Identificador</td>
+                            <td>N/A</td>
+                            <td>
+                                Entero positivo, único por transición
+                                dentro de su territorio.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>pais / departamento / municipio</strong></td>
+                            <td>Categórica / geográfica</td>
+                            <td>N/A</td>
+                            <td>
+                                "Colombia" (Nacional); "Cundinamarca" y uno
+                                de los 11 municipios de Sabana Centro
+                                (Regional).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>class_level_0_from / to</strong></td>
+                            <td>Categórica</td>
+                            <td>N/A</td>
+                            <td>
+                                "Natural", "Antrópico" o "No Aplica".
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>class_level_1_from / to</strong></td>
+                            <td>Categórica</td>
+                            <td>N/A</td>
+                            <td>
+                                6 valores: bosque, formación natural no
+                                boscosa, área agropecuaria, área sin
+                                vegetación, cuerpo de agua, no observado.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>class_level_2_from / to</strong></td>
+                            <td>Categórica</td>
+                            <td>N/A</td>
+                            <td>
+                                21 subclases (ver hoja
+                                Leyenda_Coberturas), p. ej.
+                                "Infraestructura urbana", "Mosaico de
+                                agricultura o pasto".
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>class_from / class_to</strong></td>
+                            <td>Categórica (codificada)</td>
+                            <td>Código numérico</td>
+                            <td>
+                                Enteros entre 1 y 82, según la leyenda
+                                oficial de MapBiomas.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>periodo</strong></td>
+                            <td>Temporal</td>
+                            <td>Texto (pAAAA_BBBB)</td>
+                            <td>
+                                58 valores posibles, p. ej.
+                                "p2010_2020".
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>anio_inicio / anio_fin</strong></td>
+                            <td>Temporal / numérica</td>
+                            <td>Año</td>
+                            <td>
+                                Entre 1985 y 2024.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>duracion_anios</strong></td>
+                            <td>Numérica</td>
+                            <td>Años</td>
+                            <td>
+                                1, 5, 10 o 39 (rango completo).
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>tipo_periodo</strong></td>
+                            <td>Categórica</td>
+                            <td>N/A</td>
+                            <td>
+                                "Anual consecutivo", "Quinquenal",
+                                "Decenal", "Periodo completo (1985-2024)",
+                                "Otro rango seleccionado".
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>area_ha</strong></td>
+                            <td>Numérica</td>
+                            <td>Hectáreas</td>
+                            <td>
+                                Valores mayores o iguales a 0; sin límite
+                                superior definido a priori.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="calidad">
+
+        <div class="section-number">
+            07
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Calidad inicial de los datos
+            </h2>
+
+
+            <p>
+                Este diagnóstico identifica el estado actual del dataset
+                consolidado; no implica todavía limpieza ni corrección de
+                los datos. Los hallazgos se obtuvieron ejecutando
+                validaciones directamente sobre las tres hojas de datos
+                (Global_Ciudades, Nacional_Colombia,
+                Regional_SabanaCentro).
+            </p>
+
+
+            <h3>
+                7.1 Valores faltantes
+            </h3>
+
+            <p>
+                No se encontraron valores nulos (NA) en ninguna de las tres
+                hojas: 0 celdas vacías en Global_Ciudades (0 de 15.800
+                celdas), 0 en Nacional_Colombia y 0 en
+                Regional_SabanaCentro. Esto es consistente con la
+                naturaleza de ambas fuentes, que reportan explícitamente 0
+                hectáreas cuando una transición no ocurrió en un periodo
+                determinado, en vez de dejar la celda vacía.
+            </p>
+
+
+            <h3>
+                7.2 Registros duplicados
+            </h3>
+
+            <p>
+                No se encontraron filas exactamente duplicadas en ninguna
+                de las tres hojas (0 duplicados en Global por combinación
+                Ciudad+País; 0 duplicados exactos en Nacional y en
+                Regional).
+            </p>
+
+
+            <h3>
+                7.3 Inconsistencias
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        <strong>Periodos superpuestos:</strong> las
+                        columnas de periodo de MapBiomas mezclan rangos
+                        anuales, quinquenales, decenales y el total
+                        1985-2024, que describen los mismos años desde
+                        distintos niveles de agregación. Sumar area_ha
+                        entre todos los tipos de periodo simultáneamente
+                        produce doble conteo. Cualquier análisis agregado
+                        debe filtrar por un único tipo de periodo mediante
+                        la columna tipo_periodo.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        <strong>Transiciones nulas (persistencia):</strong>
+                        1.482 registros en Nacional (6,1%) y 5.814 en
+                        Regional (14,7%) tienen class_from igual a
+                        class_to, es decir, describen cobertura que
+                        permaneció igual, no una transformación real. Deben
+                        excluirse o tratarse aparte en los análisis
+                        centrados en transformación del suelo.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        <strong>Ventanas temporales no sincronizadas:</strong>
+                        T1 varía entre 1984 y 1994 y T3 entre 2009 y 2016
+                        según la ciudad, por lo que comparar ciudades "en
+                        el mismo año" requiere normalizar por años desde el
+                        inicio de la serie, no por fecha calendario exacta.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <h3>
+                7.4 Valores fuera de dominio esperado
+            </h3>
+
+            <p>
+                No se encontraron valores negativos en area_ha (mínimo 0 en
+                ambos niveles) ni valores de latitud/longitud fuera de
+                rango. Se identificó un valor de class_level_0 igual a
+                "No Aplica" (además de los esperados "Natural" y
+                "Antrópico"), asociado a la clase "No observado" (nubes o
+                datos faltantes en la imagen satelital), que debe
+                documentarse como categoría válida y no como error.
+            </p>
+
+
+            <h3>
+                7.5 Diferencias de formato
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        Todas las 79 columnas de Global_Ciudades fueron
+                        leídas como texto (no numéricas), porque el CSV
+                        original almacena los números con separador de
+                        miles (comas) dentro de comillas (p. ej.
+                        "1,307,784"); es necesario convertirlas a tipo
+                        numérico antes de cualquier cálculo.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        Las fechas T1/T2/T3 de Global_Ciudades están en
+                        formato texto M/D/AA (p. ej. "1/1/91"), no como tipo
+                        fecha; deben convertirse a un formato de fecha
+                        estándar (ISO 8601) para facilitar cálculos de
+                        antigüedad o duración.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        Se detectaron inconsistencias menores de digitación
+                        en las etiquetas de clase de MapBiomas (p. ej.
+                        doble espacio en "3. Área agropecuaria"), que no
+                        afectan el valor numérico pero pueden romper
+                        coincidencias exactas de texto (joins, filtros) si
+                        no se normalizan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <h3>
+                7.6 Problemas de integración entre fuentes
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        <strong>Unidad geográfica no estandarizada:</strong>
+                        el Atlas (Global) identifica territorios por
+                        ciudad/país, mientras que MapBiomas
+                        (Nacional/Regional) los identifica por
+                        país/departamento/municipio; no existe todavía una
+                        llave geográfica común (p. ej. código DANE o código
+                        ISO) que permita un join automático entre Bogotá
+                        (Global) y Cundinamarca/Sabana Centro (Regional).
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        <strong>Metodologías distintas para medir "área
+                        urbana":</strong> el Atlas delimita manualmente la
+                        mancha urbana sobre imágenes satelitales de alta
+                        resolución con fotointerpretación, mientras que
+                        MapBiomas clasifica automáticamente píxeles de 30
+                        metros mediante Random Forest; ambos miden
+                        crecimiento urbano pero no son numéricamente
+                        equivalentes sin un factor de ajuste metodológico.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        <strong>Cobertura temporal distinta:</strong> el
+                        Atlas llega hasta 2016 como máximo, mientras que
+                        MapBiomas llega hasta 2024; cualquier comparación
+                        directa debe restringirse a la ventana temporal
+                        común (aproximadamente 1990-2015).
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="content-section" id="limitaciones">
+
+        <div class="section-number">
+            08
+        </div>
+
+
+        <div class="section-content">
+
+            <h2>
+                Limitaciones y consideraciones
+            </h2>
+
+
+            <h3>
+                8.1 Posibles sesgos
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        El Atlas of Urban Expansion es una muestra
+                        estratificada de 200 de 4.231 ciudades elegibles,
+                        diseñada para representar tendencias globales, no
+                        para representar específicamente a Colombia o a
+                        Bogotá (solo Bogotá aparece en la muestra). Las
+                        conclusiones comparativas del nivel Global deben
+                        tratarse como referencia orientativa, no como
+                        comparación estadísticamente representativa de
+                        Sabana Centro.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        La resolución de 30 metros de MapBiomas puede
+                        subestimar construcciones dispersas de baja
+                        densidad (viviendas campestres, parcelaciones), un
+                        patrón común en municipios de Sabana Centro como
+                        Cota, Tenjo o Chía, lo que podría llevar a
+                        subregistrar cierto tipo de urbanización de baja
+                        densidad frente a la infraestructura urbana
+                        compacta.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        Existe ausencia de variables socioeconómicas y
+                        poblacionales a nivel municipal en el dataset
+                        actual, lo que impide, por ahora, distinguir si el
+                        crecimiento observado responde a vivienda,
+                        industria/logística o expansión agrícola de gran
+                        escala.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <h3>
+                8.2 Limitaciones del dataset
+            </h3>
+
+
+            <div class="questions-list">
+
+                <div class="question-item">
+                    <span>01</span>
+                    <p>
+                        No incluye aún datos de población municipal, lo que
+                        impide calcular densidad poblacional o relacionar
+                        crecimiento físico con crecimiento demográfico en
+                        Sabana Centro (sí es posible a nivel Global, para
+                        Bogotá).
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>02</span>
+                    <p>
+                        No distingue el uso del suelo normativo/POT
+                        (residencial, industrial, protección ambiental)
+                        frente a la cobertura observada por satélite; para
+                        un análisis urbanístico riguroso se requieren las
+                        fuentes complementarias señaladas en la sección
+                        4.3.
+                    </p>
+                </div>
+
+
+                <div class="question-item">
+                    <span>03</span>
+                    <p>
+                        El nivel Global no tiene observaciones posteriores
+                        a 2016 aproximadamente, por lo que no captura la
+                        fase más reciente (2016-2024) de expansión de
+                        bodegas logísticas y vivienda en la zona de
+                        estudio; solo el nivel Regional cubre esa ventana
+                        reciente.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+<footer>
+
+    <p>
+        Crecimiento Urbano y Transformación del Uso del Suelo
+    </p>
+
+    <p>
+        Etapa 1 · Problema Datos
+    </p>
+
+    <p>
+        Minería de Datos · Universidad de Cundinamarca · 2026
+    </p>
+
+</footer>
+
+</body>
+
+</html>

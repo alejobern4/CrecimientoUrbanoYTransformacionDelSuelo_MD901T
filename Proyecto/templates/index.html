@@ -3,43 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 150px;
-        }
+    <title>Crecimiento Urbano y Transformación del Uso del Suelo</title>
 
-        h1 {
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 18px;
-            line-height: 1.8;
-        }
-    </style>
+    <link rel="stylesheet" href="../static/styles/style.css">
 </head>
 
 <body>
 
-    <h1>CRECIMIENTO URBANO Y TRANSFORMACIÓN DEL USO DEL SUELO</h1>
+    <!-- Barra de navegación -->
+    <header class="navbar">
+        <div class="nav-container">
 
-    <h2>Integrantes</h2>
+            <a href="index.html" class="logo">
+                PROYECTO
+            </a>
 
-    <p>
-        Daniel Alejandro Bernal Sánchez<br>
-        Carlos Dariel Pinilla Ritiva<br>
-        Juan Manuel Ramirez Araque
-    </p>
+            <nav>
+                <a href="index.html" class="active">Inicio</a>
+
+                <div class="dropdown">
+                    <a href="etapa1.html">Etapa 1 ▾</a>
+
+                    <div class="dropdown-content">
+                        <a href="etapa1.html#problema">1. Problema y contexto</a>
+                        <a href="etapa1.html#preguntas">2. Pregunta principal y preguntas secundarias</a>
+                        <a href="etapa1.html#necesidades">3. Necesidades de información</a>
+                        <a href="etapa1.html#fuentes">4. Fuentes de datos</a>
+                        <a href="etapa1.html#dataset">5. Dataset</a>
+                        <a href="etapa1.html#diccionario">6. Diccionario de datos</a>
+                        <a href="etapa1.html#calidad">7. Calidad inicial de los datos</a>
+                        <a href="etapa1.html#limitaciones">8. Limitaciones y consideraciones</a>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Contenido principal -->
+    <main class="home">
+
+        <section class="hero">
+
+            <span class="section-label">PROYECTO DE INVESTIGACIÓN</span>
+
+            <h1>
+                Crecimiento urbano y
+                <span>transformación del uso del suelo</span>
+            </h1>
+
+            <p class="hero-description">
+                Análisis del fenómeno en las escalas global, nacional
+                (Colombia) y regional (Sabana de Bogotá)
+            </p>
+
+            <div class="hero-line"></div>
+
+            <div class="team">
+
+                <h2>Integrantes</h2>
+
+                <div class="team-list">
+                    <div class="team-member">
+                        <span>01</span>
+                        Daniel Alejandro Bernal Sánchez
+                    </div>
+
+                    <div class="team-member">
+                        <span>02</span>
+                        Carlos Dariel Pinilla Ritiva
+                    </div>
+
+                    <div class="team-member">
+                        <span>03</span>
+                        Juan Manuel Ramirez Araque
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="etapa1.html" class="main-button">
+                Explorar Etapa 1 →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Crecimiento Urbano y Transformación del Uso del Suelo
+        </p>
+
+        <p>
+            Minería de Datos · Universidad de Cundinamarca · 2026
+        </p>
+    </footer>
 
 </body>
 </html>
