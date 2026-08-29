@@ -15,25 +15,25 @@
     <header class="navbar">
         <div class="nav-container">
 
-            <a href="index.html" class="logo">
+            <a href="{{ url_for('home') }}" class="logo">
                 PROYECTO
             </a>
 
             <nav>
-                <a href="index.html" class="active">Inicio</a>
+                <a href="{{ url_for('home') }}" class="active">Inicio</a>
 
                 <div class="dropdown">
-                    <a href="etapa1.html">Etapa 1 ▾</a>
+                    <a href="{{ url_for('etapa1') }}">Etapa 1 ▾</a>
 
                     <div class="dropdown-content">
-                        <a href="etapa1.html#problema">1. Problema y contexto</a>
-                        <a href="etapa1.html#preguntas">2. Pregunta principal y preguntas secundarias</a>
-                        <a href="etapa1.html#necesidades">3. Necesidades de información</a>
-                        <a href="etapa1.html#fuentes">4. Fuentes de datos</a>
-                        <a href="etapa1.html#dataset">5. Dataset</a>
-                        <a href="etapa1.html#diccionario">6. Diccionario de datos</a>
-                        <a href="etapa1.html#calidad">7. Calidad inicial de los datos</a>
-                        <a href="etapa1.html#limitaciones">8. Limitaciones y consideraciones</a>
+                        <a href="{{ url_for('etapa1') }}#problema">1. Problema y contexto</a>
+                        <a href="{{ url_for('etapa1') }}#preguntas">2. Pregunta principal y preguntas secundarias</a>
+                        <a href="{{ url_for('etapa1') }}#necesidades">3. Necesidades de información</a>
+                        <a href="{{ url_for('etapa1') }}#fuentes">4. Fuentes de datos</a>
+                        <a href="{{ url_for('etapa1') }}#dataset">5. Dataset</a>
+                        <a href="{{ url_for('etapa1') }}#diccionario">6. Diccionario de datos</a>
+                        <a href="{{ url_for('etapa1') }}#calidad">7. Calidad inicial de los datos</a>
+                        <a href="{{ url_for('etapa1') }}#limitaciones">8. Limitaciones y consideraciones</a>
                     </div>
                 </div>
 
@@ -84,7 +84,7 @@
 
             </div>
 
-            <a href="etapa1.html" class="main-button">
+            <a href="{{ url_for('etapa1') }}" class="main-button">
                 Explorar Etapa 1 →
             </a>
 
