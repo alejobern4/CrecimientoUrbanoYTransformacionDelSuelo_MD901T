@@ -1,92 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Crecimiento Urbano y Transformación del Uso del Suelo</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="stylesheet" href="../static/styles/style.css">
 </head>
 
 <body>
 
-    <!-- Barra de navegación -->
+    <!-- Fondo tipo mapa -->
+    <div class="map-background"></div>
+
+    <!-- Navegación -->
     <header class="navbar">
-        <div class="nav-container">
 
-            <a href="{{ url_for('home') }}" class="logo">
-                PROYECTO
-            </a>
+                <div class="nav-container">
 
-            <nav>
-                <a href="{{ url_for('home') }}" class="active">Inicio</a>
+                    <a href="{{ url_for('home') }}" class="logo">
+                        <span class="logo-symbol">⌂</span>
+                        TERRITORIO
+                    </a>
 
-                <div class="dropdown">
-                    <a href="{{ url_for('etapa1') }}">Etapa 1 ▾</a>
+                    <nav class="main-nav">
 
-                    <div class="dropdown-content">
-                        <a href="{{ url_for('etapa1') }}#problema">1. Problema y contexto</a>
-                        <a href="{{ url_for('etapa1') }}#preguntas">2. Pregunta principal y preguntas secundarias</a>
-                        <a href="{{ url_for('etapa1') }}#necesidades">3. Necesidades de información</a>
-                        <a href="{{ url_for('etapa1') }}#fuentes">4. Fuentes de datos</a>
-                        <a href="{{ url_for('etapa1') }}#dataset">5. Dataset</a>
-                        <a href="{{ url_for('etapa1') }}#diccionario">6. Diccionario de datos</a>
-                        <a href="{{ url_for('etapa1') }}#calidad">7. Calidad inicial de los datos</a>
-                        <a href="{{ url_for('etapa1') }}#limitaciones">8. Limitaciones y consideraciones</a>
-                    </div>
+                        <a href="{{ url_for('home') }}" class="nav-link active">
+                            <span class="nav-number">00</span>
+                            Inicio
+                        </a>
+
+                        <div class="explore-menu">
+                            <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                                <span class="nav-number">01</span>
+                                Explorar proyecto
+                                <span class="arrow">+</span>
+                            </a>
+
+                            <div class="explore-panel">
+
+                                <div class="panel-header">
+                                    <span>RECORRIDO DEL ANÁLISIS</span>
+                                    <small>ETAPA 01</small>
+                                </div>
+
+                                <a href="{{ url_for('etapa1') }}#problema">
+                                    <span>01</span>
+                                    <div>
+                                        <strong>Problema y contexto</strong>
+                                        <small>El territorio bajo análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#preguntas">
+                                    <span>02</span>
+                                    <div>
+                                        <strong>Preguntas de investigación</strong>
+                                        <small>Lo que buscamos comprender</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#necesidades">
+                                    <span>03</span>
+                                    <div>
+                                        <strong>Necesidades de información</strong>
+                                        <small>Datos necesarios para el análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#fuentes">
+                                    <span>04</span>
+                                    <div>
+                                        <strong>Fuentes de datos</strong>
+                                        <small>De dónde proviene la información</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#dataset">
+                                    <span>05</span>
+                                    <div>
+                                        <strong>Dataset</strong>
+                                        <small>Los datos del territorio</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#diccionario">
+                                    <span>06</span>
+                                    <div>
+                                        <strong>Diccionario de datos</strong>
+                                        <small>Qué representa cada variable</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#calidad">
+                                    <span>07</span>
+                                    <div>
+                                        <strong>Calidad de los datos</strong>
+                                        <small>Revisión inicial</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#limitaciones">
+                                    <span>08</span>
+                                    <div>
+                                        <strong>Limitaciones</strong>
+                                        <small>Consideraciones del análisis</small>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="explore-menu">
+
+                            <a href="{{ url_for('etapa2') }}" class="nav-link explore-button">
+                                <span class="nav-number">02</span>
+                                Calidad de datos
+                                <span class="arrow">+</span>
+                            </a>
+
+                            <div class="explore-panel">
+
+                                <div class="panel-header">
+                                    <span>RECORRIDO DEL ANÁLISIS</span>
+                                    <small>ETAPA 02</small>
+                                </div>
+
+                                <a href="{{ url_for('etapa2') }}#resumen">
+                                    <span>01</span>
+                                    <div>
+                                        <strong>Resumen del dataset</strong>
+                                        <small>Estado general de los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#proposito">
+                                    <span>02</span>
+                                    <div>
+                                        <strong>Propósito y estructura</strong>
+                                        <small>Qué contienen los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#requisitos">
+                                    <span>03</span>
+                                    <div>
+                                        <strong>Requisitos de calidad</strong>
+                                        <small>Qué deben cumplir los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#perfilamiento">
+                                    <span>04</span>
+                                    <div>
+                                        <strong>Perfilamiento</strong>
+                                        <small>Exploración y diagnóstico</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#dimensiones">
+                                    <span>05</span>
+                                    <div>
+                                        <strong>Dimensiones de calidad</strong>
+                                        <small>Cómo se evalúan los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#problemas">
+                                    <span>06</span>
+                                    <div>
+                                        <strong>Problemas detectados</strong>
+                                        <small>Errores y situaciones encontradas</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#causas">
+                                    <span>07</span>
+                                    <div>
+                                        <strong>Causas</strong>
+                                        <small>Origen de los problemas</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#integracion">
+                                    <span>08</span>
+                                    <div>
+                                        <strong>Integración de datos</strong>
+                                        <small>Preparación para el análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#tratamiento">
+                                    <span>09</span>
+                                    <div>
+                                        <strong>Plan de tratamiento</strong>
+                                        <small>Acciones para mejorar los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#comparacion">
+                                    <span>10</span>
+                                    <div>
+                                        <strong>Antes y después</strong>
+                                        <small>Cambios aplicados al dataset</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#resumen-calidad">
+                                    <span>11</span>
+                                    <div>
+                                        <strong>Resumen de calidad</strong>
+                                        <small>Resultado de la evaluación</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#referencias">
+                                    <span>12</span>
+                                    <div>
+                                        <strong>Referencias</strong>
+                                        <small>Bibliografía y fuentes consultadas</small>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        
+
+                    </nav>
+
                 </div>
 
-            </nav>
-        </div>
     </header>
 
 
-    <!-- Contenido principal -->
+    <!-- HERO -->
     <main class="home">
 
         <section class="hero">
 
-            <span class="section-label">PROYECTO DE INVESTIGACIÓN</span>
+            <!-- Elementos decorativos tipo mapa -->
+            <div class="map-point point-1"></div>
+            <div class="map-point point-2"></div>
+            <div class="map-point point-3"></div>
 
-            <h1>
-                Crecimiento urbano y
-                <span>transformación del uso del suelo</span>
-            </h1>
+            <div class="map-line line-1"></div>
+            <div class="map-line line-2"></div>
 
-            <p class="hero-description">
-                Análisis del fenómeno en las escalas global, nacional
-                (Colombia) y regional (Sabana de Bogotá)
-            </p>
+            <div class="hero-top">
 
-            <div class="hero-line"></div>
+                <span class="location-tag">
+                    SABANA DE BOGOTÁ · COLOMBIA
+                </span>
 
-            <div class="team">
+                <span class="project-code">
+                    ANÁLISIS / 2026
+                </span>
 
-                <h2>Integrantes</h2>
+            </div>
 
-                <div class="team-list">
-                    <div class="team-member">
-                        <span>01</span>
-                        Daniel Alejandro Bernal Sánchez
+
+            <div class="hero-content">
+
+                <div class="title-side">
+
+                    <span class="section-label">
+                        PROYECTO DE MINERÍA DE DATOS
+                    </span>
+
+                    <h1>
+                        Crecimiento Urbano y 
+                        <span>Transformación del Uso del Suelo</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Análisis del crecimiento urbano y la transformación
+                        del uso del suelo desde una perspectiva global,
+                        nacional y regional.
+                    </p>
+
+                    <a href="{{ url_for('etapa1') }}" class="main-button">
+                        <span>Iniciar recorrido</span>
+                        <strong>→</strong>
+                    </a>
+
+                </div>
+
+
+                <!-- Panel visual -->
+                <div class="territory-card">
+
+                    <div class="card-top">
+                        <span>ÁREA DE ESTUDIO</span>
+                        <span class="status-dot">● ACTIVO</span>
                     </div>
 
-                    <div class="team-member">
-                        <span>02</span>
-                        Carlos Dariel Pinilla Ritiva
+                    <div class="territory-map">
+
+                        <div class="road road-1"></div>
+                        <div class="road road-2"></div>
+                        <div class="road road-3"></div>
+
+                        <div class="block block-1"></div>
+                        <div class="block block-2"></div>
+                        <div class="block block-3"></div>
+                        <div class="block block-4"></div>
+                        <div class="block block-5"></div>
+
+                        <div class="map-location">
+                            <div class="pulse"></div>
+                            <span></span>
+                        </div>
+
                     </div>
 
-                    <div class="team-member">
-                        <span>03</span>
-                        Juan Manuel Ramirez Araque
+                    <div class="map-caption">
+                        <div>
+                            <small>ENFOQUE</small>
+                            <strong>Transformación territorial</strong>
+                        </div>
+
+                        <div>
+                            <small>ESCALA</small>
+                            <strong>Global · Nacional · Regional</strong>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Datos rápidos -->
+            <div class="project-info">
+
+                <div class="info-item">
+                    <span class="info-number">03</span>
+
+                    <div>
+                        <small>ESCALAS</small>
+                        <strong>Global / Colombia / Sabana</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-number">01</span>
+
+                    <div>
+                        <small>ETAPA DISPONIBLE</small>
+                        <strong>Planeación del análisis</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="info-number">08</span>
+
+                    <div>
+                        <small>COMPONENTES</small>
+                        <strong>Del problema a los datos</strong>
                     </div>
                 </div>
 
             </div>
 
-            <a href="{{ url_for('etapa1') }}" class="main-button">
-                Explorar Etapa 1 →
-            </a>
+
+            <!-- Integrantes -->
+            <div class="team">
+
+                <div class="team-heading">
+                    <span>EQUIPO DE INVESTIGACIÓN</span>
+                    <small>UCUNDINAMARCA · INGENIERÍA DE SISTEMAS</small>
+                </div>
+
+                <div class="team-list">
+
+                    <div class="team-member">
+                        <span>01</span>
+                        <strong>Daniel Alejandro Bernal Sánchez</strong>
+                    </div>
+
+                    <div class="team-member">
+                        <span>02</span>
+                        <strong>Carlos Dariel Pinilla Ritiva</strong>
+                    </div>
+
+                    <div class="team-member">
+                        <span>03</span>
+                        <strong>Juan Manuel Ramirez Araque</strong>
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -94,14 +404,29 @@
 
 
     <footer>
-        <p>
-            Crecimiento Urbano y Transformación del Uso del Suelo
-        </p>
 
-        <p>
-            Minería de Datos · Universidad de Cundinamarca · 2026
-        </p>
+        <div class="footer-main">
+
+            <div>
+                <strong>PROYECTO DE MINERÍA DE DATOS</strong>
+                <p>
+                    Crecimiento urbano y transformación
+                    del uso del suelo.
+                </p>
+            </div>
+
+            <div class="footer-location">
+                <span>Universidad de Cundinamarca</span>
+                <span>·</span>
+                <span>Mineria de datos</span>
+                <span>·</span>
+                <span>2026</span>
+            </div>
+
+        </div>
+
     </footer>
 
 </body>
+
 </html>

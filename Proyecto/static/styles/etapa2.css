@@ -1,0 +1,656 @@
+/* =========================================
+   ETAPA 2 - HERO
+========================================= */
+
+.quality-hero {
+    min-height: 520px;
+    padding: 70px 8% 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.quality-hero-label {
+    font-size: 14px;
+    color: var(--blue);
+    letter-spacing: 1px;
+    margin-bottom: 70px;
+}
+
+.quality-hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.quality-hero h1 {
+    font-size: clamp(64px, 7vw, 105px);
+    line-height: 0.88;
+    margin: 0 0 45px;
+    color: var(--dark);
+    letter-spacing: -4px;
+}
+
+.quality-hero h1 span {
+    color: var(--blue);
+}
+
+.quality-hero > .quality-hero-content > div:first-child p {
+    max-width: 650px;
+    font-size: 20px;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.quality-meta {
+    border-left: 2px solid var(--orange);
+    padding-left: 30px;
+}
+
+.quality-meta p {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+.quality-meta strong {
+    color: var(--dark);
+}
+
+.quality-meta ul {
+    margin-top: 5px;
+    padding-left: 20px;
+    color: var(--muted);
+}
+
+/* =========================================================
+   00 — VISIÓN GENERAL / INDICADORES
+========================================================= */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 30px 0 45px;
+}
+
+.stat-card {
+    position: relative;
+    min-height: 180px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid #dce1db;
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--orange);
+}
+
+.stat-card::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    bottom: -35px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(31, 72, 85, 0.08);
+    border-radius: 50%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 10px 12px 25px rgba(31, 72, 85, 0.09);
+}
+
+.stat-value {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--blue);
+    font-size: 32px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--dark);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.stat-description {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* =========================================================
+   04 — DIMENSIONES DE CALIDAD
+========================================================= */
+
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 30px 0 40px;
+}
+
+.quality-card {
+    position: relative;
+    min-height: 210px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #dce1db;
+    overflow: hidden;
+    transition: 0.25s ease;
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 10px 12px 25px rgba(31, 72, 85, 0.08);
+}
+
+.quality-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    margin-bottom: 22px;
+
+    color: var(--orange);
+    background: #eef0e9;
+
+    border: 1px solid rgba(215, 139, 85, 0.25);
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 900;
+}
+
+.quality-card h3 {
+    margin: 0 0 12px;
+    color: var(--blue);
+    font-size: 19px;
+}
+
+.quality-value {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--dark);
+    font-size: 27px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.quality-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   COLORES DE LAS DIMENSIONES
+========================================================= */
+
+/* 01 — Completitud: 100% */
+.quality-card:nth-child(1) {
+    border-top: 4px solid var(--green);
+}
+
+.quality-card:nth-child(1) .quality-value {
+    color: var(--green);
+}
+
+/* 02 — Exactitud: 30% */
+.quality-card:nth-child(2) {
+    border-top: 4px solid var(--orange);
+}
+
+.quality-card:nth-child(2) .quality-value {
+    color: var(--orange);
+}
+
+/* 03 — Consistencia: 100% */
+.quality-card:nth-child(3) {
+    border-top: 4px solid var(--green);
+}
+
+.quality-card:nth-child(3) .quality-value {
+    color: var(--green);
+}
+
+/* 04 — Unicidad: 0% */
+.quality-card:nth-child(4) {
+    border-top: 4px solid var(--orange);
+}
+
+.quality-card:nth-child(4) .quality-value {
+    color: var(--orange);
+}
+
+/* 05 — Validez: 100% */
+.quality-card:nth-child(5) {
+    border-top: 4px solid var(--green);
+}
+
+.quality-card:nth-child(5) .quality-value {
+    color: var(--green);
+}
+
+/* 06 — Actualidad: ALTA / BAJA */
+.quality-card:nth-child(6) {
+    border-top: 4px solid var(--orange);
+}
+
+.quality-card:nth-child(6) .quality-value {
+    color: var(--orange);
+}
+
+/* =========================================================
+   09 — ANTES Y DESPUÉS
+========================================================= */
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.comparison-card {
+    position: relative;
+    padding: 30px;
+    border: 1px solid #dce1db;
+    background: rgba(255, 255, 255, 0.75);
+    overflow: hidden;
+}
+
+.comparison-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+}
+
+.comparison-card:first-child::before {
+    background: var(--orange);
+}
+
+.comparison-card:last-child::before {
+    background: var(--green);
+}
+
+.comparison-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.comparison-card:first-child .comparison-label {
+    color: var(--orange);
+}
+
+.comparison-card:last-child .comparison-label {
+    color: var(--green);
+}
+
+.comparison-card h3 {
+    margin-bottom: 20px;
+    color: var(--dark);
+    font-size: 22px;
+}
+
+.comparison-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.comparison-card li {
+    position: relative;
+    padding: 11px 0 11px 25px;
+    color: var(--muted);
+    font-size: 14px;
+    border-bottom: 1px solid #e3e7e2;
+}
+
+.comparison-card li:last-child {
+    border-bottom: none;
+}
+
+.comparison-card li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 900;
+}
+
+.comparison-card:last-child li::before {
+    content: "✓";
+    color: var(--green);
+}
+
+/* =========================================================
+   10 — RESUMEN DE CALIDAD
+========================================================= */
+
+.quality-summary {
+    display: grid;
+    gap: 16px;
+    margin: 30px 0 40px;
+}
+
+.quality-summary-item {
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid #dce1db;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.summary-header strong {
+    color: var(--blue);
+    font-size: 13px;
+}
+
+.summary-header span {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #dfe4df;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: var(--progress, 100%);
+    background: var(--green);
+    transition: width 0.8s ease;
+}
+
+/* =========================================================
+   CONCLUSIÓN
+========================================================= */
+
+.conclusion-card {
+    position: relative;
+    margin-top: 35px;
+    padding: 32px;
+    background: var(--dark);
+    color: white;
+    border-left: 5px solid var(--green);
+    overflow: hidden;
+}
+
+.conclusion-card::after {
+    content: "✓";
+    position: absolute;
+    right: 25px;
+    bottom: -35px;
+    color: rgba(255,255,255,0.04);
+    font-size: 150px;
+    font-weight: 900;
+}
+
+.conclusion-card h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    color: var(--green);
+}
+
+.conclusion-card p {
+    position: relative;
+    z-index: 1;
+    color: #d6ddda;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   10 — RESUMEN DE CALIDAD
+========================================================= */
+
+.quality-summary {
+    display: grid;
+    gap: 18px;
+    margin: 30px 0 40px;
+}
+
+.quality-summary-item {
+    padding: 22px 24px;
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid #dce1db;
+
+    transition: 0.25s ease;
+}
+
+.quality-summary-item:hover {
+    background: white;
+
+    transform: translateX(5px);
+
+    box-shadow: 8px 8px 20px rgba(31, 72, 85, 0.08);
+}
+
+
+/* NOMBRE Y PORCENTAJE */
+
+.quality-summary-item > span {
+    color: var(--blue);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.quality-summary-item > strong {
+    float: right;
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+
+/* CONTENEDOR DE LA BARRA */
+
+.progress {
+    width: 100%;
+
+    height: 9px;
+
+    margin-top: 14px;
+
+    background: #dfe4df;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* BARRA */
+
+.progress-bar {
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition: width 0.8s ease;
+}
+
+
+/* =========================================================
+   COLORES
+========================================================= */
+
+/* 01 — Completitud */
+
+.quality-summary-item:nth-child(1) {
+    border-left: 4px solid var(--green);
+}
+
+.quality-summary-item:nth-child(1) > strong {
+    color: var(--green);
+}
+
+.quality-summary-item:nth-child(1) .progress-bar {
+    background: var(--green);
+}
+
+
+/* 02 — Exactitud */
+
+.quality-summary-item:nth-child(2) {
+    border-left: 4px solid var(--orange);
+}
+
+.quality-summary-item:nth-child(2) > strong {
+    color: var(--orange);
+}
+
+.quality-summary-item:nth-child(2) .progress-bar {
+    background: var(--orange);
+}
+
+
+/* 03 — Consistencia */
+
+.quality-summary-item:nth-child(3) {
+    border-left: 4px solid var(--green);
+}
+
+.quality-summary-item:nth-child(3) > strong {
+    color: var(--green);
+}
+
+.quality-summary-item:nth-child(3) .progress-bar {
+    background: var(--green);
+}
+
+
+/* 04 — Validez */
+
+.quality-summary-item:nth-child(4) {
+    border-left: 4px solid var(--green);
+}
+
+.quality-summary-item:nth-child(4) > strong {
+    color: var(--green);
+}
+
+.quality-summary-item:nth-child(4) .progress-bar {
+    background: var(--green);
+}
+
+/* =========================================================
+   RESPONSIVE — ETAPA 2
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-hero-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .quality-hero h1 {
+        font-size: clamp(55px, 10vw, 85px);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: auto;
+    }
+
+    .quality-card {
+        min-height: auto;
+    }
+
+    .quality-hero {
+        padding: 50px 20px;
+    }
+
+    .quality-hero-label {
+        margin-bottom: 40px;
+    }
+
+    .quality-hero h1 {
+        font-size: 55px;
+        letter-spacing: -2px;
+    }
+
+    .quality-meta {
+        padding-left: 20px;
+    }
+
+    .comparison-card {
+        padding: 24px;
+    }
+
+    .summary-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
