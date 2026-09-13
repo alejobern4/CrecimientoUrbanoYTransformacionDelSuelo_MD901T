@@ -1,0 +1,2906 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Etapa 2 | Calidad de Datos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa2.css') }}">
+</head>
+
+<body>
+
+    <div class="map-background"></div>
+
+    <header class="navbar">
+
+                <div class="nav-container">
+
+                    <a href="{{ url_for('home') }}" class="logo">
+                        <span class="logo-symbol">⌂</span>
+                        TERRITORIO
+                    </a>
+
+                    <nav class="main-nav">
+
+                        <a href="{{ url_for('home') }}" class="nav-link">
+                            <span class="nav-number">00</span>
+                            Inicio
+                        </a>
+
+                        <div class="explore-menu">
+                            <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                                <span class="nav-number">01</span>
+                                Explorar proyecto
+                                <span class="arrow">+</span>
+                            </a>
+
+                            <div class="explore-panel">
+
+                                <div class="panel-header">
+                                    <span>RECORRIDO DEL ANÁLISIS</span>
+                                    <small>ETAPA 01</small>
+                                </div>
+
+                                <a href="{{ url_for('etapa1') }}#problema">
+                                    <span>01</span>
+                                    <div>
+                                        <strong>Problema y contexto</strong>
+                                        <small>El territorio bajo análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#preguntas">
+                                    <span>02</span>
+                                    <div>
+                                        <strong>Preguntas de investigación</strong>
+                                        <small>Lo que buscamos comprender</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#necesidades">
+                                    <span>03</span>
+                                    <div>
+                                        <strong>Necesidades de información</strong>
+                                        <small>Datos necesarios para el análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#fuentes">
+                                    <span>04</span>
+                                    <div>
+                                        <strong>Fuentes de datos</strong>
+                                        <small>De dónde proviene la información</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#dataset">
+                                    <span>05</span>
+                                    <div>
+                                        <strong>Dataset</strong>
+                                        <small>Los datos del territorio</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#diccionario">
+                                    <span>06</span>
+                                    <div>
+                                        <strong>Diccionario de datos</strong>
+                                        <small>Qué representa cada variable</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#calidad">
+                                    <span>07</span>
+                                    <div>
+                                        <strong>Calidad de los datos</strong>
+                                        <small>Revisión inicial</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa1') }}#limitaciones">
+                                    <span>08</span>
+                                    <div>
+                                        <strong>Limitaciones</strong>
+                                        <small>Consideraciones del análisis</small>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="explore-menu">
+
+                            <a href="{{ url_for('etapa2') }}" class="nav-link active explore-button">
+                                <span class="nav-number">02</span>
+                                Calidad de datos
+                                <span class="arrow">+</span>
+                            </a>
+
+                            <div class="explore-panel">
+
+                                <div class="panel-header">
+                                    <span>RECORRIDO DEL ANÁLISIS</span>
+                                    <small>ETAPA 02</small>
+                                </div>
+
+                                <a href="{{ url_for('etapa2') }}#resumen">
+                                    <span>01</span>
+                                    <div>
+                                        <strong>Resumen del dataset</strong>
+                                        <small>Estado general de los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#proposito">
+                                    <span>02</span>
+                                    <div>
+                                        <strong>Propósito y estructura</strong>
+                                        <small>Qué contienen los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#requisitos">
+                                    <span>03</span>
+                                    <div>
+                                        <strong>Requisitos de calidad</strong>
+                                        <small>Qué deben cumplir los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#perfilamiento">
+                                    <span>04</span>
+                                    <div>
+                                        <strong>Perfilamiento</strong>
+                                        <small>Exploración y diagnóstico</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#dimensiones">
+                                    <span>05</span>
+                                    <div>
+                                        <strong>Dimensiones de calidad</strong>
+                                        <small>Cómo se evalúan los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#problemas">
+                                    <span>06</span>
+                                    <div>
+                                        <strong>Problemas detectados</strong>
+                                        <small>Errores y situaciones encontradas</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#causas">
+                                    <span>07</span>
+                                    <div>
+                                        <strong>Causas</strong>
+                                        <small>Origen de los problemas</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#integracion">
+                                    <span>08</span>
+                                    <div>
+                                        <strong>Integración de datos</strong>
+                                        <small>Preparación para el análisis</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#tratamiento">
+                                    <span>09</span>
+                                    <div>
+                                        <strong>Plan de tratamiento</strong>
+                                        <small>Acciones para mejorar los datos</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#comparacion">
+                                    <span>10</span>
+                                    <div>
+                                        <strong>Antes y después</strong>
+                                        <small>Cambios aplicados al dataset</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#resumen-calidad">
+                                    <span>11</span>
+                                    <div>
+                                        <strong>Resumen de calidad</strong>
+                                        <small>Resultado de la evaluación</small>
+                                    </div>
+                                </a>
+
+                                <a href="{{ url_for('etapa2') }}#referencias">
+                                    <span>12</span>
+                                    <div>
+                                        <strong>Referencias</strong>
+                                        <small>Bibliografía y fuentes consultadas</small>
+                                    </div>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                        
+
+                    </nav>
+
+                </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTENIDO PRINCIPAL
+    ========================================================== -->
+
+    <main class="content">
+
+
+        <!-- =====================================================
+             ENCABEZADO
+        ====================================================== -->
+        <section class="page-header">
+
+                <span class="section-label">
+                    ETAPA 2
+                </span>
+
+                <h1>
+                    Calidad de
+                    <span>
+                        Datos
+                    </span>
+                </h1>
+
+                <p>
+                    Perfilamiento, evaluación de calidad y plan de tratamiento
+                        del conjunto de datos utilizado para analizar el crecimiento
+                        urbano y la transformación del suelo.
+                </p>
+
+            </section>
+
+        <!-- =====================================================
+             INDICADORES GENERALES
+        ====================================================== -->
+
+        <section class="section-block" id="resumen">
+
+            <div class="section-header">
+
+                <span class="section-number">00</span>
+
+                <div>
+                    <span class="section-label">
+                        VISIÓN GENERAL
+                    </span>
+
+                    <h2>
+                        Estado del conjunto de datos
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        64.268
+                    </span>
+
+                    <span class="stat-label">
+                        Registros totales
+                    </span>
+
+                    <p>
+                        Registros distribuidos entre las tres escalas
+                        territoriales.
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        113
+                    </span>
+
+                    <span class="stat-label">
+                        Variables distintas
+                    </span>
+
+                    <p>
+                        Variables presentes en el conjunto consolidado.
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        0%
+                    </span>
+
+                    <span class="stat-label">
+                        Nulos explícitos
+                    </span>
+
+                    <p>
+                        No se encontraron celdas vacías o valores NaN.
+                    </p>
+
+                </article>
+
+
+                <article class="stat-card">
+
+                    <span class="stat-number">
+                        0%
+                    </span>
+
+                    <span class="stat-label">
+                        Filas duplicadas
+                    </span>
+
+                    <p>
+                        No se encontraron duplicados completos en las
+                        tres hojas.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             1. CONJUNTO DE DATOS Y PROPÓSITO
+        ====================================================== -->
+
+        <section class="section-block" id="proposito">
+
+            <div class="section-header">
+
+                <span class="section-number">01</span>
+
+                <div>
+                    <span class="section-label">
+                        CONTEXTO
+                    </span>
+
+                    <h2>
+                        Conjunto de datos y propósito
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+                    El archivo <strong>DatasetConsolidado.xlsx</strong>
+                    reúne tres tablas de datos con diferentes niveles
+                    territoriales. Estas tablas fueron seleccionadas
+                    durante la Etapa 1 para estudiar el crecimiento urbano
+                    y la transformación del suelo.
+                </p>
+
+                <p>
+                    La información permite analizar el fenómeno desde
+                    una perspectiva global, nacional y regional,
+                    utilizando datos sobre forma urbana, cobertura del
+                    suelo, población, áreas y transiciones entre
+                    diferentes clases de cobertura.
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Hoja</th>
+                            <th>Nivel</th>
+                            <th>Registros</th>
+                            <th>Variables</th>
+                            <th>Fuente</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Global_Ciudades</strong>
+                            </td>
+
+                            <td>
+                                Global
+                            </td>
+
+                            <td>200</td>
+
+                            <td>79</td>
+
+                            <td>
+                                Atlas of Urban Expansion —
+                                NYU / Lincoln Institute
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Nacional_Colombia</strong>
+                            </td>
+
+                            <td>
+                                Nacional
+                            </td>
+
+                            <td>24.396</td>
+
+                            <td>16</td>
+
+                            <td>
+                                MapBiomas Colombia,
+                                Colección 3.0
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Regional_SabanaCentro</strong>
+                            </td>
+
+                            <td>
+                                Regional
+                            </td>
+
+                            <td>39.672</td>
+
+                            <td>18</td>
+
+                            <td>
+                                MapBiomas Colombia,
+                                Colección 3.0
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Total del libro:</strong>
+
+                64.268 registros y 1.120.232 celdas,
+                considerando 113 columnas distintas.
+
+            </div>
+
+
+            <h3>Propósito del conjunto de datos</h3>
+
+            <div class="cards-grid">
+
+                <article class="info-card">
+
+                    <span class="card-number">01</span>
+
+                    <h3>
+                        Escala nacional
+                    </h3>
+
+                    <p>
+                        Cuantificar cómo ha cambiado la cobertura del
+                        suelo colombiano entre 1985 y 2024, identificando
+                        las clases que ganan o pierden área.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">02</span>
+
+                    <h3>
+                        Escala regional
+                    </h3>
+
+                    <p>
+                        Analizar la transformación del suelo en los
+                        11 municipios de Sabana Centro, donde existe
+                        una importante presión urbana.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">03</span>
+
+                    <h3>
+                        Escala global
+                    </h3>
+
+                    <p>
+                        Contextualizar el caso de Bogotá mediante la
+                        comparación de su forma urbana, densidad y
+                        patrón de expansión con otras ciudades.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>Usuarios potenciales</h3>
+
+                <p>
+                    Los principales usuarios pueden ser equipos
+                    académicos, investigadores, entidades de planeación
+                    territorial, CAR, Findeter, secretarías de planeación
+                    municipal y el propio equipo del proyecto.
+                </p>
+
+                <p>
+                    El uso previsto corresponde a análisis estadístico
+                    agregado, series de tiempo y comparaciones espaciales,
+                    no al seguimiento de casos individuales ni a decisiones
+                    prediales puntuales.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             2. REQUISITOS DE CALIDAD
+        ====================================================== -->
+
+        <section class="section-block" id="requisitos">
+
+            <div class="section-header">
+
+                <span class="section-number">02</span>
+
+                <div>
+                    <span class="section-label">
+                        CRITERIOS
+                    </span>
+
+                    <h2>
+                        Requisitos de calidad
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                Los requisitos se establecieron teniendo en cuenta el
+                propósito del conjunto de datos y el tipo de análisis
+                que se realizará posteriormente.
+            </p>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Requisito</th>
+                            <th>Justificación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Tipos de dato correctos
+                                </strong>
+                            </td>
+
+                            <td>
+                                Las hectáreas, población y tasas deben
+                                manejarse como números y los periodos
+                                como fechas para realizar cálculos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Sin duplicados
+                                </strong>
+                            </td>
+
+                            <td>
+                                Cada registro debe representar una ciudad
+                                o transición única para evitar sobreestimar
+                                las áreas transformadas.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Categorías homologadas
+                                </strong>
+                            </td>
+
+                            <td>
+                                Las clases de cobertura deben coincidir
+                                con la Leyenda_Coberturas para permitir
+                                agregaciones correctas.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Completitud
+                                </strong>
+                            </td>
+
+                            <td>
+                                Las variables clave como area_ha,
+                                class_from, class_to, periodo y población
+                                deben estar disponibles.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Rangos válidos
+                                </strong>
+                            </td>
+
+                            <td>
+                                Las áreas no pueden ser negativas y
+                                año_fin debe ser mayor o igual que
+                                año_inicio.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Trazabilidad temporal
+                                </strong>
+                            </td>
+
+                            <td>
+                                Debe conocerse el periodo utilizado para
+                                evitar mezclar datos anuales con datos
+                                agregados.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Comparabilidad
+                                </strong>
+                            </td>
+
+                            <td>
+                                Deben documentarse las diferencias entre
+                                Global, Nacional y Regional para evitar
+                                comparaciones incorrectas.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    Actualidad
+                                </strong>
+                            </td>
+
+                            <td>
+                                Las fuentes deben tener una fecha de
+                                referencia suficientemente reciente para
+                                el fenómeno estudiado.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             3. PERFILAMIENTO
+        ====================================================== -->
+
+        <section class="section-block" id="perfilamiento">
+
+            <div class="section-header">
+
+                <span class="section-number">03</span>
+
+                <div>
+                    <span class="section-label">
+                        DIAGNÓSTICO
+                    </span>
+
+                    <h2>
+                        Perfilamiento de los datos
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <h3>3.1 Cantidad de registros y variables</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Registros</th>
+                            <th>Variables</th>
+                            <th>Celdas totales</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Global_Ciudades</td>
+                            <td>200</td>
+                            <td>79</td>
+                            <td>15.800</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>24.396</td>
+                            <td>16</td>
+                            <td>390.336</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regional_SabanaCentro</td>
+                            <td>39.672</td>
+                            <td>18</td>
+                            <td>714.096</td>
+                        </tr>
+
+                        <tr class="total-row">
+                            <td>Total libro</td>
+                            <td>64.268</td>
+                            <td>113</td>
+                            <td>1.120.232</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+            <h3>3.2 Tipo de dato por variable</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Numérico correcto</th>
+                            <th>Texto categórico</th>
+                            <th>Texto incorrecto</th>
+                            <th>Resultado</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Global_Ciudades
+                            </td>
+
+                            <td>
+                                21
+                            </td>
+
+                            <td>
+                                3
+                            </td>
+
+                            <td>
+                                55
+                            </td>
+
+                            <td>
+                                <strong>70% incorrecto</strong>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Nacional_Colombia
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                            <td>
+                                9
+                            </td>
+
+                            <td>
+                                0
+                            </td>
+
+                            <td>
+                                <strong>100% correcto</strong>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Regional_SabanaCentro
+                            </td>
+
+                            <td>
+                                7
+                            </td>
+
+                            <td>
+                                11
+                            </td>
+
+                            <td>
+                                0
+                            </td>
+
+                            <td>
+                                <strong>100% correcto</strong>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="warning-box">
+
+                <strong>Hallazgo principal:</strong>
+
+                En Global_Ciudades, 55 de las 79 columnas están
+                almacenadas como texto cuando deberían ser números
+                o fechas. Esto representa el 70% de las columnas
+                de la hoja.
+
+            </div>
+
+
+
+            <h3>3.3 Valores únicos</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Variable</th>
+                            <th>Valores únicos</th>
+                            <th>Observación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Global_Ciudades</td>
+                            <td>City Name</td>
+                            <td>200 / 200</td>
+                            <td>Sin ciudades repetidas.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Global_Ciudades</td>
+                            <td>Country</td>
+                            <td>≈86</td>
+                            <td>Coherente con las ciudades analizadas.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>feature_id</td>
+                            <td>1 / 24.396</td>
+                            <td>Identificador no funcional.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>class_from + class_to</td>
+                            <td>428</td>
+                            <td>Coincide con las transiciones documentadas.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>periodo</td>
+                            <td>57</td>
+                            <td>Existen diferentes tipos de periodo.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regional_SabanaCentro</td>
+                            <td>feature_id</td>
+                            <td>696</td>
+                            <td>Funciona como identificador.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regional_SabanaCentro</td>
+                            <td>municipio</td>
+                            <td>11</td>
+                            <td>Corresponde a los municipios esperados.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>3.4 Valores nulos o vacíos</h3>
+
+
+            <div class="metric-strip">
+
+                <div>
+                    <strong>Global</strong>
+                    <span>0 / 15.800</span>
+                </div>
+
+                <div>
+                    <strong>Nacional</strong>
+                    <span>0 / 390.336</span>
+                </div>
+
+                <div>
+                    <strong>Regional</strong>
+                    <span>0 / 714.096</span>
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <p>
+                    No se encontraron nulos explícitos en ninguna de las
+                    tres tablas. Sin embargo, se encontró un caso de
+                    <strong>incompletitud semántica</strong>.
+                </p>
+
+                <p>
+                    En Nacional_Colombia existen 57 filas cuya clase
+                    corresponde a <strong>"6. No observado"</strong>.
+                    Este valor representa información que no pudo ser
+                    clasificada por la fuente y funciona como un
+                    pseudo-nulo.
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Filas</th>
+                            <th>%</th>
+                            <th>Hectáreas asociadas</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>57</td>
+                            <td>0,23%</td>
+                            <td>5.029 ha</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regional_SabanaCentro</td>
+                            <td>0</td>
+                            <td>0%</td>
+                            <td>0 ha</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>3.5 Registros duplicados</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Duplicados completos</th>
+                            <th>Problema de identificador</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Global_Ciudades</td>
+                            <td>0 / 200</td>
+                            <td>Sin duplicados por City Name + Country.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Nacional_Colombia</td>
+                            <td>0 / 24.396</td>
+                            <td>24.395 filas comparten feature_id = 1.</td>
+                        </tr>
+
+                        <tr>
+                            <td>Regional_SabanaCentro</td>
+                            <td>0 / 39.672</td>
+                            <td>Clave compuesta funcional.</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <h3>3.6 Valores mínimos, máximos y promedios</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Variable</th>
+                            <th>Tabla</th>
+                            <th>Mínimo</th>
+                            <th>Máximo</th>
+                            <th>Promedio / observación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>area_ha</td>
+                            <td>Nacional</td>
+                            <td>0 ha</td>
+                            <td>63.324.132 ha</td>
+                            <td>267.088 ha</td>
+                        </tr>
+
+                        <tr>
+                            <td>area_ha</td>
+                            <td>Regional</td>
+                            <td>0 ha</td>
+                            <td>12.880,5 ha</td>
+                            <td>147,6 ha</td>
+                        </tr>
+
+                        <tr>
+                            <td>anio_inicio</td>
+                            <td>Nacional / Regional</td>
+                            <td>1985</td>
+                            <td>2023</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>anio_fin</td>
+                            <td>Nacional / Regional</td>
+                            <td>1986</td>
+                            <td>2024</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>duracion_anios</td>
+                            <td>Nacional / Regional</td>
+                            <td>1 año</td>
+                            <td>39 años</td>
+                            <td>—</td>
+                        </tr>
+
+                        <tr>
+                            <td>Urban Extent Population, T3</td>
+                            <td>Global</td>
+                            <td>6.441</td>
+                            <td>29.181.161</td>
+                            <td>≈3 millones</td>
+                        </tr>
+
+                        <tr>
+                            <td>Annual Change T2-T3</td>
+                            <td>Global</td>
+                            <td>-1,7%</td>
+                            <td>13,6%</td>
+                            <td>2,83%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="warning-box">
+
+                <strong>Precaución con area_ha:</strong>
+
+                no se debe sumar o promediar directamente toda la columna,
+                porque contiene periodos anuales, quinquenales, decenales
+                y el periodo completo 1985-2024.
+
+            </div>
+
+
+
+            <h3>3.7 Valores atípicos e inconsistentes</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Hallazgo</th>
+                            <th>Tabla</th>
+                            <th>Cantidad</th>
+                            <th>Interpretación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                area_ha sobre límite de Tukey
+                            </td>
+
+                            <td>
+                                Nacional
+                            </td>
+
+                            <td>
+                                3.341 / 16.692
+                                <br>
+                                <strong>20,0%</strong>
+                            </td>
+
+                            <td>
+                                Distribución asimétrica.
+                                No necesariamente son errores.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                area_ha sobre límite de Tukey
+                            </td>
+
+                            <td>
+                                Regional
+                            </td>
+
+                            <td>
+                                4.478 / 27.144
+                                <br>
+                                <strong>16,5%</strong>
+                            </td>
+
+                            <td>
+                                Se presenta el mismo comportamiento
+                                a escala municipal.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Frgmentation
+                            </td>
+
+                            <td>
+                                Global
+                            </td>
+
+                            <td>
+                                4 columnas
+                            </td>
+
+                            <td>
+                                Error de escritura en el nombre.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Doble espacio en nombres
+                            </td>
+
+                            <td>
+                                Global
+                            </td>
+
+                            <td>
+                                17 columnas
+                            </td>
+
+                            <td>
+                                Puede causar errores al trabajar
+                                con nombres exactos en código.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             4. DIMENSIONES DE CALIDAD
+        ====================================================== -->
+
+        <section class="section-block" id="dimensiones">
+
+            <div class="section-header">
+
+                <span class="section-number">04</span>
+
+                <div>
+                    <span class="section-label">
+                        EVALUACIÓN
+                    </span>
+
+                    <h2>
+                        Dimensiones de calidad
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                Cada dimensión fue evaluada mediante una métrica
+                verificable aplicada directamente a las tablas.
+            </p>
+
+
+            <div class="quality-grid">
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">01</span>
+
+                    <h3>Completitud</h3>
+
+                    <strong>100%</strong>
+
+                    <p>
+                        Celdas sin nulos explícitos en las tres hojas.
+                        Se identificó un 0,23% de incompletitud semántica
+                        en Nacional.
+                    </p>
+
+                </article>
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">02</span>
+
+                    <h3>Exactitud</h3>
+
+                    <strong>30%</strong>
+
+                    <p>
+                        Global tiene 24 de 79 columnas correctamente
+                        tipificadas. Nacional y Regional alcanzan 100%.
+                    </p>
+
+                </article>
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">03</span>
+
+                    <h3>Consistencia</h3>
+
+                    <strong>100%</strong>
+
+                    <p>
+                        No se encontraron violaciones en año_fin,
+                        año_inicio y duración.
+                    </p>
+
+                </article>
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">04</span>
+
+                    <h3>Unicidad</h3>
+
+                    <strong>0%</strong>
+
+                    <p>
+                        No existen filas completamente duplicadas.
+                        Sin embargo, feature_id de Nacional presenta
+                        repetición masiva.
+                    </p>
+
+                </article>
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">05</span>
+
+                    <h3>Validez</h3>
+
+                    <strong>100%</strong>
+
+                    <p>
+                        Las categorías de cobertura son válidas y no
+                        existen áreas negativas.
+                    </p>
+
+                </article>
+
+
+                <article class="quality-card">
+
+                    <span class="quality-icon">06</span>
+
+                    <h3>Actualidad</h3>
+
+                    <strong>ALTA / BAJA</strong>
+
+                    <p>
+                        MapBiomas llega hasta 2024. La fuente global
+                        presenta mediciones entre 2009 y 2016.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+            <h3>Matriz de métricas</h3>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Dimensión</th>
+                            <th>Métrica</th>
+                            <th>Resultado</th>
+                            <th>Interpretación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Completitud</strong>
+                            </td>
+
+                            <td>
+                                % de celdas sin nulos explícitos
+                            </td>
+
+                            <td>
+                                100%
+                            </td>
+
+                            <td>
+                                Buen resultado, aunque existen
+                                pseudo-nulos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Exactitud</strong>
+                            </td>
+
+                            <td>
+                                % de columnas con tipo correcto
+                            </td>
+
+                            <td>
+                                Global 30%
+                                <br>
+                                Nacional 100%
+                                <br>
+                                Regional 100%
+                            </td>
+
+                            <td>
+                                Global requiere conversión de datos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Consistencia</strong>
+                            </td>
+
+                            <td>
+                                % de filas con fechas y duración coherentes
+                            </td>
+
+                            <td>
+                                100%
+                            </td>
+
+                            <td>
+                                No se encontraron violaciones.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Unicidad</strong>
+                            </td>
+
+                            <td>
+                                % de filas completamente duplicadas
+                            </td>
+
+                            <td>
+                                0%
+                            </td>
+
+                            <td>
+                                No existen duplicados completos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Validez</strong>
+                            </td>
+
+                            <td>
+                                % de códigos válidos y áreas ≥ 0
+                            </td>
+
+                            <td>
+                                100%
+                            </td>
+
+                            <td>
+                                Valores dentro de las reglas definidas.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                <strong>Actualidad</strong>
+                            </td>
+
+                            <td>
+                                Antigüedad de la fuente más reciente
+                            </td>
+
+                            <td>
+                                MapBiomas: alta
+                                <br>
+                                Global: baja
+                            </td>
+
+                            <td>
+                                La fuente global requiere una advertencia
+                                de vigencia.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             5. INVENTARIO DE PROBLEMAS
+        ====================================================== -->
+
+        <section class="section-block" id="problemas">
+
+            <div class="section-header">
+
+                <span class="section-number">05</span>
+
+                <div>
+                    <span class="section-label">
+                        DIAGNÓSTICO
+                    </span>
+
+                    <h2>
+                        Inventario de problemas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                Los problemas fueron clasificados según la variable
+                afectada, cantidad de registros, dimensión de calidad,
+                impacto y evidencia encontrada.
+            </p>
+
+
+            <div class="table-container wide-table">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+                            <th>Campo</th>
+                            <th>Problema</th>
+                            <th>Afectados</th>
+                            <th>Dimensión</th>
+                            <th>Impacto</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>01</td>
+
+                            <td>
+                                feature_id
+                                <br>
+                                Nacional
+                            </td>
+
+                            <td>
+                                El identificador tiene un único valor
+                                para toda la hoja.
+                            </td>
+
+                            <td>
+                                24.396
+                            </td>
+
+                            <td>
+                                Consistencia /
+                                Unicidad
+                            </td>
+
+                            <td>
+                                <strong>Alto</strong>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>02</td>
+
+                            <td>
+                                52 columnas
+                                <br>
+                                Global
+                            </td>
+
+                            <td>
+                                Datos numéricos almacenados como texto,
+                                incluyendo separadores y porcentajes.
+                            </td>
+
+                            <td>
+                                10.400 celdas
+                            </td>
+
+                            <td>
+                                Exactitud
+                            </td>
+
+                            <td>
+                                <strong>Alto</strong>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>03</td>
+
+                            <td>
+                                Fechas T1/T2/T3
+                            </td>
+
+                            <td>
+                                Fechas almacenadas con año de dos dígitos.
+                            </td>
+
+                            <td>
+                                600
+                            </td>
+
+                            <td>
+                                Exactitud /
+                                Validez
+                            </td>
+
+                            <td>
+                                Medio
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>04</td>
+
+                            <td>
+                                No observado
+                            </td>
+
+                            <td>
+                                Categoría que representa información no
+                                clasificada por la fuente.
+                            </td>
+
+                            <td>
+                                57
+                            </td>
+
+                            <td>
+                                Completitud
+                            </td>
+
+                            <td>
+                                Bajo
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>05</td>
+
+                            <td>
+                                area_ha
+                            </td>
+
+                            <td>
+                                Mezcla de diferentes granularidades
+                                temporales.
+                            </td>
+
+                            <td>
+                                856 Nacional
+                                <br>
+                                1.392 Regional
+                            </td>
+
+                            <td>
+                                Consistencia
+                            </td>
+
+                            <td>
+                                <strong>Alto</strong>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>06</td>
+
+                            <td>
+                                Encabezados
+                                <br>
+                                Global
+                            </td>
+
+                            <td>
+                                Doble espacio y error "Frgmentation".
+                            </td>
+
+                            <td>
+                                21 columnas
+                            </td>
+
+                            <td>
+                                Consistencia
+                            </td>
+
+                            <td>
+                                Medio
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>07</td>
+
+                            <td>
+                                area_ha
+                            </td>
+
+                            <td>
+                                Valores por encima del límite de Tukey.
+                            </td>
+
+                            <td>
+                                3.341 Nacional
+                                <br>
+                                4.478 Regional
+                            </td>
+
+                            <td>
+                                Exactitud
+                            </td>
+
+                            <td>
+                                Bajo-Medio
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>08</td>
+
+                            <td>
+                                Fecha T3
+                            </td>
+
+                            <td>
+                                La fuente global presenta datos con
+                                10 a 17 años de antigüedad.
+                            </td>
+
+                            <td>
+                                200 ciudades
+                            </td>
+
+                            <td>
+                                Actualidad
+                            </td>
+
+                            <td>
+                                Medio-Alto
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>Problema crítico identificado</h3>
+
+                <p>
+                    El problema de mayor impacto corresponde al campo
+                    <strong>feature_id</strong> de Nacional_Colombia,
+                    debido a que los 24.396 registros tienen el mismo
+                    identificador.
+                </p>
+
+                <p>
+                    La combinación
+                    <strong>class_from + class_to</strong> presenta
+                    428 valores únicos y coincide con las transiciones
+                    documentadas, por lo que puede utilizarse como base
+                    para reconstruir el identificador.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             6. CAUSAS
+        ====================================================== -->
+
+        <section class="section-block" id="causas">
+
+            <div class="section-header">
+
+                <span class="section-number">06</span>
+
+                <div>
+                    <span class="section-label">
+                        ANÁLISIS
+                    </span>
+
+                    <h2>
+                        Análisis de causas
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Problema</th>
+                            <th>Causa probable</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                feature_id constante
+                            </td>
+
+                            <td>
+                                Error de transformación durante el paso
+                                de formato ancho a formato largo.
+                                El identificador no se propagó
+                                correctamente durante el proceso ETL.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Números como texto
+                            </td>
+
+                            <td>
+                                La fuente original contiene números
+                                formateados para lectura humana, con
+                                separadores de miles y símbolos de
+                                porcentaje.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Fechas de dos dígitos
+                            </td>
+
+                            <td>
+                                Formato heredado M/D/AA sin normalización
+                                al consolidar la información.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                "No observado"
+                            </td>
+
+                            <td>
+                                Limitación de MapBiomas relacionada con
+                                píxeles que no pudieron ser clasificados.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Mezcla de granularidades
+                            </td>
+
+                            <td>
+                                Decisión de la Etapa 1 al transformar
+                                los datos a formato largo sin agregar
+                                una advertencia o filtro obligatorio.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Encabezados inconsistentes
+                            </td>
+
+                            <td>
+                                Errores de digitación y ausencia de una
+                                normalización de encabezados durante
+                                la consolidación.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Valores atípicos
+                            </td>
+
+                            <td>
+                                Distribución naturalmente asimétrica
+                                de las transformaciones de cobertura.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Desactualización global
+                            </td>
+
+                            <td>
+                                El Atlas of Urban Expansion corresponde
+                                a un estudio puntual y no presenta
+                                actualización periódica equivalente
+                                a MapBiomas.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Clasificación de las causas:</strong>
+
+                errores de ETL, formatos heredados, limitaciones de
+                la fuente original y variabilidad real del fenómeno.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             7. INTEGRACIÓN Y HOMOLOGACIÓN
+        ====================================================== -->
+
+        <section class="section-block" id="integracion">
+
+            <div class="section-header">
+
+                <span class="section-number">07</span>
+
+                <div>
+                    <span class="section-label">
+                        INTEGRACIÓN
+                    </span>
+
+                    <h2>
+                        Integración y homologación
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                El conjunto consolidado reúne fuentes originalmente
+                independientes. Para permitir su uso conjunto se
+                definieron criterios de homologación.
+            </p>
+
+
+            <div class="cards-grid">
+
+                <article class="info-card">
+
+                    <span class="card-number">01</span>
+
+                    <h3>
+                        Unidad de área
+                    </h3>
+
+                    <p>
+                        Las tres hojas expresan las superficies en
+                        hectáreas (ha), por lo que no fue necesario
+                        realizar conversiones entre unidades.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">02</span>
+
+                    <h3>
+                        Categorías
+                    </h3>
+
+                    <p>
+                        Nacional y Regional utilizan los mismos códigos
+                        de cobertura y fueron validados contra
+                        Leyenda_Coberturas.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">03</span>
+
+                    <h3>
+                        Periodos
+                    </h3>
+
+                    <p>
+                        El campo tipo_periodo debe utilizarse como filtro
+                        antes de realizar sumas o promedios de area_ha.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">04</span>
+
+                    <h3>
+                        Diferencias de escala
+                    </h3>
+
+                    <p>
+                        Global mide forma y densidad urbana, mientras
+                        Nacional y Regional miden transformaciones de
+                        cobertura del suelo.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">05</span>
+
+                    <h3>
+                        Bogotá
+                    </h3>
+
+                    <p>
+                        Bogotá permite una referencia conceptual entre
+                        la escala global y la nacional, aunque no existe
+                        una unión directa celda a celda.
+                    </p>
+
+                </article>
+
+
+                <article class="info-card">
+
+                    <span class="card-number">06</span>
+
+                    <h3>
+                        Encabezados
+                    </h3>
+
+                    <p>
+                        Se propone eliminar dobles espacios y corregir
+                        "Frgmentation" para facilitar el uso de los
+                        datos en código.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="warning-box">
+
+                <strong>Importante:</strong>
+
+                Global y Nacional/Regional no son directamente
+                comparables celda a celda. La integración busca
+                mantener una relación conceptual entre las escalas,
+                no mezclar sus magnitudes.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             8. PLAN DE TRATAMIENTO
+        ====================================================== -->
+
+        <section class="section-block" id="tratamiento">
+
+            <div class="section-header">
+
+                <span class="section-number">08</span>
+
+                <div>
+                    <span class="section-label">
+                        SOLUCIÓN
+                    </span>
+
+                    <h2>
+                        Plan de tratamiento
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                El plan define las acciones necesarias para corregir
+                problemas de calidad o controlar aquellos que no pueden
+                corregirse directamente.
+            </p>
+
+
+            <div class="table-container wide-table">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Problema</th>
+                            <th>Acción</th>
+                            <th>Resultado esperado</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                feature_id inservible
+                            </td>
+
+                            <td>
+                                Regenerar el identificador utilizando
+                                class_from + class_to.
+                            </td>
+
+                            <td>
+                                428 identificadores únicos.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Números como texto
+                            </td>
+
+                            <td>
+                                Eliminar comas y símbolos "%" y convertir
+                                los valores a float.
+                            </td>
+
+                            <td>
+                                52 columnas numéricas listas para cálculo.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Fechas ambiguas
+                            </td>
+
+                            <td>
+                                Aplicar una regla explícita de siglo y
+                                convertir las fechas a formato ISO.
+                            </td>
+
+                            <td>
+                                Fechas YYYY-MM-01 sin ambigüedad.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                "No observado"
+                            </td>
+
+                            <td>
+                                Mantener la categoría, pero marcarla
+                                como dato no observado y excluirla
+                                de indicadores cuando corresponda.
+                            </td>
+
+                            <td>
+                                57 registros correctamente identificados.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Mezcla de granularidades
+                            </td>
+
+                            <td>
+                                Utilizar tipo_periodo como filtro
+                                obligatorio para análisis temporales.
+                            </td>
+
+                            <td>
+                                Reducción del riesgo de doble conteo.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Encabezados inconsistentes
+                            </td>
+
+                            <td>
+                                Eliminar espacios dobles y corregir
+                                "Frgmentation".
+                            </td>
+
+                            <td>
+                                Encabezados consistentes.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Valores atípicos
+                            </td>
+
+                            <td>
+                                Crear una bandera de revisión en lugar
+                                de eliminar automáticamente los valores.
+                            </td>
+
+                            <td>
+                                Atípicos identificados sin perder
+                                información.
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Fuente global desactualizada
+                            </td>
+
+                            <td>
+                                Mantener el dato y añadir una advertencia
+                                visible sobre su fecha de referencia.
+                            </td>
+
+                            <td>
+                                Uso transparente de la información.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             9. COMPARACIÓN ANTES Y DESPUÉS
+        ====================================================== -->
+
+        <section class="section-block" id="comparacion">
+
+            <div class="section-header">
+
+                <span class="section-number">09</span>
+
+                <div>
+                    <span class="section-label">
+                        MEJORA
+                    </span>
+
+                    <h2>
+                        Antes y después
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-intro">
+                La comparación muestra el estado detectado durante
+                el perfilamiento y el estado esperado después de
+                aplicar el tratamiento definido.
+            </p>
+
+
+            <div class="comparison-grid">
+
+
+                <article class="comparison-card before">
+
+                    <span>ANTES</span>
+
+                    <h3>
+                        Problemas detectados
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            feature_id constante en Nacional.
+                        </li>
+
+                        <li>
+                            52 columnas numéricas almacenadas como texto.
+                        </li>
+
+                        <li>
+                            Fechas con año de dos dígitos.
+                        </li>
+
+                        <li>
+                            Categoría "No observado" sin señalización
+                            especial.
+                        </li>
+
+                        <li>
+                            Mezcla de diferentes periodos en area_ha.
+                        </li>
+
+                        <li>
+                            Encabezados inconsistentes.
+                        </li>
+
+                    </ul>
+
+                </article>
+
+
+                <article class="comparison-card after">
+
+                    <span>DESPUÉS</span>
+
+                    <h3>
+                        Estado esperado
+                    </h3>
+
+                    <ul>
+
+                        <li>
+                            feature_id reconstruido.
+                        </li>
+
+                        <li>
+                            Valores numéricos convertidos correctamente.
+                        </li>
+
+                        <li>
+                            Fechas normalizadas.
+                        </li>
+
+                        <li>
+                            "No observado" identificado como pseudo-nulo.
+                        </li>
+
+                        <li>
+                            tipo_periodo utilizado como control.
+                        </li>
+
+                        <li>
+                            Encabezados estandarizados.
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+
+            <div class="highlight-box">
+
+                <strong>Nota:</strong>
+
+                esta sección representa el resultado esperado del plan
+                de tratamiento. Cuando se ejecuten las correcciones sobre
+                DatasetConsolidado.xlsx, se recomienda reemplazar estos
+                resultados esperados por los valores obtenidos después
+                del procesamiento.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             10. RESUMEN DE CALIDAD
+        ====================================================== -->
+
+        <section class="section-block" id="resumen-calidad">
+
+            <div class="section-header">
+
+                <span class="section-number">10</span>
+
+                <div>
+                    <span class="section-label">
+                        RESULTADO
+                    </span>
+
+                    <h2>
+                        Resumen de calidad
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quality-summary">
+
+                <div class="quality-summary-item">
+
+                    <span>Completitud</span>
+
+                    <strong>100%</strong>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                            style="width: 100%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="quality-summary-item">
+
+                    <span>Exactitud Global</span>
+
+                    <strong>30%</strong>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                            style="width: 30%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="quality-summary-item">
+
+                    <span>Consistencia</span>
+
+                    <strong>100%</strong>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                            style="width: 100%;">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="quality-summary-item">
+
+                    <span>Validez</span>
+
+                    <strong>100%</strong>
+
+                    <div class="progress">
+                        <div class="progress-bar"
+                            style="width: 100%;">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="content-card">
+
+                <h3>Conclusión</h3>
+
+                <p>
+                    El conjunto de datos presenta una base sólida para
+                    continuar con el proyecto, debido a que no se
+                    encontraron filas duplicadas ni nulos explícitos
+                    y las categorías de cobertura y rangos analizados
+                    presentan resultados válidos.
+                </p>
+
+                <p>
+                    Los principales problemas están relacionados con
+                    tipos de datos, identificadores, formatos de fechas,
+                    granularidad temporal y nombres de columnas.
+                    Estos problemas pueden ser tratados mediante
+                    procesos de limpieza, estandarización y validación.
+                </p>
+
+                <p>
+                    También existen dos situaciones que no deben
+                    solucionarse eliminando información: la mezcla de
+                    granularidades debe controlarse mediante filtros,
+                    mientras que la antigüedad de la fuente global debe
+                    documentarse para evitar interpretar sus datos como
+                    una situación actual.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+             12. REFERENCIAS
+        ====================================================== -->
+
+        <section class="section-block" id="referencias">
+
+            <div class="section-header">
+
+                <span class="section-number">13</span>
+
+                <div>
+                    <span class="section-label">
+                        FUENTES
+                    </span>
+
+                    <h2>
+                        Referencias y fuentes de datos
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="reference-list">
+
+                <div class="reference-item">
+
+                    <strong>
+                        DatasetConsolidado.xlsx
+                    </strong>
+
+                    <span>
+                        Archivo consolidado utilizado en la Etapa 2.
+                    </span>
+
+                </div>
+
+
+                <div class="reference-item">
+
+                    <strong>
+                        Atlas of Urban Expansion
+                    </strong>
+
+                    <span>
+                        NYU / Lincoln Institute of Land Policy.
+                    </span>
+
+                </div>
+
+
+                <div class="reference-item">
+
+                    <strong>
+                        MapBiomas Colombia
+                    </strong>
+
+                    <span>
+                        Colección 3.0, Fundación Gaia Amazonas,
+                        octubre de 2025.
+                    </span>
+
+                </div>
+
+
+                <div class="reference-item">
+
+                    <strong>
+                        Leyenda_Coberturas
+                    </strong>
+
+                    <span>
+                        Referencia utilizada para validar y homologar
+                        las categorías de cobertura.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-main">
+
+            <div>
+                <strong>PROYECTO DE MINERÍA DE DATOS</strong>
+                <p>
+                    Crecimiento urbano y transformación
+                    del uso del suelo.
+                </p>
+            </div>
+
+            <div class="footer-location">
+                <span>Universidad de Cundinamarca</span>
+                <span>·</span>
+                <span>Mineria de datos</span>
+                <span>·</span>
+                <span>2026</span>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
