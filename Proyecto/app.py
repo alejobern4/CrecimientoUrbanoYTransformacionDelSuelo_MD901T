@@ -9,3 +9,7 @@ def home():
 @app.route("/etapa1")
 def etapa1():
     return render_template("etapa1.html")
+
+@app.route("/etapa2")
+def etapa2():
+    return render_template("etapa2.html")
