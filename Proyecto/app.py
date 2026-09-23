@@ -13,3 +13,7 @@ def etapa1():
 @app.route("/etapa2")
 def etapa2():
     return render_template("etapa2.html")
+
+@app.route("/etapa3")
+def etapa3():
+    return render_template("etapa3.html")
