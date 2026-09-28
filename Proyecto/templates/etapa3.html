@@ -91,59 +91,51 @@
                             <small>ETAPA 03</small>
                         </div>
 
-                        <a href="{{ url_for('etapa3') }}#reglas">
+                        <a href="{{ url_for('etapa3') }}#flujo-control">
                             <span>01</span>
                             <div>
-                                <strong>Reglas de tratamiento</strong>
-                                <small>Decisiones a partir del diagnóstico</small>
+                                <strong>Flujo de control</strong>
+                                <small>Secuencia general del paquete SSIS</small>
                             </div>
                         </a>
 
-                        <a href="{{ url_for('etapa3') }}#ssis">
+                        <a href="{{ url_for('etapa3') }}#staging">
                             <span>02</span>
                             <div>
-                                <strong>Paquete SSIS</strong>
-                                <small>Extracción, transformación y carga</small>
+                                <strong>Carga a staging</strong>
+                                <small>Copias de trabajo sin transformar</small>
                             </div>
                         </a>
 
-                        <a href="{{ url_for('etapa3') }}#componentes">
+                        <a href="{{ url_for('etapa3') }}#global">
                             <span>03</span>
                             <div>
-                                <strong>Componentes utilizados</strong>
-                                <small>Configuración y función</small>
+                                <strong>Tratamiento global</strong>
+                                <small>Preparación de Global_Ciudades</small>
                             </div>
                         </a>
 
-                        <a href="{{ url_for('etapa3') }}#tratamiento">
+                        <a href="{{ url_for('etapa3') }}#nacional">
                             <span>04</span>
                             <div>
-                                <strong>Tratamiento de registros</strong>
-                                <small>Reglas para los problemas detectados</small>
+                                <strong>Tratamiento nacional</strong>
+                                <small>Clasificación de periodos en Colombia</small>
                             </div>
                         </a>
 
-                        <a href="{{ url_for('etapa3') }}#iteraciones">
+                        <a href="{{ url_for('etapa3') }}#regional">
                             <span>05</span>
                             <div>
-                                <strong>Iteraciones del proceso</strong>
-                                <small>Resultados, ajustes y conteos</small>
-                            </div>
-                        </a>
-
-                        <a href="{{ url_for('etapa3') }}#comparacion">
-                            <span>06</span>
-                            <div>
-                                <strong>Comparación de calidad</strong>
-                                <small>Indicadores y mejoras obtenidas</small>
+                                <strong>Tratamiento regional</strong>
+                                <small>Clasificación para Sabana Centro</small>
                             </div>
                         </a>
 
                         <a href="{{ url_for('etapa3') }}#recursos">
-                            <span>07</span>
+                            <span>06</span>
                             <div>
-                                <strong>Informe y demostración</strong>
-                                <small>Recursos disponibles del proyecto</small>
+                                <strong>Demostración en video</strong>
+                                <small>Recorrido audiovisual del paquete</small>
                             </div>
                         </a>
                     </div>
@@ -156,157 +148,143 @@
         <section class="page-header">
             <span class="section-label">ETAPA 3</span>
             <h1>Tratamiento de <span>Datos</span></h1>
+            <p>Implementación en SSIS del proceso de preparación de las tablas Global_Ciudades, Nacional_Colombia y Regional_SabanaCentro para el análisis del crecimiento urbano y la transformación del suelo.</p>
         </section>
 
-        <section class="section-block" id="reglas">
+        <section class="section-block" id="flujo-control">
             <div class="section-header">
                 <span class="section-number">01</span>
                 <div>
-                    <span class="section-label">DIAGNÓSTICO Y DECISIONES</span>
-                    <h2>Reglas de tratamiento</h2>
+                    <span class="section-label">ORQUESTACIÓN DEL PROCESO</span>
+                    <h2>Flujo de control</h2>
                 </div>
             </div>
-            <div class="heading-grid">
-                <h3>Campo afectado</h3>
-                <h3>Acción que se realizará</h3>
-                <h3>Justificación</h3>
+            <p class="section-intro">El paquete organiza la preparación de los datos en cuatro tareas consecutivas: primero conserva una copia de trabajo y luego ejecuta los tratamientos global, nacional y regional.</p>
+            <p class="capture-description">La captura presenta el orden de ejecución del paquete SSIS y la conexión entre sus cuatro tareas principales.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/flujo-control.png') }}" alt="Flujo de control del paquete SSIS">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/flujo-control.png</code></p>
             </div>
         </section>
 
-        <section class="section-block" id="ssis">
+        <section class="section-block" id="staging">
             <div class="section-header">
                 <span class="section-number">02</span>
                 <div>
-                    <span class="section-label">INTEGRACIÓN DE DATOS</span>
-                    <h2>Paquete SSIS</h2>
+                    <span class="section-label">COPIA DE TRABAJO</span>
+                    <h2>Carga a staging</h2>
                 </div>
             </div>
-            <div class="heading-grid">
-                <h3>Extracción</h3>
-                <h3>Transformación</h3>
-                <h3>Carga</h3>
-                <h3>Zona de staging</h3>
-                <h3>Trazabilidad y repetibilidad</h3>
+            <p class="section-intro">La tarea Staging-carga_cruda transfiere las tres tablas desde sus archivos de origen hacia el espacio de staging. Esta etapa conserva una copia de trabajo previa a las transformaciones.</p>
+            <p class="capture-description">Se muestran los tres flujos de origen y sus destinos de staging: Global_Ciudades, Nacional_Colombia y Regional_SabanaCentro.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/staging-carga-cruda.png') }}" alt="Flujos de carga cruda hacia staging">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/staging-carga-cruda.png</code></p>
             </div>
         </section>
 
-        <section class="section-block" id="componentes">
+        <section class="section-block" id="global">
             <div class="section-header">
                 <span class="section-number">03</span>
                 <div>
-                    <span class="section-label">FLUJO DE TRANSFORMACIÓN</span>
-                    <h2>Componentes utilizados</h2>
+                    <span class="section-label">ESCALA GLOBAL</span>
+                    <h2>Tratamiento de Global_Ciudades</h2>
                 </div>
             </div>
-            <div class="heading-grid component-headings">
-                <h3>Derived Column</h3>
-                <h3>Data Conversion</h3>
-                <h3>Lookup</h3>
-                <h3>Conditional Split</h3>
-                <h3>Sort</h3>
-                <h3>Configuración y función</h3>
+            <p class="section-intro">El flujo parte de Global_Ciudades, controla duplicados y prepara fechas, valores numéricos y porcentajes mediante componentes de transformación y conversión. Al final incorpora la vigencia de los datos y carga la tabla tratada.</p>
+            <p class="capture-description">La imagen permite seguir la secuencia de componentes desde la entrada hasta la salida Global_Ciudades.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-global-ciudades.png') }}" alt="Flujo de tratamiento de Global_Ciudades">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-global-ciudades.png</code></p>
             </div>
         </section>
 
-        <section class="section-block" id="tratamiento">
+        <section class="section-block" id="nacional">
             <div class="section-header">
                 <span class="section-number">04</span>
                 <div>
-                    <span class="section-label">REGLAS DE CALIDAD</span>
-                    <h2>Tratamiento de registros</h2>
+                    <span class="section-label">ESCALA NACIONAL</span>
+                    <h2>Tratamiento de Nacional_Colombia</h2>
                 </div>
             </div>
-            <div class="heading-grid">
-                <h3>Valores nulos</h3>
-                <h3>Registros duplicados</h3>
-                <h3>Formatos inconsistentes</h3>
-                <h3>Valores inválidos</h3>
-                <h3>Valores atípicos</h3>
-                <h3>Registros enviados a revisión</h3>
-                <h3>Valor original y motivo</h3>
+            <p class="section-intro">La tabla nacional pasa por la creación de columnas y la conversión de tipos. Después, Multicast deriva el flujo hacia la salida principal y hacia una clasificación por periodo: Anual, Quinquenal, Decenal, Periodo Completo y Otro.</p>
+            <p class="capture-description">La captura muestra el flujo nacional y las cinco salidas del Conditional Split según el periodo.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-nacional.png') }}" alt="Flujo de tratamiento de Nacional_Colombia">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-nacional.png</code></p>
             </div>
         </section>
 
-        <section class="section-block" id="iteraciones">
+        <section class="section-block" id="regional">
             <div class="section-header">
                 <span class="section-number">05</span>
                 <div>
-                    <span class="section-label">EJECUCIÓN Y AJUSTES</span>
-                    <h2>Iteraciones del proceso</h2>
+                    <span class="section-label">ESCALA REGIONAL</span>
+                    <h2>Tratamiento de Regional_SabanaCentro</h2>
                 </div>
             </div>
-            <div class="iteration-grid">
-                <article class="iteration-card">
-                    <span class="iteration-number">01</span>
-                    <h3>Iteración 1</h3>
-                    <h4>Reglas aplicadas</h4>
-                    <h4>Resultados</h4>
-                    <h4>Conteos de registros</h4>
-                    <h4>Hallazgos y ajustes</h4>
-                </article>
-                <article class="iteration-card">
-                    <span class="iteration-number">02</span>
-                    <h3>Iteración 2</h3>
-                    <h4>Reglas aplicadas</h4>
-                    <h4>Resultados</h4>
-                    <h4>Conteos de registros</h4>
-                    <h4>Hallazgos y ajustes</h4>
-                </article>
-                <article class="iteration-card">
-                    <span class="iteration-number">03</span>
-                    <h3>Iteración 3</h3>
-                    <h4>Reglas aplicadas</h4>
-                    <h4>Resultados</h4>
-                    <h4>Conteos de registros</h4>
-                    <h4>Hallazgos y ajustes</h4>
-                </article>
-            </div>
-            <div class="heading-grid count-headings">
-                <h3>Registros recibidos</h3>
-                <h3>Registros aceptados</h3>
-                <h3>Registros duplicados</h3>
-                <h3>Registros enviados a revisión</h3>
-                <h3>Control de pérdidas de información</h3>
-            </div>
-        </section>
-
-        <section class="section-block" id="comparacion">
-            <div class="section-header">
-                <span class="section-number">06</span>
-                <div>
-                    <span class="section-label">EVALUACIÓN DE RESULTADOS</span>
-                    <h2>Comparación de calidad</h2>
-                </div>
-            </div>
-            <div class="heading-grid">
-                <h3>Datos originales</h3>
-                <h3>Resultado de la iteración 1</h3>
-                <h3>Resultado de la iteración 2</h3>
-                <h3>Resultado de la iteración 3</h3>
-                <h3>Indicadores de calidad</h3>
-                <h3>Ejemplos concretos</h3>
-                <h3>Mejoras obtenidas</h3>
-                <h3>Problemas pendientes</h3>
-                <h3>Reejecución del mismo lote</h3>
-                <h3>Verificación de duplicados</h3>
+            <p class="section-intro">El flujo regional aplica la misma estructura de preparación y clasificación por periodos a la información de Sabana Centro. Mantiene una salida general y distribuye los registros entre las cinco categorías temporales.</p>
+            <p class="capture-description">La imagen muestra el procesamiento de Regional_SabanaCentro, su destino Excel y las salidas por tipo de periodo.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-regional.png') }}" alt="Flujo de tratamiento de Regional_SabanaCentro">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-regional.png</code></p>
             </div>
         </section>
 
         <section class="section-block" id="recursos">
             <div class="section-header">
-                <span class="section-number">07</span>
+                <span class="section-number">06</span>
                 <div>
-                    <span class="section-label">RECURSOS DEL PROYECTO</span>
-                    <h2>Informe y demostración</h2>
+                    <span class="section-label">RECURSO AUDIOVISUAL</span>
+                    <h2>Demostración del proceso</h2>
                 </div>
             </div>
-            <div class="heading-grid resource-headings">
-                <h3>Informe técnico paso a paso</h3>
-                <h3>Video de demostración</h3>
-                <h3>Resultados de las iteraciones</h3>
-                <h3>Comparación final</h3>
+            <p class="section-intro">Demostración en video del paquete SSIS y de los flujos aplicados a las tres escalas del análisis.</p>
+            <div class="video-wrapper" id="video-wrapper" hidden>
+                <iframe id="video-preview" title="Video de demostración del tratamiento de datos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+            <p class="video-placeholder" id="video-placeholder">Video pendiente: agrega la URL en la constante <code>demoVideoUrl</code> al final de este archivo.</p>
         </section>
+
+    <script>
+        document.querySelectorAll('.capture-preview').forEach((image) => {
+            const placeholder = image.nextElementSibling;
+            const showPlaceholder = () => {
+                image.hidden = true;
+                placeholder.hidden = false;
+            };
+
+            image.addEventListener('load', () => {
+                image.hidden = false;
+                placeholder.hidden = true;
+            });
+            image.addEventListener('error', showPlaceholder);
+
+            if (image.complete && image.naturalWidth === 0) showPlaceholder();
+        });
+
+        // Reemplaza esta URL por el enlace público de YouTube o Vimeo.
+        const demoVideoUrl = 'https://youtu.be/Qmy1fnkVcxk';
+        if (demoVideoUrl) {
+            const videoUrl = new URL(demoVideoUrl);
+            let embedUrl = '';
+            if (videoUrl.hostname === 'youtu.be' || videoUrl.hostname.endsWith('youtube.com')) {
+                const videoId = videoUrl.hostname === 'youtu.be'
+                    ? videoUrl.pathname.slice(1)
+                    : videoUrl.searchParams.get('v') || videoUrl.pathname.split('/').filter(Boolean).pop();
+                if (videoId) embedUrl = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+            } else if (videoUrl.hostname.endsWith('vimeo.com')) {
+                const videoId = videoUrl.pathname.split('/').filter(Boolean).pop();
+                if (videoId && /^\d+$/.test(videoId)) embedUrl = `https://player.vimeo.com/video/${videoId}`;
+            }
+
+            if (embedUrl) {
+                document.getElementById('video-preview').src = embedUrl;
+                document.getElementById('video-wrapper').hidden = false;
+                document.getElementById('video-placeholder').hidden = true;
+            }
+        }
+    </script>
     </main>
 
     <footer>
