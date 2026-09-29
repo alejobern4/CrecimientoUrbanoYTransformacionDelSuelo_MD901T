@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Etapa 3 | Tratamiento de Datos</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa3.css') }}">
+</head>
+
+<body>
+
+    <div class="map-background"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-symbol">⌂</span>
+                TERRITORIO
+            </a>
+
+            <nav class="main-nav">
+                <a href="{{ url_for('home') }}" class="nav-link">
+                    <span class="nav-number">00</span>
+                    Inicio
+                </a>
+
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                        <span class="nav-number">01</span>
+                        Explorar proyecto
+                        <span class="arrow">+</span>
+                    </a>
+
+                    <div class="explore-panel">
+                        <div class="panel-header">
+                            <span>RECORRIDO DEL ANÁLISIS</span>
+                            <small>ETAPA 01</small>
+                        </div>
+                        <a href="{{ url_for('etapa1') }}#problema"><span>01</span><div><strong>Problema y contexto</strong><small>El territorio bajo análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#preguntas"><span>02</span><div><strong>Preguntas de investigación</strong><small>Lo que buscamos comprender</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#necesidades"><span>03</span><div><strong>Necesidades de información</strong><small>Datos necesarios para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#fuentes"><span>04</span><div><strong>Fuentes de datos</strong><small>De dónde proviene la información</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#dataset"><span>05</span><div><strong>Dataset</strong><small>Los datos del territorio</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#diccionario"><span>06</span><div><strong>Diccionario de datos</strong><small>Qué representa cada variable</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#calidad"><span>07</span><div><strong>Calidad de los datos</strong><small>Revisión inicial</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#limitaciones"><span>08</span><div><strong>Limitaciones</strong><small>Consideraciones del análisis</small></div></a>
+                    </div>
+                </div>
+
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa2') }}" class="nav-link explore-button">
+                        <span class="nav-number">02</span>
+                        Calidad de datos
+                        <span class="arrow">+</span>
+                    </a>
+
+                    <div class="explore-panel">
+                        <div class="panel-header">
+                            <span>RECORRIDO DEL ANÁLISIS</span>
+                            <small>ETAPA 02</small>
+                        </div>
+                        <a href="{{ url_for('etapa2') }}#resumen"><span>01</span><div><strong>Resumen del dataset</strong><small>Estado general de los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#proposito"><span>02</span><div><strong>Propósito y estructura</strong><small>Qué contienen los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#requisitos"><span>03</span><div><strong>Requisitos de calidad</strong><small>Qué deben cumplir los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#perfilamiento"><span>04</span><div><strong>Perfilamiento</strong><small>Exploración y diagnóstico</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#dimensiones"><span>05</span><div><strong>Dimensiones de calidad</strong><small>Cómo se evalúan los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#problemas"><span>06</span><div><strong>Problemas detectados</strong><small>Errores y situaciones encontradas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#causas"><span>07</span><div><strong>Causas</strong><small>Origen de los problemas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#integracion"><span>08</span><div><strong>Integración de datos</strong><small>Preparación para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#tratamiento"><span>09</span><div><strong>Plan de tratamiento</strong><small>Acciones para mejorar los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#comparacion"><span>10</span><div><strong>Antes y después</strong><small>Cambios aplicados al dataset</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#resumen-calidad"><span>11</span><div><strong>Resumen de calidad</strong><small>Resultado de la evaluación</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#referencias"><span>12</span><div><strong>Referencias</strong><small>Bibliografía y fuentes consultadas</small></div></a>
+                    </div>
+                </div>
+
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa3') }}" class="nav-link active explore-button">
+                        <span class="nav-number">03</span>
+                        Tratamiento de datos
+                        <span class="arrow">+</span>
+                    </a>
+
+                    <div class="explore-panel">
+                        <div class="panel-header">
+                            <span>RECORRIDO DEL ANÁLISIS</span>
+                            <small>ETAPA 03</small>
+                        </div>
+
+                        <a href="{{ url_for('etapa3') }}#flujo-control">
+                            <span>01</span>
+                            <div>
+                                <strong>Flujo de control</strong>
+                                <small>Secuencia general del paquete SSIS</small>
+                            </div>
+                        </a>
+
+                        <a href="{{ url_for('etapa3') }}#staging">
+                            <span>02</span>
+                            <div>
+                                <strong>Carga a staging</strong>
+                                <small>Copias de trabajo sin transformar</small>
+                            </div>
+                        </a>
+
+                        <a href="{{ url_for('etapa3') }}#global">
+                            <span>03</span>
+                            <div>
+                                <strong>Tratamiento global</strong>
+                                <small>Preparación de Global_Ciudades</small>
+                            </div>
+                        </a>
+
+                        <a href="{{ url_for('etapa3') }}#nacional">
+                            <span>04</span>
+                            <div>
+                                <strong>Tratamiento nacional</strong>
+                                <small>Clasificación de periodos en Colombia</small>
+                            </div>
+                        </a>
+
+                        <a href="{{ url_for('etapa3') }}#regional">
+                            <span>05</span>
+                            <div>
+                                <strong>Tratamiento regional</strong>
+                                <small>Clasificación para Sabana Centro</small>
+                            </div>
+                        </a>
+
+                        <a href="{{ url_for('etapa3') }}#recursos">
+                            <span>06</span>
+                            <div>
+                                <strong>Demostración en video</strong>
+                                <small>Recorrido audiovisual del paquete</small>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content stage-three-content">
+        <section class="page-header">
+            <span class="section-label">ETAPA 3</span>
+            <h1>Tratamiento de <span>Datos</span></h1>
+            <p>Implementación en SSIS del proceso de preparación de las tablas Global_Ciudades, Nacional_Colombia y Regional_SabanaCentro para el análisis del crecimiento urbano y la transformación del suelo.</p>
+        </section>
+
+        <section class="section-block" id="flujo-control">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <span class="section-label">ORQUESTACIÓN DEL PROCESO</span>
+                    <h2>Flujo de control</h2>
+                </div>
+            </div>
+            <p class="section-intro">El paquete organiza la preparación de los datos en cuatro tareas consecutivas: primero conserva una copia de trabajo y luego ejecuta los tratamientos global, nacional y regional.</p>
+            <p class="capture-description">La captura presenta el orden de ejecución del paquete SSIS y la conexión entre sus cuatro tareas principales.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/flujo-control.png') }}" alt="Flujo de control del paquete SSIS">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/flujo-control.png</code></p>
+            </div>
+        </section>
+
+        <section class="section-block" id="staging">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <span class="section-label">COPIA DE TRABAJO</span>
+                    <h2>Carga a staging</h2>
+                </div>
+            </div>
+            <p class="section-intro">La tarea Staging-carga_cruda transfiere las tres tablas desde sus archivos de origen hacia el espacio de staging. Esta etapa conserva una copia de trabajo previa a las transformaciones.</p>
+            <p class="capture-description">Se muestran los tres flujos de origen y sus destinos de staging: Global_Ciudades, Nacional_Colombia y Regional_SabanaCentro.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/staging-carga-cruda.png') }}" alt="Flujos de carga cruda hacia staging">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/staging-carga-cruda.png</code></p>
+            </div>
+        </section>
+
+        <section class="section-block" id="global">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <span class="section-label">ESCALA GLOBAL</span>
+                    <h2>Tratamiento de Global_Ciudades</h2>
+                </div>
+            </div>
+            <p class="section-intro">El flujo parte de Global_Ciudades, controla duplicados y prepara fechas, valores numéricos y porcentajes mediante componentes de transformación y conversión. Al final incorpora la vigencia de los datos y carga la tabla tratada.</p>
+            <p class="capture-description">La imagen permite seguir la secuencia de componentes desde la entrada hasta la salida Global_Ciudades.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-global-ciudades.png') }}" alt="Flujo de tratamiento de Global_Ciudades">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-global-ciudades.png</code></p>
+            </div>
+        </section>
+
+        <section class="section-block" id="nacional">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div>
+                    <span class="section-label">ESCALA NACIONAL</span>
+                    <h2>Tratamiento de Nacional_Colombia</h2>
+                </div>
+            </div>
+            <p class="section-intro">La tabla nacional pasa por la creación de columnas y la conversión de tipos. Después, Multicast deriva el flujo hacia la salida principal y hacia una clasificación por periodo: Anual, Quinquenal, Decenal, Periodo Completo y Otro.</p>
+            <p class="capture-description">La captura muestra el flujo nacional y las cinco salidas del Conditional Split según el periodo.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-nacional.png') }}" alt="Flujo de tratamiento de Nacional_Colombia">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-nacional.png</code></p>
+            </div>
+        </section>
+
+        <section class="section-block" id="regional">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <div>
+                    <span class="section-label">ESCALA REGIONAL</span>
+                    <h2>Tratamiento de Regional_SabanaCentro</h2>
+                </div>
+            </div>
+            <p class="section-intro">El flujo regional aplica la misma estructura de preparación y clasificación por periodos a la información de Sabana Centro. Mantiene una salida general y distribuye los registros entre las cinco categorías temporales.</p>
+            <p class="capture-description">La imagen muestra el procesamiento de Regional_SabanaCentro, su destino Excel y las salidas por tipo de periodo.</p>
+            <div class="capture-frame">
+                <img class="capture-preview" src="{{ url_for('static', filename='images/tratamiento-regional.png') }}" alt="Flujo de tratamiento de Regional_SabanaCentro">
+                <p class="capture-placeholder" hidden>Captura pendiente: <code>static/images/tratamiento-regional.png</code></p>
+            </div>
+        </section>
+
+        <section class="section-block" id="recursos">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <div>
+                    <span class="section-label">RECURSO AUDIOVISUAL</span>
+                    <h2>Demostración del proceso</h2>
+                </div>
+            </div>
+            <p class="section-intro">Demostración en video del paquete SSIS y de los flujos aplicados a las tres escalas del análisis.</p>
+            <div class="video-wrapper" id="video-wrapper" hidden>
+                <iframe id="video-preview" title="Video de demostración del tratamiento de datos" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p class="video-placeholder" id="video-placeholder">Video pendiente: agrega la URL en la constante <code>demoVideoUrl</code> al final de este archivo.</p>
+        </section>
+
+    <script>
+        document.querySelectorAll('.capture-preview').forEach((image) => {
+            const placeholder = image.nextElementSibling;
+            const showPlaceholder = () => {
+                image.hidden = true;
+                placeholder.hidden = false;
+            };
+
+            image.addEventListener('load', () => {
+                image.hidden = false;
+                placeholder.hidden = true;
+            });
+            image.addEventListener('error', showPlaceholder);
+
+            if (image.complete && image.naturalWidth === 0) showPlaceholder();
+        });
+
+        // Reemplaza esta URL por el enlace público de YouTube o Vimeo.
+        const demoVideoUrl = 'https://youtu.be/Qmy1fnkVcxk';
+        if (demoVideoUrl) {
+            const videoUrl = new URL(demoVideoUrl);
+            let embedUrl = '';
+            if (videoUrl.hostname === 'youtu.be' || videoUrl.hostname.endsWith('youtube.com')) {
+                const videoId = videoUrl.hostname === 'youtu.be'
+                    ? videoUrl.pathname.slice(1)
+                    : videoUrl.searchParams.get('v') || videoUrl.pathname.split('/').filter(Boolean).pop();
+                if (videoId) embedUrl = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+            } else if (videoUrl.hostname.endsWith('vimeo.com')) {
+                const videoId = videoUrl.pathname.split('/').filter(Boolean).pop();
+                if (videoId && /^\d+$/.test(videoId)) embedUrl = `https://player.vimeo.com/video/${videoId}`;
+            }
+
+            if (embedUrl) {
+                document.getElementById('video-preview').src = embedUrl;
+                document.getElementById('video-wrapper').hidden = false;
+                document.getElementById('video-placeholder').hidden = true;
+            }
+        }
+    </script>
+    </main>
+
+    <footer>
+        <p>PROYECTO DE ANÁLISIS TERRITORIAL · ETAPA 3</p>
+    </footer>
+
+</body>
+
+</html>
