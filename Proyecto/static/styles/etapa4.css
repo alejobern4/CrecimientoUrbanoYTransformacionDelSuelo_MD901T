@@ -51,6 +51,20 @@
     min-height: 190px;
 }
 
+.analysis-card,
+.metric-card,
+.chart-card {
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.analysis-card:hover,
+.metric-card:hover,
+.chart-card:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 10px 12px 25px rgba(31, 72, 85, 0.08);
+}
+
 .analysis-card p,
 .analysis-card li,
 .metric-card p,
@@ -97,11 +111,23 @@
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
+    transition: color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
 }
 
 .dashboard-index a:hover {
     color: var(--white);
     background: var(--blue);
+    transform: translateY(-3px);
+}
+
+.navbar .explore-menu:focus-within .explore-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.navbar .explore-menu:focus-within .arrow {
+    transform: rotate(45deg);
 }
 
 .dashboard-page {
@@ -182,33 +208,19 @@
     color: var(--dark);
 }
 
-.powerbi-placeholder {
-    display: flex;
-    min-height: 250px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.powerbi-embed {
+    height: clamp(520px, 75vh, 900px);
     margin-top: 20px;
-    padding: 28px;
-    text-align: center;
-    background:
-        linear-gradient(rgba(31, 72, 85, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(31, 72, 85, 0.035) 1px, transparent 1px),
-        rgba(255, 255, 255, 0.55);
-    background-size: 24px 24px;
-    border: 2px dashed rgba(31, 72, 85, 0.32);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid #dce1db;
 }
 
-.powerbi-placeholder strong {
-    color: var(--dark);
-    font-size: 20px;
-}
-
-.powerbi-placeholder p {
-    max-width: 620px;
-    margin-top: 8px;
-    color: var(--muted);
-    font-size: 14px;
+.powerbi-embed iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .measure-reference {
@@ -223,6 +235,14 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: 800;
+}
+
+.measure-reference summary::marker {
+    color: var(--orange);
+}
+
+.measure-reference[open] summary {
+    border-bottom: 1px solid #dce1db;
 }
 
 .table-scroll {
@@ -264,6 +284,22 @@
     overflow-wrap: anywhere;
     color: var(--blue);
     font-size: 0.92em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .analysis-card,
+    .metric-card,
+    .chart-card,
+    .dashboard-index a {
+        transition: none;
+    }
+
+    .analysis-card:hover,
+    .metric-card:hover,
+    .chart-card:hover,
+    .dashboard-index a:hover {
+        transform: none;
+    }
 }
 
 @media (max-width: 900px) {

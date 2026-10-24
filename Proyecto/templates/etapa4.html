@@ -23,22 +23,78 @@
                     <span class="nav-number">00</span>
                     Inicio
                 </a>
-                <a href="{{ url_for('etapa1') }}" class="nav-link">
-                    <span class="nav-number">01</span>
-                    Explorar proyecto
-                </a>
-                <a href="{{ url_for('etapa2') }}" class="nav-link">
-                    <span class="nav-number">02</span>
-                    Calidad de datos
-                </a>
-                <a href="{{ url_for('etapa3') }}" class="nav-link">
-                    <span class="nav-number">03</span>
-                    Tratamiento de datos
-                </a>
-                <a href="{{ url_for('etapa4') }}" class="nav-link active">
-                    <span class="nav-number">04</span>
-                    Análisis Power BI
-                </a>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                        <span class="nav-number">01</span>
+                        Explorar proyecto
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 01</small></div>
+                        <a href="{{ url_for('etapa1') }}#problema"><span>01</span><div><strong>Problema y contexto</strong><small>El territorio bajo análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#preguntas"><span>02</span><div><strong>Preguntas de investigación</strong><small>Lo que buscamos comprender</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#necesidades"><span>03</span><div><strong>Necesidades de información</strong><small>Datos necesarios para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#fuentes"><span>04</span><div><strong>Fuentes de datos</strong><small>De dónde proviene la información</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#dataset"><span>05</span><div><strong>Dataset</strong><small>Los datos del territorio</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#diccionario"><span>06</span><div><strong>Diccionario de datos</strong><small>Qué representa cada variable</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#calidad"><span>07</span><div><strong>Calidad de los datos</strong><small>Revisión inicial</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#limitaciones"><span>08</span><div><strong>Limitaciones</strong><small>Consideraciones del análisis</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa2') }}" class="nav-link explore-button">
+                        <span class="nav-number">02</span>
+                        Calidad de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 02</small></div>
+                        <a href="{{ url_for('etapa2') }}#resumen"><span>01</span><div><strong>Resumen del dataset</strong><small>Estado general de los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#proposito"><span>02</span><div><strong>Propósito y estructura</strong><small>Qué contienen los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#requisitos"><span>03</span><div><strong>Requisitos de calidad</strong><small>Qué deben cumplir los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#perfilamiento"><span>04</span><div><strong>Perfilamiento</strong><small>Exploración y diagnóstico</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#dimensiones"><span>05</span><div><strong>Dimensiones de calidad</strong><small>Cómo se evalúan los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#problemas"><span>06</span><div><strong>Problemas detectados</strong><small>Errores y situaciones encontradas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#causas"><span>07</span><div><strong>Causas</strong><small>Origen de los problemas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#integracion"><span>08</span><div><strong>Integración de datos</strong><small>Preparación para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#tratamiento"><span>09</span><div><strong>Plan de tratamiento</strong><small>Acciones para mejorar los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#comparacion"><span>10</span><div><strong>Antes y después</strong><small>Cambios aplicados al dataset</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#resumen-calidad"><span>11</span><div><strong>Resumen de calidad</strong><small>Resultado de la evaluación</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#referencias"><span>12</span><div><strong>Referencias</strong><small>Fuentes consultadas</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa3') }}" class="nav-link explore-button">
+                        <span class="nav-number">03</span>
+                        Tratamiento de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 03</small></div>
+                        <a href="{{ url_for('etapa3') }}#flujo-control"><span>01</span><div><strong>Flujo de control</strong><small>Secuencia del paquete SSIS</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#staging"><span>02</span><div><strong>Carga a staging</strong><small>Copias de trabajo</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#global"><span>03</span><div><strong>Tratamiento global</strong><small>Preparación de Global_Ciudades</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#nacional"><span>04</span><div><strong>Tratamiento nacional</strong><small>Clasificación de periodos en Colombia</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#regional"><span>05</span><div><strong>Tratamiento regional</strong><small>Clasificación para Sabana Centro</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#recursos"><span>06</span><div><strong>Demostración en video</strong><small>Recorrido audiovisual del paquete</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa4') }}" class="nav-link active explore-button" aria-current="page">
+                        <span class="nav-number">04</span>
+                        Análisis Power BI
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 04</small></div>
+                        <a href="#base-analisis"><span>00</span><div><strong>Datos y modelo</strong><small>Alcance y controles</small></div></a>
+                        <a href="#informe-powerbi"><span>01</span><div><strong>Informe interactivo</strong><small>Tablero de Power BI</small></div></a>
+                        <a href="#tablero-1"><span>02</span><div><strong>Composición</strong><small>Coberturas 1985–2024</small></div></a>
+                        <a href="#tablero-2"><span>03</span><div><strong>Comparación municipal</strong><small>Los 11 municipios</small></div></a>
+                        <a href="#tablero-3"><span>04</span><div><strong>Evolución temporal</strong><small>Ganancia urbana anual</small></div></a>
+                        <a href="#tablero-4"><span>05</span><div><strong>Análisis multivariado</strong><small>Orígenes y casos inusuales</small></div></a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -116,11 +172,32 @@
         </section>
 
         <nav class="dashboard-index" aria-label="Páginas de análisis">
+            <a href="#informe-powerbi">Informe interactivo</a>
             <a href="#tablero-1">01 · Composición</a>
             <a href="#tablero-2">02 · Municipios</a>
             <a href="#tablero-3">03 · Tiempo</a>
             <a href="#tablero-4">04 · Orígenes y casos</a>
         </nav>
+
+        <section class="dashboard-page" id="informe-powerbi">
+            <div class="section-header">
+                <span class="section-number">BI</span>
+                <div>
+                    <span class="section-label">INFORME INTERACTIVO</span>
+                    <h2>Explora el tablero de Power BI</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">Usa las pestañas del informe para cambiar entre sus páginas y los controles del propio tablero para filtrar los datos.</p>
+            <div class="powerbi-embed">
+                <iframe
+                    title="Etapa 4 - Cobertura del suelo en Sabana Centro"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiZjc1YzI2NmEtNjBlYy00ZWY2LTg3ODUtM2E1MDdlNzNiZjZhIiwidCI6IjA3ZGE2N2EwLTFmNDMtNGU4Yy05NzdmLTVmODhiNjQ3MGVlNiIsImMiOjR9&amp;pageName=ecdc5ea3544897860479"
+                    allowfullscreen="true"
+                    loading="lazy">
+                </iframe>
+            </div>
+            <p class="decision-note"><strong>Nota de privacidad:</strong> el informe se publicó en modo público. Cualquier persona que acceda a esta página podrá ver el tablero y compartir su enlace.</p>
+        </section>
 
         <section class="dashboard-page" id="tablero-1">
             <div class="section-header">
@@ -151,11 +228,6 @@
                 </ul>
             </div>
             <p class="decision-note"><strong>Limitación:</strong> la clasificación representa cobertura detectada por imagen, no uso ni propiedad del suelo. La comparación nacional incluye selvas sin equivalente en Sabana Centro.</p>
-            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero de composición en Power BI">
-                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 1 DE 4</span>
-                <strong>Composición del suelo, 1985–2024</strong>
-                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 1 del archivo .pbix.</p>
-            </div>
         </section>
 
         <section class="dashboard-page" id="tablero-2">
@@ -188,11 +260,6 @@
                 </ul>
             </div>
             <p class="decision-note"><strong>Limitación:</strong> los datos no incluyen población ni densidad. La clasificación Alta/Baja se asignó manualmente y una asociación no demuestra causalidad.</p>
-            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero territorial en Power BI">
-                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 2 DE 4</span>
-                <strong>Comparación de los 11 municipios</strong>
-                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 2 del archivo .pbix.</p>
-            </div>
         </section>
 
         <section class="dashboard-page" id="tablero-3">
@@ -225,11 +292,6 @@
                 </ul>
             </div>
             <p class="decision-note"><strong>Limitación:</strong> las cifras anuales son hectáreas-transición, no áreas únicas; una misma hectárea puede cambiar más de una vez. La pérdida de 2024 es inusual y los picos de 2022 y 2024 deben verificarse con la fuente, pero no se consideran errores por defecto.</p>
-            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero temporal en Power BI">
-                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 3 DE 4</span>
-                <strong>Ritmo anual de conversión urbana</strong>
-                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 3 del archivo .pbix.</p>
-            </div>
         </section>
 
         <section class="dashboard-page" id="tablero-4">
@@ -262,11 +324,6 @@
                 </ul>
             </div>
             <p class="decision-note"><strong>Limitación:</strong> el análisis no capta cambios en cadena: una hectárea puede cambiar varias veces. «Atípica» significa de gran magnitud, no equivocada; los casos deben leerse como alertas de revisión.</p>
-            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero multivariado en Power BI">
-                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 4 DE 4</span>
-                <strong>Origen de la urbanización y casos inusuales</strong>
-                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 4 del archivo .pbix.</p>
-            </div>
         </section>
     </main>
 
