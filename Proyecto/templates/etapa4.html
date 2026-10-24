@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapa 4 | Análisis en Power BI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa4.css') }}">
+</head>
+
+<body>
+    <div class="map-background"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-symbol">⌂</span>
+                TERRITORIO
+            </a>
+            <nav class="main-nav">
+                <a href="{{ url_for('home') }}" class="nav-link">
+                    <span class="nav-number">00</span>
+                    Inicio
+                </a>
+                <a href="{{ url_for('etapa1') }}" class="nav-link">
+                    <span class="nav-number">01</span>
+                    Explorar proyecto
+                </a>
+                <a href="{{ url_for('etapa2') }}" class="nav-link">
+                    <span class="nav-number">02</span>
+                    Calidad de datos
+                </a>
+                <a href="{{ url_for('etapa3') }}" class="nav-link">
+                    <span class="nav-number">03</span>
+                    Tratamiento de datos
+                </a>
+                <a href="{{ url_for('etapa4') }}" class="nav-link active">
+                    <span class="nav-number">04</span>
+                    Análisis Power BI
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content stage-four-content">
+        <section class="page-header">
+            <span class="section-label">ETAPA 4 · ANÁLISIS</span>
+            <h1>Cobertura del suelo <span>en Sabana Centro</span></h1>
+            <p>Cuatro preguntas de análisis sobre la transformación de la cobertura del suelo en los 11 municipios de Sabana Centro entre 1985 y 2024, con Colombia como referencia. Los resultados se basan en las transiciones anuales de MapBiomas Colombia y se expresan en hectáreas.</p>
+        </section>
+
+        <section class="section-block" id="base-analisis">
+            <div class="section-header">
+                <span class="section-number">00</span>
+                <div>
+                    <span class="section-label">DATOS Y MODELO</span>
+                    <h2>Alcance, preparación en Power BI y verificación</h2>
+                </div>
+            </div>
+
+            <p class="stage-four-intro">El análisis usa exclusivamente las hojas anuales de <strong>DatosTratados1.xlsx</strong>: <code>Regional_SabanaCentro_Anual</code> para los 11 municipios y <code>Nacional_Colombia_Anual</code> para el país. Cada fila representa un área que transita entre una clase de origen y una de destino en un periodo anual; no representa un evento independiente ni una hectárea única a lo largo de todo el periodo.</p>
+
+            <div class="analysis-grid">
+                <article class="analysis-card">
+                    <span class="analysis-label">ARCHIVO Y ALCANCE</span>
+                    <ul>
+                        <li><strong>39 periodos anuales:</strong> 1985–1986 a 2023–2024.</li>
+                        <li><strong>43.836 filas:</strong> 27.144 regionales y 16.692 nacionales.</li>
+                        <li>Área territorial regional: <strong>102.755,1 ha</strong>.</li>
+                    </ul>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">CARGA EN POWER BI</span>
+                    <ul>
+                        <li>Obtener datos → Libro de Excel; seleccionar las dos hojas anuales.</li>
+                        <li>Quitar el paso automático <em>Tipo cambiado</em>.</li>
+                        <li>Convertir <code>area_ha</code> con la cultura <code>en-US</code>: el texto usa punto decimal y otra cultura puede multiplicar el área por aproximadamente 10.000.</li>
+                    </ul>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">MODELO Y FILTROS</span>
+                    <p>Una tabla de hechos <code>Fact_Transiciones</code> reúne ambas hojas y agrega <code>es_cambio</code> (1 si origen y destino difieren). Se relaciona uno a muchos, con filtro en un solo sentido, con <code>Dim_Territorio</code>, <code>Dim_Periodo</code>, <code>Dim_ClaseOrigen</code> y <code>Dim_ClaseDestino</code>.</p>
+                    <p>En las páginas municipales filtrar <code>nivel = Municipio</code>; sin este filtro, el área base sube de 102.755,1 ha a 114.416.493,9 ha al incluir Colombia.</p>
+                </article>
+            </div>
+
+            <div class="filter-line"><strong>Controles del modelo:</strong> área base 102.755,1 ha · urbano 1985: 549,9 ha · urbano 2024: 6.590,0 ha · ganancia urbana: 6.080,2 ha.</div>
+
+            <details class="measure-reference">
+                <summary>Consultar documentación de medidas DAX y controles</summary>
+                <div class="table-scroll">
+                    <table>
+                        <thead>
+                            <tr><th>Medida</th><th>Qué mide</th><th>Fórmula DAX</th><th>Control / resultado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Área base (ha)</td><td>Área territorial; denominador de porcentajes.</td><td><code>CALCULATE(SUM(Fact_Transiciones[area_ha]), REMOVEFILTERS(Dim_Periodo), REMOVEFILTERS(Dim_ClaseOrigen), Dim_Periodo[periodo] = "p1985_1986")</code></td><td>102.755,1</td></tr>
+                            <tr><td>Cobertura 1985 (ha)</td><td>Cobertura inicial, desde la clase de origen del primer periodo.</td><td><code>CALCULATE(SUM(Fact_Transiciones[area_ha]), REMOVEFILTERS(Dim_Periodo), Dim_Periodo[periodo] = "p1985_1986")</code></td><td>102.755,1 en el total</td></tr>
+                            <tr><td>Cobertura 2024 (ha)</td><td>Cobertura final, desde la clase destino del último periodo.</td><td><code>CALCULATE(SUM(Fact_Transiciones[area_ha]), REMOVEFILTERS(Dim_Periodo), REMOVEFILTERS(Dim_ClaseOrigen), Dim_Periodo[periodo] = "p2023_2024", TREATAS(VALUES(Dim_ClaseOrigen[nivel2]), Dim_ClaseDestino[nivel2]))</code></td><td>102.755,1 en el total</td></tr>
+                            <tr><td>% Cobertura 1985 / 2024</td><td>Participación de cada cobertura sobre el área base.</td><td><code>DIVIDE([Cobertura 1985 (ha)], [Área base (ha)])</code> / <code>DIVIDE([Cobertura 2024 (ha)], [Área base (ha)])</code></td><td>Mosaico: 70,6 % → 65,4 %</td></tr>
+                            <tr><td>% Cobertura 2024 Colombia</td><td>Participación nacional como referencia.</td><td><code>CALCULATE([% Cobertura 2024], REMOVEFILTERS(Dim_Territorio), Dim_Territorio[territorio] = "Colombia")</code></td><td>Bosque: 51,0 %</td></tr>
+                            <tr><td>Cambio cobertura (pp)</td><td>Cambio porcentual entre 1985 y 2024, en puntos porcentuales.</td><td><code>([% Cobertura 2024] - [% Cobertura 1985]) * 100</code></td><td>Cota, urbano: +17,6 pp</td></tr>
+                            <tr><td>Urbano 2024 (ha) y % urbano</td><td>Área y participación de infraestructura urbana al final.</td><td><code>CALCULATE([Cobertura 2024 (ha)], REMOVEFILTERS(Dim_ClaseOrigen), Dim_ClaseOrigen[nivel2] = "4.2. Infraestructura urbana")</code> / <code>DIVIDE([Urbano 2024 (ha)], [Área base (ha)])</code></td><td>6.590,0 ha; 6,4 %</td></tr>
+                            <tr><td>Múltiplo urbano</td><td>Crecimiento del área urbana entre 1985 y 2024.</td><td><code>DIVIDE([Urbano 2024 (ha)], [Urbano 1985 (ha)])</code></td><td>12,0 ×</td></tr>
+                            <tr><td>Ganancia / pérdida urbana (ha)</td><td>Transiciones que entran o salen de infraestructura urbana; excluye filas sin cambio.</td><td>Ganancia: <code>CALCULATE(SUM(Fact_Transiciones[area_ha]), Fact_Transiciones[es_cambio] = 1, Dim_ClaseDestino[nivel2] = "4.2. Infraestructura urbana")</code>. Pérdida: la misma expresión con <code>Dim_ClaseOrigen[nivel2] = "4.2. Infraestructura urbana"</code>.</td><td>6.080,2 / 40,0</td></tr>
+                            <tr><td>Ganancia urbana por año</td><td>Ganancia dividida por el número de años seleccionados.</td><td><code>DIVIDE([Ganancia urbana (ha)], DISTINCTCOUNT(Dim_Periodo[anio_fin]))</code></td><td>155,9 ha/año</td></tr>
+                            <tr><td>Año de máxima / mínima ganancia</td><td>Año cuyo valor de ganancia es el máximo o mínimo de la tabla de años.</td><td><code>MAXX(FILTER(t, [g] = MAXX(t, [g])), Dim_Periodo[anio_fin])</code>; <code>t = ADDCOLUMNS(VALUES(Dim_Periodo[anio_fin]), "g", [Ganancia urbana (ha)])</code>. Para el mínimo, usar <code>MINX</code>.</td><td>2022 / 1993</td></tr>
+                            <tr><td>% de ganancia por origen</td><td>Parte de la ganancia urbana atribuible a cada cobertura de origen.</td><td><code>DIVIDE([Ganancia urbana (ha)], CALCULATE([Ganancia urbana (ha)], REMOVEFILTERS(Dim_ClaseOrigen)))</code></td><td>Mosaico 53,6 %; otra área sin vegetación 44,9 %</td></tr>
+                            <tr><td>Ganancia minería / minería 2024</td><td>Transición hacia minería y área minera al cierre.</td><td>Ganancia: suma de <code>area_ha</code> con <code>es_cambio = 1</code> y destino <code>4.3. Minería</code>. Área final: <code>CALCULATE([Cobertura 2024 (ha)], Dim_ClaseOrigen[nivel2] = "4.3. Minería")</code>.</td><td>1.333,5 ha / 947,5 ha</td></tr>
+                            <tr><td>Ganancia urbana atípica (ha) y %</td><td>Ganancia proveniente de transiciones de más de 28,9 ha en un año.</td><td><code>CALCULATE([Ganancia urbana (ha)], Fact_Transiciones[es_atipico_tukey] = 1)</code> / <code>DIVIDE([Ganancia urbana atípica (ha)], [Ganancia urbana (ha)])</code></td><td>1.625,1 ha; 26,7 %</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+        </section>
+
+        <nav class="dashboard-index" aria-label="Páginas de análisis">
+            <a href="#tablero-1">01 · Composición</a>
+            <a href="#tablero-2">02 · Municipios</a>
+            <a href="#tablero-3">03 · Tiempo</a>
+            <a href="#tablero-4">04 · Orígenes y casos</a>
+        </nav>
+
+        <section class="dashboard-page" id="tablero-1">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <span class="section-label">TABLERO 1 · COMPOSICIÓN</span>
+                    <h2>¿Cómo está compuesto el territorio por tipo de cobertura y cómo cambió entre 1985 y 2024, frente a Colombia?</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">La composición se calcula sobre las coberturas al inicio (origen del periodo 1985–1986) y al cierre (destino del periodo 2023–2024). Comparar las 11 municipalidades con Colombia mediante porcentajes del área de cada territorio.</p>
+
+            <div class="metric-grid">
+                <article class="metric-card"><span>01 · MOSAICO AGROPECUARIO</span><strong>70,6 % → 65,4 %</strong><p>Disminución de 5.336 ha entre 1985 y 2024.</p></article>
+                <article class="metric-card"><span>02 · INFRAESTRUCTURA URBANA</span><strong>549,9 → 6.590,0 ha</strong><p>Pasó de 0,5 % a 6,4 % del territorio; se multiplicó por 12.</p></article>
+                <article class="metric-card"><span>03 · CONTRASTE CON COLOMBIA</span><strong>Bosque: 16,4 % / 51,0 %</strong><p>Urbano: 6,4 % en Sabana Centro frente a 0,24 % en Colombia (unas 27 veces).</p></article>
+            </div>
+            <div class="chart-grid">
+                <article class="chart-card"><h3>01 · Composición 1985–2024</h3><p>Barras por cobertura con hectáreas y porcentaje en ambos años. <strong>Lectura:</strong> identifica la cobertura dominante y el cambio de su participación.</p></article>
+                <article class="chart-card"><h3>02 · Comparación con Colombia</h3><p>Barras agrupadas de bosque e infraestructura urbana en Sabana Centro y Colombia. <strong>Lectura:</strong> contrasta participaciones, no superficies absolutas.</p></article>
+                <article class="chart-card"><h3>03 · Cambio en puntos porcentuales</h3><p>Variación de cada clase entre 1985 y 2024. <strong>Lectura:</strong> muestra qué coberturas ganaron o cedieron participación territorial.</p></article>
+            </div>
+            <div class="filter-line"><strong>Segmentadores:</strong> municipio · territorio · clase de cobertura</div>
+            <div class="insight-box">
+                <h3>Hallazgos principales</h3>
+                <ul>
+                    <li>El mosaico agropecuario sigue dominando el territorio, aunque pierde 5.336 ha.</li>
+                    <li>La participación urbana regional es unas 27 veces la nacional.</li>
+                </ul>
+            </div>
+            <p class="decision-note"><strong>Limitación:</strong> la clasificación representa cobertura detectada por imagen, no uso ni propiedad del suelo. La comparación nacional incluye selvas sin equivalente en Sabana Centro.</p>
+            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero de composición en Power BI">
+                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 1 DE 4</span>
+                <strong>Composición del suelo, 1985–2024</strong>
+                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 1 del archivo .pbix.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-page" id="tablero-2">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <span class="section-label">TABLERO 2 · COMPARACIÓN MUNICIPAL</span>
+                    <h2>¿Qué municipios concentran más infraestructura urbana y cuáles han cambiado más desde 1985?</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">Comparar el porcentaje de infraestructura urbana en cada municipio, el área urbana agregada y su crecimiento respecto de 1985. Los valores de concentración se refieren a la distribución del área urbana regional, no al porcentaje urbano dentro de cada municipio.</p>
+
+            <div class="metric-grid">
+                <article class="metric-card"><span>01 · MAYOR PARTICIPACIÓN URBANA</span><strong>Cota · 18,1 %</strong><p>Le siguen Cajicá (17,6 %), Chía (16,6 %) y Tocancipá (13,5 %).</p></article>
+                <article class="metric-card"><span>02 · CONCENTRACIÓN</span><strong>63,7 % del urbano</strong><p>Los cuatro municipios reúnen esta proporción del área urbana y el 25,1 % del territorio.</p></article>
+                <article class="metric-card"><span>03 · CRECIMIENTO RELATIVO</span><strong>Gachancipá ×44</strong><p>Cota creció ×32. Zipaquirá es el municipio más grande, pero su participación urbana es 4,2 %.</p></article>
+            </div>
+            <div class="chart-grid">
+                <article class="chart-card"><h3>01 · Barras por municipio</h3><p>Porcentaje urbano ordenado de mayor a menor y área en hectáreas en el tooltip. <strong>Lectura:</strong> distingue concentración y peso urbano relativo.</p></article>
+                <article class="chart-card"><h3>02 · Área urbana 1985 vs. 2024</h3><p>Columnas agrupadas por municipio y año. <strong>Lectura:</strong> compara el tamaño inicial y final de la infraestructura urbana.</p></article>
+                <article class="chart-card"><h3>03 · Variación municipal</h3><p>Múltiplo de crecimiento urbano por municipio, junto con el cambio en puntos porcentuales. <strong>Lectura:</strong> separa crecimiento relativo de tamaño total.</p></article>
+            </div>
+            <div class="filter-line"><strong>Segmentadores:</strong> municipio · año de referencia · clase de cobertura</div>
+            <div class="insight-box">
+                <h3>Hallazgos principales</h3>
+                <ul>
+                    <li>Cota, Cajicá, Chía y Tocancipá concentran casi dos tercios del área urbana regional.</li>
+                    <li>El mayor crecimiento relativo no corresponde necesariamente a los municipios de mayor tamaño.</li>
+                    <li>El mosaico agropecuario es la cobertura que más cede en 7 de los 11 municipios.</li>
+                </ul>
+            </div>
+            <p class="decision-note"><strong>Limitación:</strong> los datos no incluyen población ni densidad. La clasificación Alta/Baja se asignó manualmente y una asociación no demuestra causalidad.</p>
+            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero territorial en Power BI">
+                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 2 DE 4</span>
+                <strong>Comparación de los 11 municipios</strong>
+                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 2 del archivo .pbix.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-page" id="tablero-3">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <span class="section-label">TABLERO 3 · EVOLUCIÓN TEMPORAL</span>
+                    <h2>¿Cómo ha evolucionado año a año la conversión de suelo hacia infraestructura urbana entre 1986 y 2024?</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">La serie recoge las transiciones de cada periodo anual y permite observar el ritmo de ganancia urbana, además de las salidas de infraestructura urbana. Son hectáreas-transición anuales, no hectáreas únicas acumuladas.</p>
+
+            <div class="metric-grid">
+                <article class="metric-card"><span>01 · GANANCIA ACUMULADA</span><strong>6.080,2 ha</strong><p>Promedio de 155,9 ha/año durante los 39 periodos.</p></article>
+                <article class="metric-card"><span>02 · RITMO RECIENTE</span><strong>228,6 ha/año</strong><p>2016–2024; 4,6 veces el ritmo de 50,1 ha/año en 1986–1995.</p></article>
+                <article class="metric-card"><span>03 · PICO Y MÍNIMO</span><strong>523,8 / 27,1 ha</strong><p>Máximo en 2022; mínimo en 1993. El segundo pico fue 2003 (379,6 ha).</p></article>
+            </div>
+            <div class="chart-grid">
+                <article class="chart-card"><h3>01 · Ganancia urbana anual</h3><p>Columnas de hectáreas que pasan a infraestructura urbana por año, de 1986 a 2024. <strong>Lectura:</strong> marca los picos y cambios de ritmo.</p></article>
+                <article class="chart-card"><h3>02 · Tendencia por bloques</h3><p>Comparación del promedio anual en 1986–1995 y 2016–2024. <strong>Lectura:</strong> muestra el aumento del ritmo; sin 2022, el promedio reciente es 191,7 ha/año.</p></article>
+                <article class="chart-card"><h3>03 · Balance urbano</h3><p>Ganancia y pérdida anual de infraestructura urbana en series diferenciadas. <strong>Lectura:</strong> destaca la pérdida de 2024 y evita ocultarla dentro del saldo neto.</p></article>
+            </div>
+            <div class="filter-line"><strong>Segmentadores:</strong> año · municipio · cobertura de origen/destino</div>
+            <div class="insight-box">
+                <h3>Hallazgos principales</h3>
+                <ul>
+                    <li>La ganancia media sube de 50,1 ha/año (1986–1995) a 228,6 ha/año (2016–2024).</li>
+                    <li>2022 (523,8 ha) y 2003 (379,6 ha) son los años de mayor ganancia; 1993 registra el mínimo (27,1 ha).</li>
+                    <li>En 2024 se perdieron 30,0 ha urbanas: el 75 % de las 40,0 ha perdidas en todo el periodo.</li>
+                </ul>
+            </div>
+            <p class="decision-note"><strong>Limitación:</strong> las cifras anuales son hectáreas-transición, no áreas únicas; una misma hectárea puede cambiar más de una vez. La pérdida de 2024 es inusual y los picos de 2022 y 2024 deben verificarse con la fuente, pero no se consideran errores por defecto.</p>
+            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero temporal en Power BI">
+                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 3 DE 4</span>
+                <strong>Ritmo anual de conversión urbana</strong>
+                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 3 del archivo .pbix.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-page" id="tablero-4">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div>
+                    <span class="section-label">TABLERO 4 · ANÁLISIS MULTIVARIADO</span>
+                    <h2>¿De qué coberturas proviene la nueva infraestructura urbana según municipio y periodo, y qué casos son inusuales?</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">El cruce de municipio, periodo, cobertura de origen y destino explica las rutas de conversión urbana. La marca <code>es_atipico_tukey</code> señala transiciones grandes para revisión, no errores confirmados.</p>
+
+            <div class="metric-grid">
+                <article class="metric-card"><span>01 · ORÍGENES DE GANANCIA URBANA</span><strong>53,6 % · 44,9 %</strong><p>Mosaico agropecuario y otra área sin vegetación, respectivamente; bosque aporta 1,0 %.</p></article>
+                <article class="metric-card"><span>02 · MINERÍA</span><strong>460,7 ha</strong><p>Nemocón concentra esta área minera en 2024: 48,6 % de las 947,5 ha regionales.</p></article>
+                <article class="metric-card"><span>03 · TRANSICIONES ATÍPICAS</span><strong>36 · 1.625,1 ha</strong><p>Superan 28,9 ha en un año y representan el 26,7 % de la ganancia urbana.</p></article>
+            </div>
+            <div class="chart-grid">
+                <article class="chart-card"><h3>01 · Matriz municipio × origen</h3><p>Ganancia urbana por municipio y clase de origen. <strong>Lectura:</strong> Tenjo y Cota destacan por mosaico agropecuario; Tabio, Sopó y Zipaquirá por otra área sin vegetación.</p></article>
+                <article class="chart-card"><h3>02 · Origen de la urbanización</h3><p>Barras apiladas de la ganancia urbana por cobertura de origen y periodo. <strong>Lectura:</strong> compara las rutas que aportan más superficie a la expansión urbana.</p></article>
+                <article class="chart-card"><h3>03 · Casos de gran magnitud</h3><p>Listado o dispersión de transiciones atípicas, con municipio, año y coberturas de origen/destino. <strong>Lectura:</strong> prioriza casos para verificación documental.</p></article>
+            </div>
+            <div class="filter-line"><strong>Segmentadores:</strong> municipio · año · cobertura de origen · cobertura de destino · es_atipico_tukey</div>
+            <div class="insight-box">
+                <h3>Hallazgos principales</h3>
+                <ul>
+                    <li>El origen de la ganancia urbana es principalmente mosaico agropecuario (53,6 %) y otra área sin vegetación (44,9 %); bosque aporta solo 1,0 %.</li>
+                    <li>Los orígenes más frecuentes varían por municipio: Tenjo y Cota sobre mosaico; Tabio, Sopó y Zipaquirá sobre otra área sin vegetación.</li>
+                    <li>Chía (616,7 ha) y Cota (331,3 ha) reúnen las mayores áreas de las transiciones atípicas.</li>
+                </ul>
+            </div>
+            <p class="decision-note"><strong>Limitación:</strong> el análisis no capta cambios en cadena: una hectárea puede cambiar varias veces. «Atípica» significa de gran magnitud, no equivocada; los casos deben leerse como alertas de revisión.</p>
+            <div class="powerbi-placeholder" aria-label="Espacio reservado para el tablero multivariado en Power BI">
+                <span class="placeholder-tag">ESPACIO POWER BI · PÁGINA 4 DE 4</span>
+                <strong>Origen de la urbanización y casos inusuales</strong>
+                <p>Al crear el informe, insertar aquí el vínculo de inserción segura o una captura de la página 4 del archivo .pbix.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>PROYECTO DE ANÁLISIS TERRITORIAL · ETAPA 4</p>
+    </footer>
+</body>
+
+</html>

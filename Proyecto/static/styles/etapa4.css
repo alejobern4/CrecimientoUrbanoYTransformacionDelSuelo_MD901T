@@ -1,0 +1,298 @@
+.stage-four-content {
+    width: min(1180px, calc(100% - 112px));
+    max-width: none;
+    margin-left: max(88px, calc((100vw - 1180px) / 2));
+    margin-right: auto;
+    padding-top: 80px;
+}
+
+.stage-four-content .page-header {
+    min-height: 360px;
+    justify-content: center;
+}
+
+.stage-four-content .page-header h1 {
+    max-width: 860px;
+}
+
+.stage-four-intro,
+.dashboard-description {
+    max-width: 920px;
+    margin: 20px 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.analysis-grid,
+.metric-grid,
+.chart-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.analysis-grid,
+.metric-grid,
+.chart-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.analysis-card,
+.metric-card,
+.chart-card,
+.insight-box {
+    padding: 22px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid #dce1db;
+}
+
+.analysis-card {
+    min-height: 190px;
+}
+
+.analysis-card p,
+.analysis-card li,
+.metric-card p,
+.chart-card p,
+.insight-box li,
+.decision-note {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.analysis-card p + p {
+    margin-top: 10px;
+}
+
+.analysis-card ul,
+.insight-box ul {
+    padding-left: 20px;
+}
+
+.analysis-label,
+.metric-card span,
+.placeholder-tag {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.dashboard-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 38px 0 18px;
+}
+
+.dashboard-index a {
+    padding: 10px 15px;
+    color: var(--blue);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #dce1db;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dashboard-index a:hover {
+    color: var(--white);
+    background: var(--blue);
+}
+
+.dashboard-page {
+    margin: 30px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.38);
+    border: 1px solid #dce1db;
+    scroll-margin-top: 30px;
+}
+
+.dashboard-page .section-header {
+    align-items: flex-start;
+}
+
+.dashboard-page .section-header h2 {
+    max-width: 900px;
+    font-size: clamp(21px, 2.4vw, 29px);
+    line-height: 1.35;
+}
+
+.metric-card {
+    min-height: 155px;
+    border-top: 3px solid var(--orange);
+}
+
+.metric-card:nth-child(2) {
+    border-top-color: var(--green);
+}
+
+.metric-card:nth-child(3) {
+    border-top-color: var(--blue);
+}
+
+.metric-card strong {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-size: 21px;
+}
+
+.chart-card {
+    min-height: 190px;
+}
+
+.chart-card h3,
+.insight-box h3 {
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 16px;
+}
+
+.filter-line {
+    margin: 18px 0;
+    padding: 14px 18px;
+    color: var(--dark);
+    background: rgba(113, 140, 114, 0.12);
+    border-left: 4px solid var(--green);
+    font-size: 14px;
+}
+
+.insight-box {
+    margin-top: 18px;
+    border-left: 4px solid var(--orange);
+}
+
+.insight-box li + li {
+    margin-top: 7px;
+}
+
+.decision-note {
+    margin: 18px 0;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #dce1db;
+}
+
+.decision-note strong {
+    color: var(--dark);
+}
+
+.powerbi-placeholder {
+    display: flex;
+    min-height: 250px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 28px;
+    text-align: center;
+    background:
+        linear-gradient(rgba(31, 72, 85, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(31, 72, 85, 0.035) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.55);
+    background-size: 24px 24px;
+    border: 2px dashed rgba(31, 72, 85, 0.32);
+}
+
+.powerbi-placeholder strong {
+    color: var(--dark);
+    font-size: 20px;
+}
+
+.powerbi-placeholder p {
+    max-width: 620px;
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.measure-reference {
+    margin-top: 22px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid #dce1db;
+}
+
+.measure-reference summary {
+    padding: 16px 20px;
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.table-scroll {
+    overflow-x: auto;
+    padding: 0 18px 18px;
+}
+
+.measure-reference table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.measure-reference th,
+.measure-reference td {
+    min-width: 150px;
+    padding: 12px;
+    border: 1px solid #dce1db;
+    text-align: left;
+    vertical-align: top;
+}
+
+.measure-reference th {
+    color: var(--dark);
+    background: rgba(113, 140, 114, 0.12);
+}
+
+.measure-reference td:first-child {
+    min-width: 190px;
+    color: var(--dark);
+    font-weight: 700;
+}
+
+.measure-reference code,
+.analysis-card code,
+.dashboard-description code {
+    overflow-wrap: anywhere;
+    color: var(--blue);
+    font-size: 0.92em;
+}
+
+@media (max-width: 900px) {
+    .analysis-grid,
+    .metric-grid,
+    .chart-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .stage-four-content {
+        width: calc(100% - 104px);
+        margin-left: 84px;
+        margin-right: 20px;
+        padding: 60px 18px;
+    }
+
+    .stage-four-content .page-header {
+        min-height: 300px;
+    }
+
+    .analysis-grid,
+    .metric-grid,
+    .chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-page {
+        padding: 18px;
+    }
+}
