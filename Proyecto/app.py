@@ -17,3 +17,7 @@ def etapa2():
 @app.route("/etapa3")
 def etapa3():
     return render_template("etapa3.html")
+
+@app.route("/etapa4")
+def etapa4():
+    return render_template("etapa4.html")
