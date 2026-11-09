@@ -1,0 +1,314 @@
+[
+  {
+    "id": "claves_dimensiones",
+    "nombre": "Unicidad de claves en las cuatro dimensiones",
+    "categoria": "estructura",
+    "esperado": 0,
+    "obtenido": 0,
+    "diferencia": 0.0,
+    "resultado": "OK",
+    "explicacion": "Duplicados por dimensión: {'Dim_Territorio': 0, 'Dim_Tiempo': 0, 'Dim_CoberturaOrigen': 0, 'Dim_CoberturaDestino': 0}."
+  },
+  {
+    "id": "claves_foraneas",
+    "nombre": "Claves foráneas sin huérfanos",
+    "categoria": "estructura",
+    "esperado": 0,
+    "obtenido": 0,
+    "diferencia": 0.0,
+    "resultado": "OK",
+    "explicacion": "Huérfanos por dimensión: {'Dim_Territorio': 0, 'Dim_Tiempo': 0, 'Dim_CoberturaOrigen': 0, 'Dim_CoberturaDestino': 0}."
+  },
+  {
+    "id": "grano_sin_duplicados",
+    "nombre": "Ausencia de duplicados en el grano",
+    "categoria": "estructura",
+    "esperado": 0,
+    "obtenido": 0,
+    "diferencia": 0.0,
+    "resultado": "OK",
+    "explicacion": "Se contrastan municipio, periodo, cobertura de origen y cobertura de destino."
+  },
+  {
+    "id": "faltantes_y_categorias",
+    "nombre": "Valores faltantes y categorías sin correspondencia",
+    "categoria": "calidad",
+    "esperado": 0,
+    "obtenido": 0,
+    "diferencia": 0.0,
+    "resultado": "OK",
+    "explicacion": "Incluye celdas vacías y códigos de clase con leyendas inconsistentes en el Excel, y nulos o hechos sin dimensión en SQLite."
+  },
+  {
+    "id": "conteos",
+    "nombre": "Conteos del hecho y las dimensiones",
+    "categoria": "estructura",
+    "esperado": {
+      "Fact_Transicion_Cobertura": 27144,
+      "hechos_area_mayor_0": 18623,
+      "hechos_area_igual_0": 8521,
+      "Dim_Territorio": 11,
+      "Dim_Tiempo": 39,
+      "Dim_CoberturaOrigen": 10,
+      "Dim_CoberturaDestino": 10
+    },
+    "obtenido": {
+      "Fact_Transicion_Cobertura": 27144,
+      "Dim_Territorio": 11,
+      "Dim_Tiempo": 39,
+      "Dim_CoberturaOrigen": 10,
+      "Dim_CoberturaDestino": 10,
+      "hechos_area_mayor_0": 18623,
+      "hechos_area_igual_0": 8521
+    },
+    "diferencia": {
+      "Dim_CoberturaDestino": 0.0,
+      "Dim_CoberturaOrigen": 0.0,
+      "Dim_Territorio": 0.0,
+      "Dim_Tiempo": 0.0,
+      "Fact_Transicion_Cobertura": 0.0,
+      "hechos_area_igual_0": 0.0,
+      "hechos_area_mayor_0": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "Se conservan también las 8.521 transiciones cuyo area_ha es cero."
+  },
+  {
+    "id": "area_total",
+    "nombre": "Suma total de area_ha",
+    "categoria": "comparacion",
+    "esperado": 4007448.8581,
+    "obtenido": 4007448.8581,
+    "diferencia": 0.0,
+    "resultado": "OK",
+    "explicacion": "Tolerancia de comparación: 0.05 ha."
+  },
+  {
+    "id": "area_por_municipio",
+    "nombre": "Área total por municipio",
+    "categoria": "comparacion",
+    "esperado": {
+      "Cajicá": 199164.7056,
+      "Chía": 312277.964,
+      "Cogua": 516813.918,
+      "Cota": 208138.8801,
+      "Gachancipá": 167389.6605,
+      "Nemocón": 386753.8264,
+      "Sopó": 432209.4739,
+      "Tabio": 294074.1057,
+      "Tenjo": 443657.3464,
+      "Tocancipá": 286900.2404,
+      "Zipaquirá": 760068.7371
+    },
+    "obtenido": {
+      "Cajicá": 199164.7056,
+      "Chía": 312277.964,
+      "Cogua": 516813.918,
+      "Cota": 208138.8801,
+      "Gachancipá": 167389.6605,
+      "Nemocón": 386753.8264,
+      "Sopó": 432209.4739,
+      "Tabio": 294074.1057,
+      "Tenjo": 443657.3464,
+      "Tocancipá": 286900.2404,
+      "Zipaquirá": 760068.7371
+    },
+    "diferencia": {
+      "Cajicá": 0.0,
+      "Chía": 0.0,
+      "Cogua": 0.0,
+      "Cota": 0.0,
+      "Gachancipá": 0.0,
+      "Nemocón": 0.0,
+      "Sopó": 0.0,
+      "Tabio": 0.0,
+      "Tenjo": 0.0,
+      "Tocancipá": 0.0,
+      "Zipaquirá": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "Se reportan los 11 municipios; la mayor diferencia absoluta es 0.000000 ha (tolerancia 0.05 ha)."
+  },
+  {
+    "id": "area_base_y_cierre",
+    "nombre": "Área base y área de cierre",
+    "categoria": "comparacion",
+    "esperado": {
+      "p1985_1986": 102755.0983,
+      "p2023_2024": 102755.0985
+    },
+    "obtenido": {
+      "p1985_1986": 102755.0983,
+      "p2023_2024": 102755.0985
+    },
+    "diferencia": {
+      "p1985_1986": 0.0,
+      "p2023_2024": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "Control: 102.755,1 ha en p1985_1986 y p2023_2024."
+  },
+  {
+    "id": "ganancia_perdida_ritmo_urbano",
+    "nombre": "Ganancia, pérdida y ritmo anual urbano",
+    "categoria": "comparacion",
+    "esperado": {
+      "ganancia_ha": 6080.1821,
+      "perdida_ha": 39.9923,
+      "ritmo_ha_anio": 155.902105
+    },
+    "obtenido": {
+      "ganancia_ha": 6080.1821,
+      "perdida_ha": 39.9923,
+      "ritmo_ha_anio": 155.902105
+    },
+    "diferencia": {
+      "ganancia_ha": 0.0,
+      "perdida_ha": 0.0,
+      "ritmo_ha_anio": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "Ganancia y pérdida excluyen permanencias; el ritmo divide la ganancia entre los años finales distintos."
+  },
+  {
+    "id": "cobertura_urbana_inicio_fin",
+    "nombre": "Cobertura urbana inicial y final",
+    "categoria": "comparacion",
+    "esperado": {
+      "inicial_ha": 549.8579,
+      "final_ha": 6590.0453
+    },
+    "obtenido": {
+      "inicial_ha": 549.8579,
+      "final_ha": 6590.0453
+    },
+    "diferencia": {
+      "final_ha": 0.0,
+      "inicial_ha": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "La cobertura inicial se mide desde origen y la de cierre desde destino."
+  },
+  {
+    "id": "atipicas_hacia_urbano",
+    "nombre": "Transiciones atípicas con destino urbano",
+    "categoria": "comparacion",
+    "esperado": {
+      "transiciones": 36,
+      "area_ha": 1625.127
+    },
+    "obtenido": {
+      "transiciones": 36,
+      "area_ha": 1625.127
+    },
+    "diferencia": {
+      "area_ha": 0.0,
+      "transiciones": 0.0
+    },
+    "resultado": "OK",
+    "explicacion": "Una transición atípica es una alerta de magnitud, no un error confirmado."
+  },
+  {
+    "id": "aditividad",
+    "nombre": "Aditividad por década, municipio y quinquenio",
+    "categoria": "comparacion",
+    "esperado": {
+      "decada": {
+        "1980-1989": 217.2571,
+        "1990-1999": 1029.5429,
+        "2000-2009": 1693.9309,
+        "2010-2019": 1918.6662,
+        "2020-2029": 1220.785
+      },
+      "municipio": {
+        "Cajicá": 819.7721,
+        "Chía": 1194.1709,
+        "Cogua": 154.4275,
+        "Cota": 937.467,
+        "Gachancipá": 238.4291,
+        "Nemocón": 288.9787,
+        "Sopó": 319.0715,
+        "Tabio": 71.1726,
+        "Tenjo": 435.8377,
+        "Tocancipá": 968.8195,
+        "Zipaquirá": 652.0355
+      },
+      "quinquenio": {
+        "1985-1989": 217.2571,
+        "1990-1994": 175.0429,
+        "1995-1999": 854.5,
+        "2000-2004": 832.7929,
+        "2005-2009": 861.138,
+        "2010-2014": 899.1005,
+        "2015-2019": 1019.5657,
+        "2020-2024": 1220.785
+      }
+    },
+    "obtenido": {
+      "decada": {
+        "1980-1989": 217.2571,
+        "1990-1999": 1029.5429,
+        "2000-2009": 1693.9309,
+        "2010-2019": 1918.6662,
+        "2020-2029": 1220.785
+      },
+      "municipio": {
+        "Cajicá": 819.7721,
+        "Chía": 1194.1709,
+        "Cogua": 154.4275,
+        "Cota": 937.467,
+        "Gachancipá": 238.4291,
+        "Nemocón": 288.9787,
+        "Sopó": 319.0715,
+        "Tabio": 71.1726,
+        "Tenjo": 435.8377,
+        "Tocancipá": 968.8195,
+        "Zipaquirá": 652.0355
+      },
+      "quinquenio": {
+        "1985-1989": 217.2571,
+        "1990-1994": 175.0429,
+        "1995-1999": 854.5,
+        "2000-2004": 832.7929,
+        "2005-2009": 861.138,
+        "2010-2014": 899.1005,
+        "2015-2019": 1019.5657,
+        "2020-2024": 1220.785
+      }
+    },
+    "diferencia": {
+      "decada": {
+        "1980-1989": 0.0,
+        "1990-1999": 0.0,
+        "2000-2009": 0.0,
+        "2010-2019": 0.0,
+        "2020-2029": 0.0
+      },
+      "municipio": {
+        "Cajicá": 0.0,
+        "Chía": 0.0,
+        "Cogua": 0.0,
+        "Cota": 0.0,
+        "Gachancipá": 0.0,
+        "Nemocón": 0.0,
+        "Sopó": 0.0,
+        "Tabio": 0.0,
+        "Tenjo": 0.0,
+        "Tocancipá": 0.0,
+        "Zipaquirá": 0.0
+      },
+      "quinquenio": {
+        "1985-1989": 0.0,
+        "1990-1994": 0.0,
+        "1995-1999": 0.0,
+        "2000-2004": 0.0,
+        "2005-2009": 0.0,
+        "2010-2014": 0.0,
+        "2015-2019": 0.0,
+        "2020-2024": 0.0
+      }
+    },
+    "resultado": "OK",
+    "explicacion": "Se comparan las agrupaciones completas y sus sumas; las cinco cifras de década deben coincidir con los controles documentados. Diferencias en sumas: {'decada': 0.0, 'municipio': 0.0, 'quinquenio': 0.0}; diferencia respecto de los controles de década: {'1980-1989': -0.0429, '1990-1999': 0.0429, '2000-2009': 0.0309, '2010-2019': -0.0338, '2020-2029': -0.015}."
+  }
+]

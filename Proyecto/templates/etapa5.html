@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapa 5 | Análisis multidimensional</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa5.css') }}">
+</head>
+
+<body>
+    <div class="map-background"></div>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-symbol">⌂</span>
+                TERRITORIO
+            </a>
+            <nav class="main-nav">
+                <a href="{{ url_for('home') }}" class="nav-link">
+                    <span class="nav-number">00</span>
+                    Inicio
+                </a>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                        <span class="nav-number">01</span>
+                        Explorar proyecto
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 01</small></div>
+                        <a href="{{ url_for('etapa1') }}#problema"><span>01</span><div><strong>Problema y contexto</strong><small>El territorio bajo análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#preguntas"><span>02</span><div><strong>Preguntas de investigación</strong><small>Lo que buscamos comprender</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#necesidades"><span>03</span><div><strong>Necesidades de información</strong><small>Datos necesarios para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#fuentes"><span>04</span><div><strong>Fuentes de datos</strong><small>De dónde proviene la información</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#dataset"><span>05</span><div><strong>Dataset</strong><small>Los datos del territorio</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#diccionario"><span>06</span><div><strong>Diccionario de datos</strong><small>Qué representa cada variable</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#calidad"><span>07</span><div><strong>Calidad de los datos</strong><small>Revisión inicial</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#limitaciones"><span>08</span><div><strong>Limitaciones</strong><small>Consideraciones del análisis</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa2') }}" class="nav-link explore-button">
+                        <span class="nav-number">02</span>
+                        Calidad de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 02</small></div>
+                        <a href="{{ url_for('etapa2') }}#resumen"><span>01</span><div><strong>Resumen del dataset</strong><small>Estado general de los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#proposito"><span>02</span><div><strong>Propósito y estructura</strong><small>Qué contienen los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#requisitos"><span>03</span><div><strong>Requisitos de calidad</strong><small>Qué deben cumplir los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#perfilamiento"><span>04</span><div><strong>Perfilamiento</strong><small>Exploración y diagnóstico</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#dimensiones"><span>05</span><div><strong>Dimensiones de calidad</strong><small>Cómo se evalúan los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#problemas"><span>06</span><div><strong>Problemas detectados</strong><small>Errores y situaciones encontradas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#causas"><span>07</span><div><strong>Causas</strong><small>Origen de los problemas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#integracion"><span>08</span><div><strong>Integración de datos</strong><small>Preparación para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#tratamiento"><span>09</span><div><strong>Plan de tratamiento</strong><small>Acciones para mejorar los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#comparacion"><span>10</span><div><strong>Antes y después</strong><small>Cambios aplicados al dataset</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#resumen-calidad"><span>11</span><div><strong>Resumen de calidad</strong><small>Resultado de la evaluación</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#referencias"><span>12</span><div><strong>Referencias</strong><small>Fuentes consultadas</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa3') }}" class="nav-link explore-button">
+                        <span class="nav-number">03</span>
+                        Tratamiento de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 03</small></div>
+                        <a href="{{ url_for('etapa3') }}#flujo-control"><span>01</span><div><strong>Flujo de control</strong><small>Secuencia del paquete SSIS</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#staging"><span>02</span><div><strong>Carga a staging</strong><small>Copias de trabajo</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#global"><span>03</span><div><strong>Tratamiento global</strong><small>Preparación de Global_Ciudades</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#nacional"><span>04</span><div><strong>Tratamiento nacional</strong><small>Clasificación de periodos</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#regional"><span>05</span><div><strong>Tratamiento regional</strong><small>Preparación de Sabana Centro</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#recursos"><span>06</span><div><strong>Demostración en video</strong><small>Recorrido audiovisual</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa4') }}" class="nav-link explore-button">
+                        <span class="nav-number">04</span>
+                        Análisis Power BI
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 04</small></div>
+                        <a href="{{ url_for('etapa4') }}#base-analisis"><span>00</span><div><strong>Datos y modelo</strong><small>Alcance y controles</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#informe-powerbi"><span>01</span><div><strong>Informe interactivo</strong><small>Tablero de Power BI</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-1"><span>02</span><div><strong>Composición</strong><small>Coberturas 1985–2024</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-2"><span>03</span><div><strong>Comparación municipal</strong><small>Los 11 municipios</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-3"><span>04</span><div><strong>Evolución temporal</strong><small>Ganancia urbana anual</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-4"><span>05</span><div><strong>Análisis multivariado</strong><small>Orígenes y casos atípicos</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa5') }}" class="nav-link active explore-button" aria-current="page">
+                        <span class="nav-number">05</span>
+                        Análisis multidimensional
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 05</small></div>
+                        <a href="#objetivo"><span>01</span><div><strong>Objetivo y continuidad</strong><small>Alcance y unidad de análisis</small></div></a>
+                        <a href="#diseno"><span>02</span><div><strong>Diseño del modelo</strong><small>Hecho, dimensiones y medidas</small></div></a>
+                        <a href="#carga"><span>03</span><div><strong>Implementación y carga</strong><small>Procedimiento reproducible</small></div></a>
+                        <a href="#verificacion"><span>04</span><div><strong>Verificación</strong><small>Contraste con los datos tratados</small></div></a>
+                        <a href="#preguntas"><span>05</span><div><strong>Preguntas de análisis</strong><small>Consultas multidimensionales</small></div></a>
+                        <a href="#operaciones"><span>06</span><div><strong>Operaciones OLAP</strong><small>Drill-down, roll-up, slice, dice y pivot</small></div></a>
+                        <a href="#limitaciones"><span>07</span><div><strong>Limitaciones y decisiones</strong><small>Alcance de las conclusiones</small></div></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content stage-four-content">
+        <section class="page-header">
+            <span class="section-label">ETAPA 5 · ANÁLISIS MULTIDIMENSIONAL</span>
+            <h1>Transformación del suelo <span>en Sabana Centro</span></h1>
+            <p>Un modelo estrella permite explorar dónde, cuándo y entre qué coberturas ocurre cada transición anual en los 11 municipios de Sabana Centro, entre 1985 y 2024.</p>
+        </section>
+
+        <section class="section-block" id="objetivo">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div>
+                    <span class="section-label">OBJETIVO Y CONTINUIDAD</span>
+                    <h2>De los tableros a la consulta multidimensional</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">La Etapa 5 profundiza el análisis de la Etapa 4 con el mismo conjunto regional de MapBiomas Colombia ya tratado en la Etapa 3: 27.144 registros de 11 municipios y 39 periodos anuales consecutivos, desde p1985_1986 hasta p2023_2024. Colombia se conserva como referencia en la Etapa 4 y queda fuera de este modelo para no mezclar escalas.</p>
+            <div class="analysis-grid">
+                <article class="analysis-card">
+                    <span class="analysis-label">CONCENTRACIÓN TERRITORIAL</span>
+                    <p>Cota, Cajicá, Chía y Tocancipá concentran una parte importante de la ganancia urbana. El cruce por municipio y periodo permite ver cuándo cambia su aporte.</p>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">CAMBIO DE RITMO</span>
+                    <p>La ganancia media pasó de 50,1 ha/año en 1986–1995 a 228,6 ha/año en 2016–2024. La jerarquía temporal ayuda a localizar cuándo se acelera.</p>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">ORIGEN Y CASOS ATÍPICOS</span>
+                    <p>El suelo urbano provino principalmente de coberturas agropecuarias (53,6 %) y sin vegetación (44,9 %); bosque aportó 1,0 %. Las 36 transiciones atípicas suman 1.625,1 ha, el 26,7 % de la ganancia urbana.</p>
+                </article>
+            </div>
+            <div class="insight-box">
+                <h3>Cómo interpretar el conjunto</h3>
+                <ul>
+                    <li>La cobertura se clasifica a partir de imágenes satelitales; no describe por sí sola el uso efectivo ni la propiedad del suelo.</li>
+                    <li>La unidad de análisis es una transición anual. La granularidad del hecho es municipio × periodo × cobertura de origen × cobertura de destino; las hectáreas de distintos periodos no son áreas únicas acumuladas.</li>
+                    <li>8.521 registros (31,4 %) tienen area_ha = 0 y se conservan para respetar el grano original.</li>
+                    <li>«Atípico» identifica una transición grande según el umbral aplicado, no un dato erróneo.</li>
+                    <li>El modelo contiene un solo departamento, Cundinamarca; por eso la jerarquía departamental no permite comparar departamentos.</li>
+                    <li>Las décadas de 1980 y 2020 son parciales: cubren 1986–1989 y 2020–2024, respectivamente.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section-block" id="diseno">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div>
+                    <span class="section-label">DISEÑO DEL MODELO</span>
+                    <h2>Una tabla de hechos y cuatro perspectivas</h2>
+                </div>
+            </div>
+            <p class="dashboard-description"><strong>Fact_Transicion_Cobertura</strong> registra el área en hectáreas que pasa de una cobertura de origen a una de destino en un municipio y periodo anual. Su grano es municipio × periodo × cobertura de origen × cobertura de destino. Si origen y destino coinciden, el registro representa permanencia.</p>
+            <p class="capture-description">Cada dimensión se relaciona uno a muchos con la tabla de hechos. La leyenda se conserva en dos perspectivas para consultar por separado el punto de partida y el destino.</p>
+            <figure class="model-figure">
+                <div class="capture-frame">
+                    <img class="capture-preview" src="{{ url_for('static', filename='images/diagrama_etapa5.png') }}" alt="Modelo estrella: Fact_Transicion_Cobertura y sus cuatro dimensiones">
+                </div>
+                <figcaption class="figure-caption">Figura 1. Modelo estrella de transiciones de cobertura</figcaption>
+            </figure>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Tabla</th><th>Perspectiva</th><th>Atributos del diagrama</th><th>Filas</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Fact_Transicion_Cobertura</td><td>¿Cuánta área pasa entre coberturas y qué características tiene el cambio?</td><td>territorio_key, tiempo_key, origen_key, destino_key, area_ha, es_cambio, es_atipico</td><td>27.144</td></tr>
+                        <tr><td>Dim_Territorio</td><td>¿Dónde ocurre?</td><td>territorio_key, municipio, departamento, pais</td><td>11</td></tr>
+                        <tr><td>Dim_Tiempo</td><td>¿Cuándo ocurre?</td><td>tiempo_key, periodo, anio_inicio, anio_fin, quinquenio, decada</td><td>39</td></tr>
+                        <tr><td>Dim_CoberturaOrigen</td><td>¿De qué cobertura parte?</td><td>origen_key, codigo, nivel2, nivel1, nivel0</td><td>10</td></tr>
+                        <tr><td>Dim_CoberturaDestino</td><td>¿A cuál cobertura llega?</td><td>destino_key, codigo, nivel2, nivel1, nivel0</td><td>10</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="dashboard-description">Origen y destino son dos roles distintos de la misma leyenda: separar sus dimensiones permite cruzar, por ejemplo, la cobertura de partida con la cobertura de llegada sin confundirlas. <code>es_cambio</code> y <code>es_atipico</code> describen la fila del hecho, no una categoría de territorio, tiempo u origen/destino.</p>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Relación</th><th>Clave primaria en la dimensión</th><th>Clave foránea en el hecho</th><th>Cardinalidad</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Territorio → hecho</td><td>Dim_Territorio.territorio_key</td><td>Fact_Transicion_Cobertura.territorio_key</td><td>Uno a muchos</td></tr>
+                        <tr><td>Tiempo → hecho</td><td>Dim_Tiempo.tiempo_key</td><td>Fact_Transicion_Cobertura.tiempo_key</td><td>Uno a muchos</td></tr>
+                        <tr><td>Cobertura de origen → hecho</td><td>Dim_CoberturaOrigen.origen_key</td><td>Fact_Transicion_Cobertura.origen_key</td><td>Uno a muchos</td></tr>
+                        <tr><td>Cobertura de destino → hecho</td><td>Dim_CoberturaDestino.destino_key</td><td>Fact_Transicion_Cobertura.destino_key</td><td>Uno a muchos</td></tr>
+                        <tr><td>Clave primaria compuesta del hecho</td><td colspan="3">territorio_key + tiempo_key + origen_key + destino_key</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Medida</th><th>Significado y unidad</th><th>Fórmula / agregación</th><th>Cuándo sumar y cuándo no</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Área de transición (ha)</td><td>Área registrada para cada combinación del grano.</td><td>SUM(area_ha)</td><td>Es aditiva entre filas de transición. Al sumar periodos, no representa hectáreas únicas: una misma superficie puede aparecer en más de un año.</td></tr>
+                        <tr><td>Área convertida (ha)</td><td>Área que cambia de clase de origen a destino.</td><td>SUM(area_ha) con es_cambio = 1</td><td>Se puede sumar en los ejes de transición; no se debe interpretar como área única acumulada entre años.</td></tr>
+                        <tr><td>Ganancia urbana (ha)</td><td>Área que pasa a infraestructura urbana.</td><td>SUM(area_ha) con es_cambio = 1 y destino nivel2 = «4.2. Infraestructura urbana»</td><td>La suma conserva la interpretación de hectáreas-transición; por año se calcula de nuevo.</td></tr>
+                        <tr><td>Pérdida urbana (ha)</td><td>Área que sale de infraestructura urbana.</td><td>SUM(area_ha) con es_cambio = 1 y origen nivel2 = «4.2. Infraestructura urbana»</td><td>Se suma como flujo de salida; no se resta de la ganancia para ocultar ambos flujos.</td></tr>
+                        <tr><td>Número de transiciones</td><td>Filas con cambio de clase.</td><td>SUM(1) con es_cambio = 1</td><td>Es aditivo si cada fila es una transición; no es un conteo de hectáreas.</td></tr>
+                        <tr><td>Número de transiciones atípicas</td><td>Filas marcadas por es_atipico = 1.</td><td>SUM(1) con es_atipico = 1</td><td>Se recalcula al filtrar o agrupar; describe observaciones grandes, no errores confirmados.</td></tr>
+                        <tr><td>Ritmo de ganancia urbana (ha/año)</td><td>Ganancia urbana media por año del grupo consultado.</td><td>Ganancia urbana / COUNT(DISTINCT anio_fin)</td><td>No es aditiva: cada agrupación vuelve a calcular numerador y años representados.</td></tr>
+                        <tr><td>Participación en la ganancia urbana (%)</td><td>Proporción que aporta cada cobertura de origen al contexto consultado.</td><td>Ganancia del grupo / ganancia total del contexto × 100</td><td>No se suman porcentajes entre contextos distintos; el denominador se consulta de nuevo.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Dimensión</th><th>Jerarquía de navegación</th><th>Justificación y límite</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Territorio</td><td>departamento → municipio</td><td>Permite pasar de Cundinamarca a sus 11 municipios. Al existir un solo departamento, no habilita comparaciones entre departamentos.</td></tr>
+                        <tr><td>Tiempo</td><td>decada → quinquenio → anio_fin</td><td>Permite ampliar o detallar la serie anual. Las décadas 1980 y 2020 solo cubren parte de sus años.</td></tr>
+                        <tr><td>Cobertura de origen</td><td>nivel0 → nivel1 → nivel2</td><td>Parte de una agrupación amplia y permite identificar con más detalle de qué cobertura proviene la transición.</td></tr>
+                        <tr><td>Cobertura de destino</td><td>nivel0 → nivel1 → nivel2</td><td>Permite observar las agrupaciones de llegada y llegar a la clase detallada.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-block" id="carga">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div>
+                    <span class="section-label">IMPLEMENTACIÓN Y CARGA</span>
+                    <h2>Un proceso reproducible, separado del despliegue</h2>
+                </div>
+            </div>
+            <div class="analysis-grid">
+                <article class="analysis-card">
+                    <span class="analysis-label">PANDAS · SOLO LOCAL</span>
+                    <p>Lee una vez la hoja regional del Excel tratado, valida el grano y prepara las dimensiones. <code>openpyxl</code> permite leer el libro; ninguno de los dos paquetes participa en las consultas de la aplicación desplegada.</p>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">SQLITE · ARCHIVO VERSIONADO</span>
+                    <p>El modelo se guarda en un único archivo, usa claves y relaciones declarativas y no requiere un servidor de base de datos. Flask consulta la base en modo de solo lectura.</p>
+                </article>
+                <article class="analysis-card">
+                    <span class="analysis-label">FLASK · SIN CARGA DE EXCEL</span>
+                    <p>La aplicación desplegada depende de <code>sqlite3</code>, incluido en Python. La carga y la verificación son comandos locales; Flask no abre el Excel ni reconstruye el modelo.</p>
+                </article>
+            </div>
+            <p class="dashboard-description">La carga hace DROP/CREATE de las cinco tablas en una transacción, asigna claves sustitutas enteras desde 1 en orden determinista, activa las claves foráneas e indexa cada FK. El script falla ante nulos, duplicados en el grano, clases con leyenda inconsistente o cantidades de registros distintas de las esperadas. Una categoría desconocida detiene el proceso: no se inventan etiquetas ni miembros «desconocidos».</p>
+            <p class="dashboard-description">Desde la carpeta <code>Proyecto</code>, ejecutar una vez la carga y luego la verificación con la ruta local del archivo:</p>
+            <div class="table-container code-container">
+                <pre><code>python dw_cargar.py --origen RUTA
+python dw_verificar.py --origen RUTA</code></pre>
+            </div>
+            <p class="decision-note"><strong>Salida:</strong> <code>dw_cargar.py</code> genera <code>Proyecto/dw_cobertura.db</code>; <code>dw_verificar.py</code> genera <code>Proyecto/verificaciones.json</code>. La carga es idempotente: repetirla con el mismo Excel recrea las mismas tablas, claves y medidas.</p>
+
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Variable del Excel tratado</th><th>Destino en el modelo</th><th>Transformación o decisión</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>municipio, departamento, pais</td><td>Dim_Territorio</td><td>Una fila por territorio distinto; claves sustitutas deterministas.</td></tr>
+                        <tr><td>periodo, anio_inicio, anio_fin</td><td>Dim_Tiempo</td><td>El año final determina las etiquetas quinquenio y decada según sus reglas de intervalo.</td></tr>
+                        <tr><td>class_from, class_level_2_from, class_level_1_from, class_level_0_from</td><td>Dim_CoberturaOrigen</td><td>El código y su leyenda construyen la perspectiva de origen; cada código debe tener una leyenda única.</td></tr>
+                        <tr><td>class_to, class_level_2_to, class_level_1_to, class_level_0_to</td><td>Dim_CoberturaDestino</td><td>Se carga la misma leyenda en la perspectiva de destino.</td></tr>
+                        <tr><td>municipio, periodo, class_from, class_to</td><td>Clave del hecho</td><td>Mapeo a las cuatro claves sustitutas; valida la granularidad y los duplicados.</td></tr>
+                        <tr><td>area_ha</td><td>Fact_Transicion_Cobertura.area_ha</td><td>Se conserva como REAL; incluye los registros con valor cero.</td></tr>
+                        <tr><td>class_from, class_to</td><td>Fact_Transicion_Cobertura.es_cambio</td><td>1 cuando los códigos de clase difieren; 0 cuando coinciden.</td></tr>
+                        <tr><td>es_atipico_tukey</td><td>Fact_Transicion_Cobertura.es_atipico</td><td>Se conserva como indicador entero binario.</td></tr>
+                        <tr><td>feature_id</td><td>No se carga</td><td>Identifica una fila del origen; no identifica un municipio ni una entidad del grano.</td></tr>
+                        <tr><td>tipo_periodo, duracion_anios</td><td>No se cargan</td><td>Son constantes en esta hoja (Anual consecutivo y 1 año) y no aportan una perspectiva analítica.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-block" id="verificacion">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div>
+                    <span class="section-label">VERIFICACIÓN</span>
+                    <h2>Contraste independiente con los datos tratados</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">La tabla se genera desde <code>verificaciones.json</code>. Las comparaciones de resultados entre el Excel y SQLite se destacan; tolerancia de medidas numéricas: 0,05 ha. Si aparece una diferencia, se registra y se explica en vez de ocultarla.</p>
+            {% if verificaciones %}
+            <div class="table-container">
+                <table class="data-table verification-table">
+                    <thead>
+                        <tr><th>Comprobación</th><th>Esperado (Excel)</th><th>Obtenido (modelo)</th><th>Diferencia</th><th>Resultado</th><th>Explicación</th></tr>
+                    </thead>
+                    <tbody>
+                        {% for comprobacion in verificaciones %}
+                        <tr{% if comprobacion.categoria == "comparacion" %} class="comparison-row"{% endif %}>
+                            <td>{{ comprobacion.nombre }}</td>
+                            <td><code>{{ comprobacion.esperado | tojson }}</code></td>
+                            <td><code>{{ comprobacion.obtenido | tojson }}</code></td>
+                            <td><code>{{ comprobacion.diferencia | tojson }}</code></td>
+                            <td class="status">{{ comprobacion.resultado }}</td>
+                            <td>{{ comprobacion.explicacion }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="decision-note"><strong>Verificación no disponible:</strong> no se encontró <code>verificaciones.json</code> o aún no contiene comprobaciones. La página puede consultarse sin el Excel; ejecuta el proceso local de carga y verificación para generar la tabla.</p>
+            {% endif %}
+        </section>
+
+        <section class="section-block" id="preguntas">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <div>
+                    <span class="section-label">PREGUNTAS DE ANÁLISIS</span>
+                    <h2>Cuatro cruces para profundizar los hallazgos</h2>
+                </div>
+            </div>
+
+            <article class="dashboard-page query-page" data-query-panel>
+                <div class="section-header">
+                    <span class="section-number">P1</span>
+                    <div>
+                        <span class="section-label">TERRITORIO × TIEMPO</span>
+                        <h2>¿Qué municipios aportaron la ganancia urbana de cada década y cómo cambia al bajar a quinquenio y año?</h2>
+                    </div>
+                </div>
+                <p class="dashboard-description"><strong>Dimensiones:</strong> territorio y tiempo. <strong>Medidas:</strong> ganancia urbana (ha) y ritmo anual (ha/año). Profundiza los Tableros 2 y 3 de la Etapa 4.</p>
+                <div class="query-controls">
+                    <label>Filas
+                        <select data-axis="row">
+                            <option value="territorio:municipio" selected>Territorio · municipio</option>
+                            <option value="territorio:departamento">Territorio · departamento</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                        </select>
+                    </label>
+                    <label>Columnas
+                        <select data-axis="column">
+                            <option value="tiempo:decada" selected>Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                            <option value="territorio:municipio">Territorio · municipio</option>
+                        </select>
+                    </label>
+                    <label>Medida
+                        <select data-measure>
+                            <option value="ganancia_urbana_ha" selected>Ganancia urbana (ha)</option>
+                            <option value="ritmo_ganancia_urbana_ha_anio">Ritmo de ganancia urbana (ha/año)</option>
+                        </select>
+                    </label>
+                    <label>Filtros (dimensión:nivel=valor; separar varios filtros con punto y coma)
+                        <input type="text" data-filters placeholder="tiempo:decada=1990-1999">
+                    </label>
+                    <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
+                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                </div>
+                <p class="query-status" role="status" aria-live="polite"></p>
+                <div class="query-output" data-query-output></div>
+            </article>
+
+            <article class="dashboard-page query-page" data-query-panel>
+                <div class="section-header">
+                    <span class="section-number">P2</span>
+                    <div>
+                        <span class="section-label">TIEMPO × COBERTURA DE ORIGEN</span>
+                        <h2>¿Cambió entre décadas el origen del suelo que se vuelve urbano?</h2>
+                    </div>
+                </div>
+                <p class="dashboard-description"><strong>Dimensiones:</strong> tiempo y cobertura de origen. <strong>Medidas:</strong> ganancia urbana (ha) y participación (%). Profundiza los aportes globales de 53,6 % agropecuario, 44,9 % sin vegetación y 1,0 % bosque.</p>
+                <div class="query-controls">
+                    <label>Filas
+                        <select data-axis="row">
+                            <option value="tiempo:decada" selected>Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                        </select>
+                    </label>
+                    <label>Columnas
+                        <select data-axis="column">
+                            <option value="origen:n1" selected>Origen · nivel1</option>
+                            <option value="origen:n0">Origen · nivel0</option>
+                            <option value="origen:n2">Origen · nivel2</option>
+                        </select>
+                    </label>
+                    <label>Medida
+                        <select data-measure>
+                            <option value="ganancia_urbana_ha" selected>Ganancia urbana (ha)</option>
+                            <option value="participacion_ganancia_urbana">Participación en la ganancia urbana (%)</option>
+                        </select>
+                    </label>
+                    <label>Filtros
+                        <input type="text" data-filters placeholder="tiempo:decada=2010-2019">
+                    </label>
+                    <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
+                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                </div>
+                <p class="query-status" role="status" aria-live="polite"></p>
+                <div class="query-output" data-query-output></div>
+                <p class="decision-note">Control por década: agropecuaria 75,5; 466,2; 964,7; 1.202,2; 549,0 ha. Sin vegetación: 138,5; 521,6; 719,6; 701,6; 655,8 ha (décadas 1980 a 2020).</p>
+                <button class="main-button" type="button" data-guided="origenes">Consultar origen urbano por década</button>
+                <div class="guided-output" aria-live="polite"></div>
+            </article>
+
+            <article class="dashboard-page query-page" data-query-panel>
+                <div class="section-header">
+                    <span class="section-number">P3</span>
+                    <div>
+                        <span class="section-label">TERRITORIO × COBERTURA DE DESTINO</span>
+                        <h2>¿Hacia qué coberturas se convierte el suelo en cada municipio?</h2>
+                    </div>
+                </div>
+                <p class="dashboard-description"><strong>Dimensiones:</strong> territorio y cobertura de destino. <strong>Medidas:</strong> área convertida (ha) y número de transiciones. Profundiza la concentración de conversiones hacia minería y hacia infraestructura urbana.</p>
+                <div class="query-controls">
+                    <label>Filas
+                        <select data-axis="row">
+                            <option value="territorio:municipio" selected>Territorio · municipio</option>
+                            <option value="territorio:departamento">Territorio · departamento</option>
+                        </select>
+                    </label>
+                    <label>Columnas
+                        <select data-axis="column">
+                            <option value="destino:n2" selected>Destino · nivel2</option>
+                            <option value="destino:n1">Destino · nivel1</option>
+                            <option value="destino:n0">Destino · nivel0</option>
+                        </select>
+                    </label>
+                    <label>Medida
+                        <select data-measure>
+                            <option value="area_convertida_ha" selected>Área convertida (ha)</option>
+                            <option value="numero_transiciones">Número de transiciones</option>
+                        </select>
+                    </label>
+                    <label>Filtros
+                        <input type="text" data-filters placeholder="destino:n2=4.3. Minería">
+                    </label>
+                    <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
+                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                </div>
+                <p class="query-status" role="status" aria-live="polite"></p>
+                <div class="query-output" data-query-output></div>
+                <p class="decision-note">Control regional por destino: mosaico de agricultura o pasto 26.181,9 ha; bosque 17.332,2; otra área sin vegetación 12.997,9; otra formación natural no forestal 10.767,8; infraestructura urbana 6.080,2; silvicultura 6.018,9; herbazales o arbustales andinos 5.618,7; río, lago u océano 2.181,9; minería 1.333,5; formación natural no forestal inundable 108,6.</p>
+                <button class="main-button" type="button" data-guided="destinos">Consultar control regional por destino</button>
+                <button class="main-button" type="button" data-guided="mineria">Consultar detalle de minería por municipio</button>
+                <div class="guided-output" aria-live="polite"></div>
+            </article>
+
+            <article class="dashboard-page query-page" data-query-panel>
+                <div class="section-header">
+                    <span class="section-number">P4</span>
+                    <div>
+                        <span class="section-label">ORIGEN × DESTINO × TERRITORIO</span>
+                        <h2>¿Qué rutas de transición predominan en cada municipio y cuáles son atípicas?</h2>
+                    </div>
+                </div>
+                <p class="dashboard-description"><strong>Dimensiones:</strong> cobertura de origen, cobertura de destino y territorio. <strong>Medidas:</strong> área convertida (ha) y número de transiciones atípicas. Profundiza el 26,7 % de ganancia urbana en transiciones atípicas; la diagonal no tiene por qué ser cero porque <code>es_cambio</code> compara códigos de nivel2.</p>
+                <div class="query-controls">
+                    <label>Filas
+                        <select data-axis="row">
+                            <option value="origen:n1" selected>Origen · nivel1</option>
+                            <option value="origen:n0">Origen · nivel0</option>
+                            <option value="origen:n2">Origen · nivel2</option>
+                            <option value="territorio:municipio">Territorio · municipio</option>
+                        </select>
+                    </label>
+                    <label>Columnas
+                        <select data-axis="column">
+                            <option value="destino:n1" selected>Destino · nivel1</option>
+                            <option value="destino:n0">Destino · nivel0</option>
+                            <option value="destino:n2">Destino · nivel2</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                        </select>
+                    </label>
+                    <label>Desglose opcional
+                        <select data-axis="extra">
+                            <option value="" selected>Sin desglose</option>
+                            <option value="territorio:municipio">Territorio · municipio</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                        </select>
+                    </label>
+                    <label>Medida
+                        <select data-measure>
+                            <option value="area_convertida_ha" selected>Área convertida (ha)</option>
+                            <option value="numero_transiciones_atipicas">Número de transiciones atípicas</option>
+                            <option value="ganancia_urbana_atipica_ha">Ganancia urbana atípica (ha)</option>
+                        </select>
+                    </label>
+                    <label>Filtros
+                        <input type="text" data-filters placeholder="territorio:municipio=Chía">
+                    </label>
+                    <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
+                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                </div>
+                <p class="query-status" role="status" aria-live="polite"></p>
+                <div class="query-output" data-query-output></div>
+            </article>
+        </section>
+
+        <section class="section-block" id="operaciones">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <div>
+                    <span class="section-label">OPERACIONES MULTIDIMENSIONALES</span>
+                    <h2>Consultar, navegar y volver a agrupar los datos</h2>
+                </div>
+            </div>
+            <p class="dashboard-description">Cada ejemplo vuelve a consultar <code>/api/olap</code>. El servidor recibe los ejes, la medida y los filtros, y recalcula la agregación; cambiar únicamente una visualización no es una operación OLAP. Las cifras de control se contrastan con la respuesta recibida y cualquier diferencia se muestra como aviso.</p>
+
+            <div class="analysis-grid operation-grid">
+                <article class="analysis-card operation-card" data-operation="drill">
+                    <span class="analysis-label">DRILL-DOWN</span>
+                    <h3>De década a quinquenio</h3>
+                    <p>Detalla la década de 1990 para identificar el cambio entre quinquenios.</p>
+                    <button class="main-button" type="button" data-guided="drill">Ejemplo guiado</button>
+                    <div class="guided-output" aria-live="polite"></div>
+                </article>
+                <article class="analysis-card operation-card" data-operation="roll">
+                    <span class="analysis-label">ROLL-UP</span>
+                    <h3>De municipio al total regional</h3>
+                    <p>Compara los 11 aportes y recalcula la ganancia urbana regional.</p>
+                    <button class="main-button" type="button" data-guided="roll">Ejemplo guiado</button>
+                    <div class="guided-output" aria-live="polite"></div>
+                </article>
+                <article class="analysis-card operation-card" data-operation="slice">
+                    <span class="analysis-label">SLICE</span>
+                    <h3>Una década, varios orígenes</h3>
+                    <p>Fija 2010–2019 y compara las categorías de origen que aportan ganancia urbana.</p>
+                    <button class="main-button" type="button" data-guided="slice">Ejemplo guiado</button>
+                    <div class="guided-output" aria-live="polite"></div>
+                </article>
+                <article class="analysis-card operation-card" data-operation="dice">
+                    <span class="analysis-label">DICE</span>
+                    <h3>Un subconjunto territorial y temporal</h3>
+                    <p>Selecciona cuatro municipios, dos décadas y el destino infraestructura urbana.</p>
+                    <button class="main-button" type="button" data-guided="dice">Ejemplo guiado</button>
+                    <div class="guided-output" aria-live="polite"></div>
+                </article>
+                <article class="analysis-card operation-card" data-operation="pivot">
+                    <span class="analysis-label">PIVOT</span>
+                    <h3>Intercambiar filas y columnas</h3>
+                    <p>Contrasta cobertura de origen y destino en la matriz de área convertida.</p>
+                    <button class="main-button" type="button" data-guided="pivot">Ejemplo guiado</button>
+                    <div class="guided-output" aria-live="polite"></div>
+                </article>
+            </div>
+
+            <section class="dashboard-page free-query" id="consulta-libre">
+                <div class="section-header">
+                    <span class="section-number">OLAP</span>
+                    <div>
+                        <span class="section-label">CONSULTA LIBRE</span>
+                        <h2>Explora otros niveles y filtros</h2>
+                    </div>
+                </div>
+                <p class="dashboard-description">Elige dimensión y nivel para filas, columnas y un desglose adicional. Drill-down y roll-up cambian el nivel jerárquico y vuelven a consultar el servidor; slice y dice se expresan mediante filtros.</p>
+                <div class="query-controls free-query-controls" data-free-query>
+                    <label>Filas
+                        <select data-axis="row">
+                            <option value="territorio:departamento">Territorio · departamento</option>
+                            <option value="territorio:municipio" selected>Territorio · municipio</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                            <option value="origen:n0">Origen · nivel0</option>
+                            <option value="origen:n1">Origen · nivel1</option>
+                            <option value="origen:n2">Origen · nivel2</option>
+                            <option value="destino:n0">Destino · nivel0</option>
+                            <option value="destino:n1">Destino · nivel1</option>
+                            <option value="destino:n2">Destino · nivel2</option>
+                        </select>
+                    </label>
+                    <label>Columnas
+                        <select data-axis="column">
+                            <option value="">Sin columnas</option>
+                            <option value="territorio:departamento">Territorio · departamento</option>
+                            <option value="territorio:municipio">Territorio · municipio</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                            <option value="origen:n0">Origen · nivel0</option>
+                            <option value="origen:n1" selected>Origen · nivel1</option>
+                            <option value="origen:n2">Origen · nivel2</option>
+                            <option value="destino:n0">Destino · nivel0</option>
+                            <option value="destino:n1">Destino · nivel1</option>
+                            <option value="destino:n2">Destino · nivel2</option>
+                        </select>
+                    </label>
+                    <label>Desglose adicional
+                        <select data-axis="extra">
+                            <option value="" selected>Sin desglose</option>
+                            <option value="territorio:municipio">Territorio · municipio</option>
+                            <option value="tiempo:decada">Tiempo · década</option>
+                            <option value="tiempo:quinquenio">Tiempo · quinquenio</option>
+                            <option value="tiempo:anio">Tiempo · año</option>
+                            <option value="origen:n1">Origen · nivel1</option>
+                            <option value="destino:n1">Destino · nivel1</option>
+                        </select>
+                    </label>
+                    <label>Medida
+                        <select data-measure>
+                            <option value="area_convertida_ha" selected>Área convertida (ha)</option>
+                            <option value="ganancia_urbana_ha">Ganancia urbana (ha)</option>
+                            <option value="participacion_ganancia_urbana">Participación en ganancia urbana (%)</option>
+                            <option value="ritmo_ganancia_urbana_ha_anio">Ritmo urbano (ha/año)</option>
+                            <option value="numero_transiciones">Número de transiciones</option>
+                            <option value="numero_transiciones_atipicas">Número de transiciones atípicas</option>
+                            <option value="area_atipica_ha">Área atípica (ha)</option>
+                            <option value="ganancia_urbana_atipica_ha">Ganancia urbana atípica (ha)</option>
+                        </select>
+                    </label>
+                    <label>Filtros slice/dice
+                        <input type="text" data-filters placeholder="tiempo:decada=2010-2019; territorio:municipio=Chía,Cota">
+                    </label>
+                    <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
+                    <div class="query-actions">
+                        <button class="main-button" type="button" data-free-action="query">Consultar</button>
+                        <button class="main-button" type="button" data-free-action="drill">Drill-down</button>
+                        <button class="main-button" type="button" data-free-action="roll">Roll-up</button>
+                        <button class="main-button" type="button" data-free-action="pivot">Pivot</button>
+                    </div>
+                </div>
+                <p class="query-status" role="status" aria-live="polite"></p>
+                <div class="query-output" data-query-output></div>
+            </section>
+        </section>
+
+        <section class="section-block" id="limitaciones">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <div>
+                    <span class="section-label">LIMITACIONES Y DECISIONES</span>
+                    <h2>Alcance de las conclusiones</h2>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr><th>Limitación</th><th>Decisión y sustento</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>La clasificación proviene de imágenes satelitales y no informa directamente uso efectivo, tenencia o propiedad.</td><td>Las conclusiones describen transiciones de cobertura clasificadas por MapBiomas Colombia; no se atribuyen derechos, usos ni causas que no estén en el conjunto de datos.</td></tr>
+                        <tr><td>Una hectárea puede aparecer en más de una transición anual.</td><td>Las medidas se denominan hectáreas-transición y no se presentan como superficie única acumulada durante 1985–2024.</td></tr>
+                        <tr><td>8.521 registros tienen area_ha = 0.</td><td>Se conservan para mantener el grano del archivo tratado; se excluyen del área positiva por suma, pero permanecen en el conteo del hecho.</td></tr>
+                        <tr><td>Los valores atípicos pueden corresponder a cambios grandes reales o a situaciones que requieren revisión.</td><td>Se mantienen con es_atipico como indicador; «atípico» no se interpreta como error ni se elimina automáticamente.</td></tr>
+                        <tr><td>La dimensión territorial tiene un único departamento.</td><td>Se incluye la jerarquía departamento → municipio por consistencia y navegación, pero no se infieren diferencias entre departamentos.</td></tr>
+                        <tr><td>Las décadas 1980 y 2020 contienen periodos parciales.</td><td>Se muestran sus años cubiertos y se evita compararlas como décadas completas.</td></tr>
+                        <tr><td>La hoja nacional mezcla una escala geográfica distinta y no contiene municipio.</td><td>El modelo utiliza solo Regional_SabanaCentro_Anual; Colombia permanece como referencia en la Etapa 4.</td></tr>
+                        <tr><td>Un código nuevo podría carecer de correspondencia en la leyenda.</td><td>La carga se detiene y reporta la clase sin mapa; no se inventa una categoría para completar dimensiones.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>PROYECTO DE ANÁLISIS TERRITORIAL · ETAPA 5</p>
+    </footer>
+
+    <script>
+        (() => {
+            const apiUrl = "/api/olap";
+            const jerarquias = {
+                territorio: ["departamento", "municipio"],
+                tiempo: ["decada", "quinquenio", "anio"],
+                origen: ["n0", "n1", "n2"],
+                destino: ["n0", "n1", "n2"]
+            };
+            const ejemplos = {
+                drill: {
+                    ejes: [["tiempo", "quinquenio"]],
+                    filtros: [["tiempo", "decada", ["1990-1999"]]],
+                    medidas: ["ganancia_urbana_ha"],
+                    descripcion: "Tiempo · quinquenio | Ganancia urbana (ha)",
+                    nivel: "Filtro de década = 1990-1999; drill-down de década a quinquenio.",
+                    interpretacion: "Control: 1990-1994 = 175,0 ha y 1995-1999 = 854,5 ha. El salto entre quinquenios queda oculto en el total de la década.",
+                    esperado: {"1990-1994": 175.0, "1995-1999": 854.5}
+                },
+                roll: {
+                    ejes: [["territorio", "municipio"]],
+                    filtros: [],
+                    medidas: ["ganancia_urbana_ha"],
+                    descripcion: "Territorio · municipio | Ganancia urbana (ha)",
+                    nivel: "Se agrega la ganancia de 1985–2024 y se calcula aparte el total regional.",
+                    interpretacion: "Control regional = 6.080,2 ha. Chía aporta 1.194,2 ha; los cuatro primeros municipios suman 3.920,3 ha (64,5 %).",
+                    esperado: {"Chía": 1194.2, "Tocancipá": 968.8, "Cota": 937.5, "Cajicá": 819.8, "Zipaquirá": 652.0, "Tenjo": 435.8, "Sopó": 319.1, "Nemocón": 289.0, "Gachancipá": 238.4, "Cogua": 154.4, "Tabio": 71.2},
+                    totalEsperado: 6080.2
+                },
+                slice: {
+                    ejes: [["origen", "n1"]],
+                    filtros: [["tiempo", "decada", ["2010-2019"]]],
+                    medidas: ["ganancia_urbana_ha", "participacion_ganancia_urbana"],
+                    descripcion: "Origen · nivel1 | Ganancia urbana (ha) y participación (%)",
+                    nivel: "Slice: década = 2010-2019.",
+                    interpretacion: "Control: agropecuaria 1.202,2 ha (62,7 %); sin vegetación 701,6 ha (36,6 %); las demás categorías suman una fracción menor.",
+                    esperado: {"Agropecuaria": 1202.2, "Sin vegetación": 701.6, "Boscosa": 10.5, "Natural no boscosa": 2.5, "Cuerpo de agua": 1.8},
+                    esperadoPorcentaje: {"Agropecuaria": 62.7, "Sin vegetación": 36.6, "Boscosa": 0.5, "Natural no boscosa": 0.1, "Cuerpo de agua": 0.1}
+                },
+                origenes: {
+                    ejes: [["tiempo", "decada"], ["origen", "n1"]],
+                    filtros: [],
+                    medidas: ["ganancia_urbana_ha"],
+                    descripcion: "Tiempo · década × origen · nivel1 | Ganancia urbana (ha)",
+                    nivel: "Décadas parciales y completas del periodo 1985–2024.",
+                    interpretacion: "La participación agropecuaria alcanza 1.202,2 ha en 2010–2019; el origen sin vegetación aporta 701,6 ha en esa década.",
+                    esperado: {
+                        "1980-1989|Agropecuaria": 75.5,
+                        "1990-1999|Agropecuaria": 466.2,
+                        "2000-2009|Agropecuaria": 964.7,
+                        "2010-2019|Agropecuaria": 1202.2,
+                        "2020-2029|Agropecuaria": 549.0,
+                        "1980-1989|Sin vegetación": 138.5,
+                        "1990-1999|Sin vegetación": 521.6,
+                        "2000-2009|Sin vegetación": 719.6,
+                        "2010-2019|Sin vegetación": 701.6,
+                        "2020-2029|Sin vegetación": 655.8
+                    },
+                    totalEsperado: 6080.2
+                },
+                dice: {
+                    ejes: [["territorio", "municipio"], ["tiempo", "decada"]],
+                    filtros: [
+                        ["territorio", "municipio", ["Cajicá", "Chía", "Cota", "Tocancipá"]],
+                        ["tiempo", "decada", ["2000-2009", "2010-2019"]],
+                        ["destino", "n2", ["4.2. Infraestructura urbana"]]
+                    ],
+                    medidas: ["ganancia_urbana_ha"],
+                    descripcion: "Territorio · municipio × tiempo · década | Ganancia urbana (ha)",
+                    nivel: "Dice: cuatro municipios, décadas 2000-2009 y 2010-2019, destino 4.2. Infraestructura urbana.",
+                    interpretacion: "Control: Chía baja de 519,6 a 300,3 ha y Cota sube de 234,9 a 351,0 ha entre las décadas.",
+                    esperado: {
+                        "Cajicá|2000-2009": 314.4, "Cajicá|2010-2019": 290.5,
+                        "Chía|2000-2009": 519.6, "Chía|2010-2019": 300.3,
+                        "Cota|2000-2009": 234.9, "Cota|2010-2019": 351.0,
+                        "Tocancipá|2000-2009": 204.2, "Tocancipá|2010-2019": 297.9
+                    },
+                    totalEsperado: 2512.8
+                },
+                pivot: {
+                    ejes: [["origen", "n1"], ["destino", "n1"]],
+                    filtros: [],
+                    medidas: ["area_convertida_ha"],
+                    descripcion: "Origen · nivel1 × destino · nivel1 | Área convertida (ha)",
+                    nivel: "Pivot: las filas y columnas pueden intercambiarse; los totales se consultan de nuevo.",
+                    interpretacion: "Control: el flujo mayor es agropecuaria → sin vegetación, 13.393,1 ha. La diagonal puede ser distinta de cero porque es_cambio compara códigos de nivel2.",
+                    totalEsperado: 88621.6,
+                    esperadoMatriz: {
+                        "Boscosa": {"Boscosa": 0.0, "Natural no boscosa": 6958.5, "Agropecuaria": 9625.3, "Sin vegetación": 1055.0, "Cuerpo de agua": 432.4},
+                        "Natural no boscosa": {"Boscosa": 7513.1, "Natural no boscosa": 0.2, "Agropecuaria": 8696.6, "Sin vegetación": 1880.1, "Cuerpo de agua": 144.2},
+                        "Agropecuaria": {"Boscosa": 8580.3, "Natural no boscosa": 7288.5, "Agropecuaria": 6845.0, "Sin vegetación": 13393.1, "Cuerpo de agua": 1257.1},
+                        "Sin vegetación": {"Boscosa": 839.6, "Natural no boscosa": 2104.7, "Agropecuaria": 5815.6, "Sin vegetación": 3764.6, "Cuerpo de agua": 348.3},
+                        "Cuerpo de agua": {"Boscosa": 399.1, "Natural no boscosa": 143.2, "Agropecuaria": 1218.4, "Sin vegetación": 318.7, "Cuerpo de agua": 0.0}
+                    }
+                },
+                destinos: {
+                    ejes: [["destino", "n2"]],
+                    filtros: [],
+                    medidas: ["area_convertida_ha"],
+                    descripcion: "Destino · nivel2 | Área convertida (ha)",
+                    nivel: "Consulta regional completa, 1985–2024.",
+                    interpretacion: "Control: minería suma 1.333,5 ha; Nemocón aporta 592,2 ha (44,4 %).",
+                    esperado: {
+                        "Mosaico de agricultura o pasto": 26181.9,
+                        "Bosque": 17332.2,
+                        "Otra área sin vegetación": 12997.9,
+                        "Otra formación natural no forestal": 10767.8,
+                        "4.2. Infraestructura urbana": 6080.2,
+                        "Silvicultura": 6018.9,
+                        "Herbazales o arbustales andinos": 5618.7,
+                        "Río, lago u océano": 2181.9,
+                        "4.3. Minería": 1333.5,
+                        "Formación natural no forestal inundable": 108.6
+                    },
+                    totalEsperado: 88621.6
+                },
+                mineria: {
+                    ejes: [["territorio", "municipio"]],
+                    filtros: [["destino", "n2", ["4.3. Minería"]]],
+                    medidas: ["area_convertida_ha"],
+                    descripcion: "Territorio · municipio | Área convertida hacia minería (ha)",
+                    nivel: "Filtro de destino nivel2 = 4.3. Minería.",
+                    interpretacion: "Control: Nemocón registra 592,2 ha de las 1.333,5 ha convertidas hacia minería (44,4 %).",
+                    esperado: {"Nemocón": 592.2},
+                    totalEsperado: 1333.5
+                }
+            };
+
+            function dividirEje(valor) {
+                if (!valor) return null;
+                const partes = valor.split(":");
+                return partes.length === 2 ? partes : null;
+            }
+
+            function leerFiltros(texto) {
+                if (!texto.trim()) return [];
+                return texto.split(";").map((fragmento) => {
+                    const separador = fragmento.indexOf("=");
+                    const clave = separador < 0 ? "" : fragmento.slice(0, separador).trim();
+                    const valores = separador < 0 ? "" : fragmento.slice(separador + 1).trim();
+                    const eje = dividirEje(clave);
+                    if (!eje || !valores) {
+                        throw new Error("Cada filtro debe tener el formato dimensión:nivel=valor1,valor2.");
+                    }
+                    return {dimension: eje[0], nivel: eje[1], valores: valores.split(",").map((valor) => valor.trim()).filter(Boolean)};
+                });
+            }
+
+            function crearUrl(configuracion, medida, usarPivot) {
+                const parametros = new URLSearchParams();
+                configuracion.ejes.forEach((eje) => parametros.append("eje", `${eje[0]}:${eje[1]}`));
+                parametros.set("medida", medida);
+                configuracion.filtros.forEach((filtro) => {
+                    parametros.append("filtro", `${filtro[0]}:${filtro[1]}=${filtro[2].join(",")}`);
+                });
+                if (configuracion.soloCambio) parametros.set("solo_cambio", "1");
+                if (usarPivot) parametros.set("pivot", "1");
+                return `${apiUrl}?${parametros.toString()}`;
+            }
+
+            function formato(valor) {
+                if (valor === null || valor === undefined) return "—";
+                if (typeof valor === "number") {
+                    return new Intl.NumberFormat("es-CO", {maximumFractionDigits: 1}).format(valor);
+                }
+                return String(valor);
+            }
+
+            function normalizar(valor) {
+                return String(valor).normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+            }
+
+            function agregarCelda(fila, etiqueta, valor, encabezado) {
+                const celda = document.createElement(encabezado ? "th" : "td");
+                celda.textContent = valor === undefined ? etiqueta : formato(valor);
+                fila.appendChild(celda);
+            }
+
+            function tablaResultados(datos, ejes, medida) {
+                const tabla = document.createElement("table");
+                tabla.className = "data-table";
+                const cabecera = document.createElement("thead");
+                const filaCabecera = document.createElement("tr");
+                ejes.forEach((eje) => agregarCelda(filaCabecera, "", `${eje[0]} · ${eje[1]}`, true));
+                agregarCelda(filaCabecera, "", medida, true);
+                cabecera.appendChild(filaCabecera);
+                tabla.appendChild(cabecera);
+
+                const cuerpo = document.createElement("tbody");
+                (datos.filas || []).forEach((resultado) => {
+                    const fila = document.createElement("tr");
+                    ejes.forEach((eje) => {
+                        agregarCelda(fila, "", resultado[`${eje[0]}__${eje[1]}`], false);
+                    });
+                    agregarCelda(fila, "", resultado.valor, false);
+                    cuerpo.appendChild(fila);
+                });
+                if (!datos.filas || datos.filas.length === 0) {
+                    const fila = document.createElement("tr");
+                    const celda = document.createElement("td");
+                    celda.colSpan = ejes.length + 1;
+                    celda.textContent = "La consulta no devolvió filas.";
+                    fila.appendChild(celda);
+                    cuerpo.appendChild(fila);
+                }
+                tabla.appendChild(cuerpo);
+
+                const pie = document.createElement("tfoot");
+                const filaTotal = document.createElement("tr");
+                const etiquetaTotal = document.createElement("td");
+                etiquetaTotal.colSpan = Math.max(ejes.length, 1);
+                etiquetaTotal.textContent = "Total recalculado";
+                filaTotal.appendChild(etiquetaTotal);
+                agregarCelda(filaTotal, "", datos.total, false);
+                pie.appendChild(filaTotal);
+                tabla.appendChild(pie);
+                return tabla;
+            }
+
+            function tablaPivot(datos, medida) {
+                if (!datos.pivot) return tablaResultados(datos, datos.ejes.map((eje) => [eje.dimension, eje.nivel]), medida);
+                const pivote = datos.pivot;
+                const ordenPreferido = ["Boscosa", "Natural no boscosa", "Agropecuaria", "Sin vegetación", "Cuerpo de agua"];
+                const ordenar = (valores) => {
+                    const porNombre = new Map(valores.map((valor) => [normalizar(valor), valor]));
+                    const preferidos = ordenPreferido
+                        .map((valor) => porNombre.get(normalizar(valor)))
+                        .filter((valor) => valor !== undefined);
+                    return [...preferidos, ...valores.filter((valor) => !preferidos.includes(valor))];
+                };
+                const filas = ordenar(pivote.filas);
+                const columnas = ordenar(pivote.columnas);
+                const tabla = document.createElement("table");
+                tabla.className = "data-table";
+                const cabecera = document.createElement("thead");
+                const filaCabecera = document.createElement("tr");
+                agregarCelda(filaCabecera, "", "Filas / columnas", true);
+                columnas.forEach((columna) => agregarCelda(filaCabecera, "", columna, true));
+                agregarCelda(filaCabecera, "", "Total fila", true);
+                cabecera.appendChild(filaCabecera);
+                tabla.appendChild(cabecera);
+                const cuerpo = document.createElement("tbody");
+                filas.forEach((filaValor) => {
+                    const fila = document.createElement("tr");
+                    agregarCelda(fila, "", filaValor, false);
+                    columnas.forEach((columna) => {
+                        agregarCelda(fila, "", pivote.matriz[filaValor]?.[columna], false);
+                    });
+                    agregarCelda(fila, "", pivote.total_por_fila[filaValor], false);
+                    cuerpo.appendChild(fila);
+                });
+                const total = document.createElement("tr");
+                agregarCelda(total, "", "Total columna", false);
+                columnas.forEach((columna) => agregarCelda(total, "", pivote.total_por_columna[columna], false));
+                agregarCelda(total, "", pivote.total_general, false);
+                cuerpo.appendChild(total);
+                tabla.appendChild(cuerpo);
+                return tabla;
+            }
+
+            function mostrarRespuesta(contenedor, datos, configuracion, medida, incluirPivot) {
+                const resultado = document.createElement("div");
+                const metadatos = document.createElement("p");
+                metadatos.className = "filter-line";
+                metadatos.textContent = `Medida: ${medida} · Total: ${formato(datos.total)}`;
+                resultado.appendChild(metadatos);
+                resultado.appendChild(incluirPivot ? tablaPivot(datos, medida) : tablaResultados(datos, configuracion.ejes, medida));
+                const sqlTitulo = document.createElement("h3");
+                sqlTitulo.textContent = "Procedimiento de consulta";
+                resultado.appendChild(sqlTitulo);
+                const sql = document.createElement("pre");
+                const codigo = document.createElement("code");
+                codigo.textContent = datos.sql || "";
+                sql.appendChild(codigo);
+                resultado.appendChild(sql);
+                const parametrosTitulo = document.createElement("h3");
+                parametrosTitulo.textContent = "Parámetros enlazados";
+                resultado.appendChild(parametrosTitulo);
+                const parametros = document.createElement("pre");
+                const codigoParametros = document.createElement("code");
+                codigoParametros.textContent = JSON.stringify(datos.parametros || []);
+                parametros.appendChild(codigoParametros);
+                resultado.appendChild(parametros);
+                contenedor.appendChild(resultado);
+            }
+
+            function verificarControl(datos, ejes, medida, ejemplo) {
+                const esperadoPorMedida = medida === "participacion_ganancia_urbana"
+                    ? ejemplo.esperadoPorcentaje
+                    : ejemplo.esperado;
+                if (esperadoPorMedida) {
+                    const aliases = ejes.map((eje) => `${eje[0]}__${eje[1]}`);
+                    const valores = Object.fromEntries((datos.filas || []).map((fila) => [
+                        aliases.map((alias) => normalizar(fila[alias])).join("|"),
+                        fila.valor
+                    ]));
+                    const discrepancias = Object.entries(esperadoPorMedida).filter(([clave, esperado]) => {
+                        const claveNormalizada = clave.split("|").map(normalizar).join("|");
+                        const real = valores[claveNormalizada];
+                        return real === undefined || Math.abs(Number(real) - esperado) > 0.1;
+                    });
+                    if (discrepancias.length) return "Aviso: la respuesta de la API difiere de una o más cifras de control indicadas. Revisa el Excel de origen y la carga; no se sustituyeron los resultados recibidos.";
+                }
+                if (ejemplo.esperadoMatriz && medida === "area_convertida_ha") {
+                    if (!datos.pivot) return "Aviso: la API no devolvió la matriz solicitada; se esperaba el resultado pivotado.";
+                    const matriz = datos.pivot;
+                    const filas = new Map(matriz.filas.map((valor) => [normalizar(valor), valor]));
+                    const columnas = new Map(matriz.columnas.map((valor) => [normalizar(valor), valor]));
+                    const discrepancias = Object.entries(ejemplo.esperadoMatriz).some(([filaControl, valores]) =>
+                        Object.entries(valores).some(([columnaControl, esperado]) => {
+                            const fila = filas.get(normalizar(filaControl));
+                            const columna = columnas.get(normalizar(columnaControl));
+                            const real = fila === undefined || columna === undefined
+                                ? undefined
+                                : matriz.matriz[fila]?.[columna];
+                            return real === undefined || Math.abs(Number(real) - esperado) > 0.1;
+                        })
+                    );
+                    if (discrepancias) return "Aviso: una o más celdas de la matriz de la API difieren de las cifras de control; se muestran los valores recibidos.";
+                }
+                if (ejemplo.totalEsperado !== undefined && Math.abs(Number(datos.total) - ejemplo.totalEsperado) > 0.1) {
+                    return `Aviso: el total de la API (${formato(datos.total)}) difiere del control ${formato(ejemplo.totalEsperado)}; se muestran los datos recibidos.`;
+                }
+                return "";
+            }
+
+            async function solicitar(configuracion, medidas, destino, interpretacion, guiado) {
+                destino.replaceChildren();
+                const filtros = configuracion.filtros;
+                const filtroTexto = filtros.map((filtro) => `${filtro[0]}:${filtro[1]}=${filtro[2].join(",")}`).join("; ") || "Sin filtros";
+                const nivelTexto = configuracion.nivel || filtroTexto;
+                const filas = document.createElement("p");
+                filas.className = "dashboard-description";
+                filas.textContent = `Dimensiones y medidas: ${configuracion.descripcion || configuracion.ejes.map((eje) => `${eje[0]} · ${eje[1]}`).join(" × ")} · ${medidas.join(", ")}`;
+                destino.appendChild(filas);
+                const filtrosInfo = document.createElement("p");
+                filtrosInfo.className = "dashboard-description";
+                filtrosInfo.textContent = `Nivel o filtros aplicados: ${nivelTexto}`;
+                destino.appendChild(filtrosInfo);
+                const resultados = document.createElement("div");
+                destino.appendChild(resultados);
+                for (const medida of medidas) {
+                    const url = crearUrl(configuracion, medida, guiado === "pivot");
+                    const respuesta = await fetch(url, {headers: {"Accept": "application/json"}});
+                    const datos = await respuesta.json();
+                    if (!respuesta.ok) throw new Error(datos.error || "La consulta OLAP no pudo completarse.");
+                    mostrarRespuesta(resultados, datos, configuracion, medida, guiado === "pivot");
+                    if (guiado) {
+                        const aviso = verificarControl(datos, configuracion.ejes, medida, configuracion);
+                        if (aviso) {
+                            const alerta = document.createElement("p");
+                            alerta.className = "decision-note control-warning";
+                            alerta.textContent = aviso;
+                            resultados.appendChild(alerta);
+                        }
+                    }
+                }
+                const lectura = document.createElement("p");
+                lectura.className = "insight-box";
+                lectura.textContent = interpretacion || "";
+                destino.appendChild(lectura);
+            }
+
+            function leerConfiguracion(panel) {
+                const ejes = ["row", "column", "extra"].map((nombre) => {
+                    const selector = panel.querySelector(`[data-axis="${nombre}"]`);
+                    return selector ? dividirEje(selector.value) : null;
+                }).filter(Boolean);
+                if (!ejes.length) throw new Error("Selecciona al menos un eje.");
+                const medida = panel.querySelector("[data-measure]").value;
+                const filtros = leerFiltros(panel.querySelector("[data-filters]").value).map((filtro) => [filtro.dimension, filtro.nivel, filtro.valores]);
+                return {
+                    ejes,
+                    filtros,
+                    soloCambio: panel.querySelector("[data-solo-cambio]").checked,
+                    descripcion: ejes.map((eje) => `${eje[0]} · ${eje[1]}`).join(" × "),
+                    nivel: filtros.map((filtro) => `${filtro[0]}:${filtro[1]}=${filtro[2].join(",")}`).join("; ") || "Sin filtros"
+                };
+            }
+
+            document.querySelectorAll("[data-query-panel]").forEach((panel) => {
+                panel.querySelector("[data-run-query]").addEventListener("click", async () => {
+                    const estado = panel.querySelector(".query-status");
+                    const salida = panel.querySelector("[data-query-output]");
+                    salida.replaceChildren();
+                    try {
+                        estado.textContent = "Consultando el modelo…";
+                        const configuracion = leerConfiguracion(panel);
+                        await solicitar(configuracion, [panel.querySelector("[data-measure]").value], salida, "", false);
+                        estado.textContent = "Consulta completada.";
+                    } catch (error) {
+                        estado.textContent = `Error: ${error.message}`;
+                    }
+                });
+            });
+
+            document.querySelectorAll("[data-guided]").forEach((boton) => {
+                boton.addEventListener("click", async () => {
+                    const ejemplo = ejemplos[boton.dataset.guided];
+                    const contenedor = boton.closest(".operation-card") || boton.closest("[data-query-panel]");
+                    const salida = contenedor.querySelector(".guided-output");
+                    salida.replaceChildren();
+                    try {
+                        await solicitar(ejemplo, ejemplo.medidas, salida, ejemplo.interpretacion, boton.dataset.guided);
+                    } catch (error) {
+                        const mensaje = document.createElement("p");
+                        mensaje.className = "decision-note";
+                        mensaje.textContent = `Error en el ejemplo guiado: ${error.message}`;
+                        salida.appendChild(mensaje);
+                    }
+                });
+            });
+
+            const consultaLibre = document.querySelector("[data-free-query]");
+            const salidaLibre = document.querySelector("#consulta-libre [data-query-output]");
+            const estadoLibre = document.querySelector("#consulta-libre .query-status");
+
+            async function ejecutarConsultaLibre(intercambiar = false) {
+                try {
+                    estadoLibre.textContent = "Consultando el modelo…";
+                    const configuracion = leerConfiguracion(consultaLibre);
+                    if (intercambiar) configuracion.ejes = configuracion.ejes.slice(0, 2);
+                    await solicitar(
+                        configuracion,
+                        [consultaLibre.querySelector("[data-measure]").value],
+                        salidaLibre,
+                        "",
+                        intercambiar ? "pivot" : false
+                    );
+                    estadoLibre.textContent = "Consulta completada.";
+                } catch (error) {
+                    salidaLibre.replaceChildren();
+                    estadoLibre.textContent = `Error: ${error.message}`;
+                }
+            }
+
+            function cambiarNivel(sentido) {
+                ["row", "column", "extra"].forEach((nombre) => {
+                    const selector = consultaLibre.querySelector(`[data-axis="${nombre}"]`);
+                    const eje = dividirEje(selector.value);
+                    if (!eje) return;
+                    const niveles = jerarquias[eje[0]];
+                    const actual = niveles.indexOf(eje[1]);
+                    const siguiente = Math.max(0, Math.min(niveles.length - 1, actual + sentido));
+                    const nuevoValor = `${eje[0]}:${niveles[siguiente]}`;
+                    if ([...selector.options].some((opcion) => opcion.value === nuevoValor)) selector.value = nuevoValor;
+                });
+            }
+
+            consultaLibre.querySelectorAll("[data-free-action]").forEach((boton) => {
+                boton.addEventListener("click", () => {
+                    const accion = boton.dataset.freeAction;
+                    if (accion === "drill") cambiarNivel(1);
+                    if (accion === "roll") cambiarNivel(-1);
+                    if (accion === "pivot") {
+                        const fila = consultaLibre.querySelector('[data-axis="row"]');
+                        const columna = consultaLibre.querySelector('[data-axis="column"]');
+                        if (!columna.value || fila.value === columna.value) {
+                            estadoLibre.textContent = "Pivot requiere dos ejes distintos.";
+                            return;
+                        }
+                        const valorFila = fila.value;
+                        fila.value = columna.value;
+                        columna.value = valorFila;
+                    }
+                    ejecutarConsultaLibre(accion === "pivot");
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
