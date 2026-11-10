@@ -3,4 +3,4 @@
 /Proyecto/.vscode
 *.pyc
 Proyecto/.env
-
+*.xlsx
