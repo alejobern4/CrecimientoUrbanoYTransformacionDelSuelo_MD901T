@@ -540,3 +540,170 @@
         min-width: 460px;
     }
 }
+
+.dashboard-metrics,
+.dashboard-visualizations,
+.dashboard-matrix {
+    margin-top: 24px;
+}
+
+.dashboard-metrics > h3,
+.dashboard-visualizations > h3,
+.dashboard-matrix > h3 {
+    margin-bottom: 12px;
+    color: var(--blue);
+    font-size: 17px;
+}
+
+.dashboard-metrics .metric-grid {
+    margin-top: 0;
+}
+
+.dashboard-metrics .metric-card {
+    min-height: 130px;
+    padding: 18px;
+}
+
+.dashboard-metrics .metric-card strong {
+    font-variant-numeric: tabular-nums;
+}
+
+.olap-chart-card {
+    min-width: 0;
+    padding: 18px;
+}
+
+.olap-chart-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.olap-bar-chart {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 12px;
+    overflow: visible;
+}
+
+.olap-chart-track {
+    fill: rgba(113, 140, 114, 0.13);
+}
+
+.olap-chart-label,
+.olap-chart-value {
+    fill: var(--dark);
+    font-family: inherit;
+    font-size: 12px;
+}
+
+.olap-chart-value {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.dashboard-matrix {
+    overflow-x: auto;
+}
+
+.dashboard-matrix .data-table {
+    min-width: 640px;
+}
+
+.query-details {
+    margin-top: 18px;
+    border: 1px solid #dce1db;
+    background: rgba(255, 255, 255, 0.68);
+}
+
+.query-details summary {
+    padding: 13px 16px;
+    color: var(--blue);
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.query-details pre {
+    margin: 0;
+    padding: 16px;
+    overflow-x: auto;
+    color: var(--blue);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+}
+
+.query-details p {
+    padding: 0 16px 14px;
+    color: var(--muted);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.knowledge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.knowledge-card {
+    min-width: 0;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid #dce1db;
+    border-left: 4px solid var(--orange);
+}
+
+.knowledge-card summary {
+    color: var(--blue);
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.knowledge-card dl {
+    display: grid;
+    grid-template-columns: minmax(130px, 0.35fr) minmax(0, 1fr);
+    gap: 8px 14px;
+    margin: 16px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.knowledge-card dt {
+    color: var(--dark);
+    font-weight: 800;
+}
+
+.knowledge-card dd {
+    margin: 0;
+    color: var(--muted);
+}
+
+.query-actions button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+@media (max-width: 900px) {
+    .knowledge-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .knowledge-card {
+        padding: 15px;
+    }
+
+    .knowledge-card dl {
+        grid-template-columns: 1fr;
+        gap: 3px;
+    }
+
+    .knowledge-card dd + dt {
+        margin-top: 9px;
+    }
+}

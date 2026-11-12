@@ -143,7 +143,7 @@
                 </article>
                 <article class="analysis-card">
                     <span class="analysis-label">ORIGEN Y CASOS ATÍPICOS</span>
-                    <p>El suelo urbano provino principalmente de coberturas agropecuarias (53,6 %) y sin vegetación (44,9 %); bosque aportó 1,0 %. Las 36 transiciones atípicas suman 1.625,1 ha, el 26,7 % de la ganancia urbana.</p>
+                    <p>En la consulta del modelo, el suelo urbano provino principalmente de coberturas agropecuarias (53,6 %) y sin vegetación (45,0 %); bosque aportó 1,0 %. Las 36 transiciones atípicas suman 1.625,1 ha, el 26,7 % de la ganancia urbana.</p>
                 </article>
             </div>
             <div class="insight-box">
@@ -334,7 +334,7 @@ python dw_verificar.py --origen RUTA</code></pre>
                 </div>
             </div>
 
-            <article class="dashboard-page query-page" data-query-panel>
+            <article class="dashboard-page query-page" data-query-panel data-kpi-measures="ganancia_urbana_ha,ritmo_ganancia_urbana_ha_anio,numero_transiciones">
                 <div class="section-header">
                     <span class="section-number">P1</span>
                     <div>
@@ -367,17 +367,30 @@ python dw_verificar.py --origen RUTA</code></pre>
                             <option value="ritmo_ganancia_urbana_ha_anio">Ritmo de ganancia urbana (ha/año)</option>
                         </select>
                     </label>
-                    <label>Filtros (dimensión:nivel=valor; separar varios filtros con punto y coma)
+                    <label>Filtro territorial · municipio
+                        <select data-filter="territorio:municipio"><option value="">Todos</option></select>
+                    </label>
+                    <label>Filtro temporal · década
+                        <select data-filter="tiempo:decada"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtros adicionales (opcional; dimensión:nivel=valor; separar con punto y coma)
                         <input type="text" data-filters placeholder="tiempo:decada=1990-1999">
                     </label>
                     <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
-                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                    <div class="query-actions">
+                        <button class="main-button" type="button" data-run-query>Consultar</button>
+                        <button class="main-button" type="button" data-panel-action="drill">Drill-down</button>
+                        <button class="main-button" type="button" data-panel-action="roll">Roll-up</button>
+                        <button class="main-button" type="button" data-panel-action="pivot">Pivot</button>
+                    </div>
                 </div>
                 <p class="query-status" role="status" aria-live="polite"></p>
                 <div class="query-output" data-query-output></div>
+                <div class="knowledge-grid" data-knowledge="p1"></div>
+                <p class="decision-note"><strong>Posible decisión:</strong> priorizar el seguimiento de Chía, Tocancipá, Cota y Cajicá, y revisar las tendencias por quinquenio antes de definir acciones territoriales; la asociación observada no identifica causas.</p>
             </article>
 
-            <article class="dashboard-page query-page" data-query-panel>
+            <article class="dashboard-page query-page" data-query-panel data-kpi-measures="ganancia_urbana_ha,numero_transiciones,ritmo_ganancia_urbana_ha_anio">
                 <div class="section-header">
                     <span class="section-number">P2</span>
                     <div>
@@ -385,7 +398,7 @@ python dw_verificar.py --origen RUTA</code></pre>
                         <h2>¿Cambió entre décadas el origen del suelo que se vuelve urbano?</h2>
                     </div>
                 </div>
-                <p class="dashboard-description"><strong>Dimensiones:</strong> tiempo y cobertura de origen. <strong>Medidas:</strong> ganancia urbana (ha) y participación (%). Profundiza los aportes globales de 53,6 % agropecuario, 44,9 % sin vegetación y 1,0 % bosque.</p>
+                <p class="dashboard-description"><strong>Dimensiones:</strong> tiempo y cobertura de origen. <strong>Medidas:</strong> ganancia urbana (ha) y participación (%). Profundiza los aportes globales de 53,6 % agropecuario, 45,0 % sin vegetación y 1,0 % bosque; la consulta del modelo devuelve 45,018 % para esta última categoría, por lo que se reconcilia el 44,9 % preliminar de la Etapa 4.</p>
                 <div class="query-controls">
                     <label>Filas
                         <select data-axis="row">
@@ -407,20 +420,33 @@ python dw_verificar.py --origen RUTA</code></pre>
                             <option value="participacion_ganancia_urbana">Participación en la ganancia urbana (%)</option>
                         </select>
                     </label>
-                    <label>Filtros
+                    <label>Filtro temporal · década
+                        <select data-filter="tiempo:decada"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtro · cobertura de origen (nivel 1)
+                        <select data-filter="origen:n1"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtros adicionales (opcional)
                         <input type="text" data-filters placeholder="tiempo:decada=2010-2019">
                     </label>
                     <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
-                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                    <div class="query-actions">
+                        <button class="main-button" type="button" data-run-query>Consultar</button>
+                        <button class="main-button" type="button" data-panel-action="drill">Drill-down</button>
+                        <button class="main-button" type="button" data-panel-action="roll">Roll-up</button>
+                        <button class="main-button" type="button" data-panel-action="pivot">Pivot</button>
+                    </div>
                 </div>
                 <p class="query-status" role="status" aria-live="polite"></p>
                 <div class="query-output" data-query-output></div>
+                <div class="knowledge-grid" data-knowledge="p2"></div>
+                <p class="decision-note"><strong>Posible decisión:</strong> focalizar una revisión cartográfica de las transiciones desde coberturas sin vegetación en 2015–2019 y contrastarlas con las agropecuarias, sin interpretar el patrón como causal.</p>
                 <p class="decision-note">Control por década: agropecuaria 75,5; 466,2; 964,7; 1.202,2; 549,0 ha. Sin vegetación: 138,5; 521,6; 719,6; 701,6; 655,8 ha (décadas 1980 a 2020).</p>
                 <button class="main-button" type="button" data-guided="origenes">Consultar origen urbano por década</button>
                 <div class="guided-output" aria-live="polite"></div>
             </article>
 
-            <article class="dashboard-page query-page" data-query-panel>
+            <article class="dashboard-page query-page" data-query-panel data-kpi-measures="area_convertida_ha,numero_transiciones,area_atipica_ha">
                 <div class="section-header">
                     <span class="section-number">P3</span>
                     <div>
@@ -449,21 +475,34 @@ python dw_verificar.py --origen RUTA</code></pre>
                             <option value="numero_transiciones">Número de transiciones</option>
                         </select>
                     </label>
-                    <label>Filtros
+                    <label>Filtro territorial · municipio
+                        <select data-filter="territorio:municipio"><option value="">Todos</option></select>
+                    </label>
+                    <label>Filtro · cobertura de destino (nivel 2)
+                        <select data-filter="destino:n2"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtros adicionales (opcional)
                         <input type="text" data-filters placeholder="destino:n2=4.3. Minería">
                     </label>
                     <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
-                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                    <div class="query-actions">
+                        <button class="main-button" type="button" data-run-query>Consultar</button>
+                        <button class="main-button" type="button" data-panel-action="drill">Drill-down</button>
+                        <button class="main-button" type="button" data-panel-action="roll">Roll-up</button>
+                        <button class="main-button" type="button" data-panel-action="pivot">Pivot</button>
+                    </div>
                 </div>
                 <p class="query-status" role="status" aria-live="polite"></p>
                 <div class="query-output" data-query-output></div>
+                <div class="knowledge-grid" data-knowledge="p3"></div>
+                <p class="decision-note"><strong>Posible decisión:</strong> priorizar la validación de las transiciones hacia minería en Nemocón, Cogua y Tocancipá y separar ese seguimiento del de las conversiones hacia infraestructura urbana.</p>
                 <p class="decision-note">Control regional por destino: mosaico de agricultura o pasto 26.181,9 ha; bosque 17.332,2; otra área sin vegetación 12.997,9; otra formación natural no forestal 10.767,8; infraestructura urbana 6.080,2; silvicultura 6.018,9; herbazales o arbustales andinos 5.618,7; río, lago u océano 2.181,9; minería 1.333,5; formación natural no forestal inundable 108,6.</p>
                 <button class="main-button" type="button" data-guided="destinos">Consultar control regional por destino</button>
                 <button class="main-button" type="button" data-guided="mineria">Consultar detalle de minería por municipio</button>
                 <div class="guided-output" aria-live="polite"></div>
             </article>
 
-            <article class="dashboard-page query-page" data-query-panel>
+            <article class="dashboard-page query-page" data-query-panel data-kpi-measures="area_convertida_ha,numero_transiciones_atipicas,ganancia_urbana_atipica_ha">
                 <div class="section-header">
                     <span class="section-number">P4</span>
                     <div>
@@ -505,14 +544,27 @@ python dw_verificar.py --origen RUTA</code></pre>
                             <option value="ganancia_urbana_atipica_ha">Ganancia urbana atípica (ha)</option>
                         </select>
                     </label>
-                    <label>Filtros
+                    <label>Filtro · cobertura de origen (nivel 1)
+                        <select data-filter="origen:n1"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtro · cobertura de destino (nivel 1)
+                        <select data-filter="destino:n1"><option value="">Todas</option></select>
+                    </label>
+                    <label>Filtros adicionales (opcional)
                         <input type="text" data-filters placeholder="territorio:municipio=Chía">
                     </label>
                     <label class="checkbox-control"><input type="checkbox" data-solo-cambio checked> Solo cambios</label>
-                    <button class="main-button" type="button" data-run-query>Consultar</button>
+                    <div class="query-actions">
+                        <button class="main-button" type="button" data-run-query>Consultar</button>
+                        <button class="main-button" type="button" data-panel-action="drill">Drill-down</button>
+                        <button class="main-button" type="button" data-panel-action="roll">Roll-up</button>
+                        <button class="main-button" type="button" data-panel-action="pivot">Pivot</button>
+                    </div>
                 </div>
                 <p class="query-status" role="status" aria-live="polite"></p>
                 <div class="query-output" data-query-output></div>
+                <div class="knowledge-grid" data-knowledge="p4"></div>
+                <p class="decision-note"><strong>Posible decisión:</strong> priorizar la revisión documental y cartográfica de las alertas atípicas con destino urbano en Chía y Cota, sin clasificarlas como errores confirmados.</p>
             </article>
         </section>
 
@@ -685,6 +737,12 @@ python dw_verificar.py --origen RUTA</code></pre>
                 origen: ["n0", "n1", "n2"],
                 destino: ["n0", "n1", "n2"]
             };
+            const etiquetasNivel = {
+                territorio: {departamento: "Territorio · departamento", municipio: "Territorio · municipio"},
+                tiempo: {decada: "Tiempo · década", quinquenio: "Tiempo · quinquenio", anio: "Tiempo · año"},
+                origen: {n0: "Origen · nivel0", n1: "Origen · nivel1", n2: "Origen · nivel2"},
+                destino: {n0: "Destino · nivel0", n1: "Destino · nivel1", n2: "Destino · nivel2"}
+            };
             const ejemplos = {
                 drill: {
                     ejes: [["tiempo", "quinquenio"]],
@@ -701,7 +759,7 @@ python dw_verificar.py --origen RUTA</code></pre>
                     medidas: ["ganancia_urbana_ha"],
                     descripcion: "Territorio · municipio | Ganancia urbana (ha)",
                     nivel: "Se agrega la ganancia de 1985–2024 y se calcula aparte el total regional.",
-                    interpretacion: "Control regional = 6.080,2 ha. Chía aporta 1.194,2 ha; los cuatro primeros municipios suman 3.920,3 ha (64,5 %).",
+                    interpretacion: "Control regional = 6.080,2 ha. Chía aporta 1.194,2 ha; los cuatro primeros municipios suman 3.920,2 ha (64,5 %).",
                     esperado: {"Chía": 1194.2, "Tocancipá": 968.8, "Cota": 937.5, "Cajicá": 819.8, "Zipaquirá": 652.0, "Tenjo": 435.8, "Sopó": 319.1, "Nemocón": 289.0, "Gachancipá": 238.4, "Cogua": 154.4, "Tabio": 71.2},
                     totalEsperado: 6080.2
                 },
@@ -804,6 +862,134 @@ python dw_verificar.py --origen RUTA</code></pre>
                 }
             };
 
+            const nombresMedida = {
+                area_ha: ["Área de transición", "ha-transición"],
+                area_convertida_ha: ["Área convertida", "ha-transición"],
+                ganancia_urbana_ha: ["Ganancia urbana", "ha-transición"],
+                perdida_urbana_ha: ["Pérdida urbana", "ha-transición"],
+                ritmo_ganancia_urbana_ha_anio: ["Ritmo de ganancia urbana", "ha/año"],
+                participacion_ganancia_urbana: ["Participación en la ganancia urbana", "%"],
+                numero_transiciones: ["Transiciones", "registros"],
+                numero_transiciones_atipicas: ["Transiciones atípicas", "registros"],
+                area_atipica_ha: ["Área de transiciones atípicas", "ha-transición"],
+                ganancia_urbana_atipica_ha: ["Ganancia urbana atípica", "ha-transición"]
+            };
+
+            const conocimientos = {
+                p1: [
+                    {
+                        titulo: "Conocimiento 1 · La ganancia urbana se concentra en cuatro municipios",
+                        campos: [
+                            ["Pregunta", "¿Qué municipios reúnen la mayor ganancia urbana acumulada del periodo?"],
+                            ["Dimensiones y medidas", "Territorio a nivel municipio; ganancia urbana (ha-transición)."],
+                            ["Procedimiento", "Consulta del modelo agrupada por municipio; se incluyen los 39 periodos y solo transiciones con destino infraestructura urbana. El denominador de la participación es la ganancia urbana regional completa."],
+                            ["Evidencia", "Matriz municipio × década y consulta de control: Chía 1.194,2 ha; Tocancipá 968,8; Cota 937,5; Cajicá 819,8. Total regional: 6.080,2 ha-transición."],
+                            ["Hallazgo", "Los cuatro primeros suman 3.920,2 ha-transición, equivalentes al 64,5 % de 6.080,2 ha-transición."],
+                            ["Interpretación", "El desglose temporal permite ver que esta concentración acumulada no implica que los municipios mantengan el mismo aporte en todas las décadas."],
+                            ["Utilidad", "Priorizar seguimiento territorial en esos municipios y revisar la evolución por quinquenio antes de asignar recursos."],
+                            ["Limitación", "Son flujos de transiciones anuales, no hectáreas únicas acumuladas; la asociación territorial no prueba causas."]
+                        ]
+                    },
+                    {
+                        titulo: "Conocimiento 2 · El aporte municipal cambia entre décadas completas",
+                        campos: [
+                            ["Pregunta", "¿Se mantuvo el aporte de Chía y Cota entre 2000–2009 y 2010–2019?"],
+                            ["Dimensiones y medidas", "Territorio (municipio) × tiempo (década); ganancia urbana (ha-transición)."],
+                            ["Procedimiento", "Dice sobre destino infraestructura urbana y las décadas completas 2000–2009 y 2010–2019; drill-down de la suma regional al municipio."],
+                            ["Evidencia", "Chía: 519,6 → 300,3 ha-transición. Cota: 234,9 → 351,0 ha-transición."],
+                            ["Hallazgo", "Chía disminuye 42,2 % entre décadas y Cota aumenta 49,5 %, calculados respecto del valor de 2000–2009 para cada municipio."],
+                            ["Interpretación", "El cambio de orden entre municipios queda oculto en la cifra acumulada de todo el periodo y enriquece la comparación municipal de la Etapa 4."],
+                            ["Utilidad", "Orientar una revisión por quinquenio de los municipios con aumento o descenso marcado."],
+                            ["Limitación", "La variación describe asociación temporal; no explica sus causas. Se comparan décadas completas, no las décadas parciales de 1980 y 2020."]
+                        ]
+                    }
+                ],
+                p2: [
+                    {
+                        titulo: "Conocimiento 1 · El origen dominante cambia según la década",
+                        campos: [
+                            ["Pregunta", "¿Cambió la composición de las coberturas de origen de la ganancia urbana?"],
+                            ["Dimensiones y medidas", "Tiempo (década) × cobertura de origen (nivel 1); ganancia urbana (ha-transición) y participación."],
+                            ["Procedimiento", "Slice de cada década y roll-up del origen; la participación se recalcula con la ganancia urbana de esa década como denominador, no se suman porcentajes entre décadas."],
+                            ["Evidencia", "En 1990–1999: agropecuaria 466,2 ha (45,3 %) y sin vegetación 521,6 ha (50,7 %). En 2010–2019: agropecuaria 1.202,2 ha (62,7 %) y sin vegetación 701,6 ha (36,6 %)."],
+                            ["Hallazgo", "La categoría con mayor aporte pasa de sin vegetación en 1990–1999 a agropecuaria en 2010–2019; en esta última década la participación agropecuaria supera a la otra por 26,1 puntos porcentuales."],
+                            ["Interpretación", "El hallazgo profundiza los porcentajes globales de la Etapa 4: la composición no fue uniforme a lo largo del tiempo."],
+                            ["Utilidad", "Enfocar la revisión de cambios de cobertura en los periodos y clases que más contribuyen a la ganancia urbana."],
+                            ["Limitación", "Las décadas 1980 y 2020 son parciales y no se usan para esta comparación. La clasificación satelital no demuestra uso, tenencia ni causalidad."]
+                        ]
+                    },
+                    {
+                        titulo: "Conocimiento 2 · El origen sin vegetación aumenta dentro de 2010–2019",
+                        campos: [
+                            ["Pregunta", "¿Cómo se distribuyó por quinquenio el aporte de las dos principales coberturas de origen en 2010–2019?"],
+                            ["Dimensiones y medidas", "Tiempo (quinquenio) × cobertura de origen (nivel 1); ganancia urbana (ha-transición)."],
+                            ["Procedimiento", "Slice de la década completa 2010–2019 y drill-down a 2010–2014 y 2015–2019; se comparan hectáreas de transición, no porcentajes acumulados."],
+                            ["Evidencia", "Agropecuaria: 642,3 → 559,9 ha-transición. Sin vegetación: 250,9 → 450,7 ha-transición."],
+                            ["Hallazgo", "Entre ambos quinquenios, el aporte sin vegetación aumenta 79,6 %, mientras que el agropecuario disminuye 12,8 % (base de cada variación: 2010–2014)."],
+                            ["Interpretación", "El agregado de la década oculta una composición distinta en su segunda mitad; el resultado añade detalle al cambio temporal del origen."],
+                            ["Utilidad", "Seleccionar la segunda mitad de la década para una revisión más detallada de las transiciones y sus fuentes cartográficas."],
+                            ["Limitación", "La comparación identifica un patrón descriptivo y no atribuye causas. No equivale a comparar hectáreas únicas del territorio."]
+                        ]
+                    }
+                ],
+                p3: [
+                    {
+                        titulo: "Conocimiento 1 · Nemocón concentra las transiciones hacia minería",
+                        campos: [
+                            ["Pregunta", "¿Qué municipios concentran el área convertida hacia minería?"],
+                            ["Dimensiones y medidas", "Territorio (municipio) × cobertura de destino (nivel 2); área convertida (ha-transición)."],
+                            ["Procedimiento", "Slice del destino «4.3. Minería», solo cambios de clase, y roll-up del área por municipio para el periodo completo."],
+                            ["Evidencia", "La consulta devuelve 1.333,5 ha-transición hacia minería; Nemocón aporta 592,2 ha, seguido de Cogua (241,0) y Tocancipá (235,9)."],
+                            ["Hallazgo", "Nemocón representa 44,4 % de las transiciones hacia minería; los tres municipios con mayor aporte reúnen 80,2 % del total."],
+                            ["Interpretación", "La concentración de flujos de transición identifica dónde conviene examinar los cambios con mayor detalle; no equivale al área minera existente al cierre."],
+                            ["Utilidad", "Priorizar verificación territorial de las transiciones hacia minería, sin tratar las cifras como evidencia de infracción."],
+                            ["Limitación", "El área es acumulada por transiciones durante 1985–2024 y puede contar una superficie en más de un periodo; no es un inventario de minería al cierre."]
+                        ]
+                    },
+                    {
+                        titulo: "Conocimiento 2 · La ganancia urbana municipal también difiere por destino",
+                        campos: [
+                            ["Pregunta", "¿Cómo se distribuye entre municipios el flujo hacia infraestructura urbana, frente al conjunto de otros destinos?"],
+                            ["Dimensiones y medidas", "Territorio (municipio) × cobertura de destino (nivel 2); área convertida y ganancia urbana (ha-transición)."],
+                            ["Procedimiento", "Cruce municipio × destino; slice del destino «4.2. Infraestructura urbana» y comparación con el total regional de área convertida."],
+                            ["Evidencia", "Infraestructura urbana suma 6.080,2 ha-transición de 88.621,6 ha-transición convertidas; Chía registra 1.194,2 y Tocancipá 968,8 ha."],
+                            ["Hallazgo", "La ganancia urbana equivale al 6,9 % del área convertida total del modelo (denominador: 88.621,6 ha-transición); Chía aporta el 19,6 % de esa ganancia urbana."],
+                            ["Interpretación", "El cruce distingue la importancia de una clase de destino del volumen general de conversiones y de su concentración municipal."],
+                            ["Utilidad", "Separar el seguimiento de transiciones urbanas de la revisión de otros destinos, como minería o coberturas naturales."],
+                            ["Limitación", "Las cifras son hectáreas-transición del modelo regional; no miden crecimiento de población, ocupación efectiva ni causalidad."]
+                        ]
+                    }
+                ],
+                p4: [
+                    {
+                        titulo: "Conocimiento 1 · Una ruta reúne la mayor frecuencia de transiciones atípicas",
+                        campos: [
+                            ["Pregunta", "¿Qué combinación de origen y destino aparece con mayor frecuencia entre las transiciones atípicas?"],
+                            ["Dimensiones y medidas", "Cobertura de origen (nivel 1) × cobertura de destino (nivel 1); número de transiciones atípicas."],
+                            ["Procedimiento", "Dice de ambas dimensiones de cobertura y cuenta filas del hecho con es_atipico = 1; la matriz conserva las combinaciones origen–destino."],
+                            ["Evidencia", "La matriz suma 680 transiciones atípicas; la ruta agropecuaria → sin vegetación aparece 132 veces."],
+                            ["Hallazgo", "Esa ruta representa 19,4 % de las 680 transiciones atípicas (denominador: registros atípicos del modelo)."],
+                            ["Interpretación", "El cruce revela una concentración por ruta que no se observa al mirar solo el total de casos atípicos."],
+                            ["Utilidad", "Ordenar la revisión de casos por combinación de clases y contrastar los registros de mayor frecuencia con la fuente."],
+                            ["Limitación", "Atípico significa que supera un umbral de magnitud; no significa error confirmado ni demuestra una causa."]
+                        ]
+                    },
+                    {
+                        titulo: "Conocimiento 2 · Los casos atípicos con destino urbano se concentran en Chía y Cota",
+                        campos: [
+                            ["Pregunta", "¿Dónde se localizan los casos atípicos que terminan en infraestructura urbana?"],
+                            ["Dimensiones y medidas", "Territorio (municipio) × cobertura de destino; número y área de ganancia urbana atípica."],
+                            ["Procedimiento", "Slice del destino infraestructura urbana; conteo de transiciones con es_atipico = 1 y suma de sus áreas por municipio."],
+                            ["Evidencia", "Hay 36 transiciones y 1.625,1 ha-transición atípicas con destino urbano. Chía: 13 casos y 616,7 ha; Cota: 7 casos y 331,3 ha."],
+                            ["Hallazgo", "Chía y Cota reúnen 20 de los 36 casos y 948,1 ha, equivalentes al 58,3 % de esa área atípica."],
+                            ["Interpretación", "El detalle municipal y el filtro de destino precisan el hallazgo de la Etapa 4 y permiten separar alertas urbanas de otras transiciones atípicas."],
+                            ["Utilidad", "Priorizar la comprobación cartográfica/documental de esos casos antes de tomar decisiones de planeación."],
+                            ["Limitación", "Los casos son alertas estadísticas, no errores. Una hectárea puede aparecer en distintos periodos y los datos no prueban causalidad."]
+                        ]
+                    }
+                ]
+            };
+
             function dividirEje(valor) {
                 if (!valor) return null;
                 const partes = valor.split(":");
@@ -842,6 +1028,67 @@ python dw_verificar.py --origen RUTA</code></pre>
                     return new Intl.NumberFormat("es-CO", {maximumFractionDigits: 1}).format(valor);
                 }
                 return String(valor);
+            }
+
+            async function consultarModelo(configuracion, medida, ejes, usarPivot = false) {
+                const url = crearUrl({...configuracion, ejes}, medida, usarPivot);
+                const respuesta = await fetch(url, {headers: {"Accept": "application/json"}});
+                const datos = await respuesta.json();
+                if (!respuesta.ok) throw new Error(datos.error || "La consulta OLAP no pudo completarse.");
+                return datos;
+            }
+
+            const opcionesDimension = new Map();
+
+            async function cargarOpcionesFiltro(selector) {
+                const eje = dividirEje(selector.dataset.filter);
+                if (!eje) throw new Error("Hay un filtro dimensional mal configurado.");
+                const clave = `${eje[0]}:${eje[1]}`;
+                let solicitud = opcionesDimension.get(clave);
+                if (!solicitud) {
+                    solicitud = consultarModelo(
+                        {filtros: [], soloCambio: false},
+                        "area_ha",
+                        [eje]
+                    ).then((datos) => datos.filas.map((fila) => fila[`${eje[0]}__${eje[1]}`]));
+                    opcionesDimension.set(clave, solicitud);
+                }
+                let valores;
+                try {
+                    valores = await solicitud;
+                } catch (error) {
+                    opcionesDimension.delete(clave);
+                    throw error;
+                }
+                valores.forEach((valor) => {
+                    const opcion = document.createElement("option");
+                    opcion.value = String(valor);
+                    opcion.textContent = String(valor).replace(/\s+/g, " ").trim();
+                    selector.appendChild(opcion);
+                });
+            }
+
+            function renderizarConocimientos() {
+                document.querySelectorAll("[data-knowledge]").forEach((contenedor) => {
+                    const fichas = conocimientos[contenedor.dataset.knowledge] || [];
+                    fichas.forEach((ficha) => {
+                        const detalle = document.createElement("details");
+                        detalle.className = "knowledge-card";
+                        const titulo = document.createElement("summary");
+                        titulo.textContent = ficha.titulo;
+                        detalle.appendChild(titulo);
+                        const lista = document.createElement("dl");
+                        ficha.campos.forEach(([nombre, valor]) => {
+                            const termino = document.createElement("dt");
+                            termino.textContent = nombre;
+                            const definicion = document.createElement("dd");
+                            definicion.textContent = valor;
+                            lista.append(termino, definicion);
+                        });
+                        detalle.appendChild(lista);
+                        contenedor.appendChild(detalle);
+                    });
+                });
             }
 
             function normalizar(valor) {
@@ -934,6 +1181,199 @@ python dw_verificar.py --origen RUTA</code></pre>
                 cuerpo.appendChild(total);
                 tabla.appendChild(cuerpo);
                 return tabla;
+            }
+
+            function crearGraficoBarras(datos, eje, titulo, color) {
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "chart-card olap-chart-card";
+                const encabezado = document.createElement("h3");
+                encabezado.textContent = titulo;
+                tarjeta.appendChild(encabezado);
+                const descripcion = document.createElement("p");
+                descripcion.textContent = `Medida: ${nombresMedida[datos.medida]?.[0] || datos.medida} (${nombresMedida[datos.medida]?.[1] || "unidades"}). Se muestran hasta 10 grupos con mayor valor.`;
+                tarjeta.appendChild(descripcion);
+
+                const alias = `${eje[0]}__${eje[1]}`;
+                const registros = (datos.filas || [])
+                    .map((fila) => ({etiqueta: String(fila[alias]), valor: Number(fila.valor)}))
+                    .filter((fila) => Number.isFinite(fila.valor))
+                    .sort((a, b) => b.valor - a.valor)
+                    .slice(0, 10);
+                if (!registros.length) {
+                    const vacio = document.createElement("p");
+                    vacio.textContent = "No hay grupos para graficar con los filtros activos.";
+                    tarjeta.appendChild(vacio);
+                    return tarjeta;
+                }
+
+                const ancho = 820;
+                const altoFila = 34;
+                const alto = 44 + registros.length * altoFila;
+                const inicioBarra = 260;
+                const anchoBarra = 450;
+                const maximo = Math.max(...registros.map((fila) => fila.valor), 0);
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute("viewBox", `0 0 ${ancho} ${alto}`);
+                svg.setAttribute("role", "img");
+                svg.setAttribute("aria-label", `${titulo}. ${nombresMedida[datos.medida]?.[1] || ""}`);
+                svg.classList.add("olap-bar-chart");
+                const tituloSvg = document.createElementNS(svg.namespaceURI, "title");
+                tituloSvg.textContent = `${titulo} (${nombresMedida[datos.medida]?.[1] || ""})`;
+                svg.appendChild(tituloSvg);
+
+                registros.forEach((registro, indice) => {
+                    const y = 31 + indice * altoFila;
+                    const etiqueta = document.createElementNS(svg.namespaceURI, "text");
+                    etiqueta.setAttribute("x", "8");
+                    etiqueta.setAttribute("y", String(y + 15));
+                    etiqueta.setAttribute("class", "olap-chart-label");
+                    etiqueta.textContent = registro.etiqueta.length > 34
+                        ? `${registro.etiqueta.slice(0, 31)}…`
+                        : registro.etiqueta;
+                    const tituloEtiqueta = document.createElementNS(svg.namespaceURI, "title");
+                    tituloEtiqueta.textContent = registro.etiqueta;
+                    etiqueta.appendChild(tituloEtiqueta);
+                    svg.appendChild(etiqueta);
+
+                    const fondo = document.createElementNS(svg.namespaceURI, "rect");
+                    fondo.setAttribute("x", String(inicioBarra));
+                    fondo.setAttribute("y", String(y));
+                    fondo.setAttribute("width", String(anchoBarra));
+                    fondo.setAttribute("height", "20");
+                    fondo.setAttribute("class", "olap-chart-track");
+                    svg.appendChild(fondo);
+
+                    const barra = document.createElementNS(svg.namespaceURI, "rect");
+                    barra.setAttribute("x", String(inicioBarra));
+                    barra.setAttribute("y", String(y));
+                    barra.setAttribute("width", String(maximo > 0 ? Math.max(1, anchoBarra * registro.valor / maximo) : 1));
+                    barra.setAttribute("height", "20");
+                    barra.setAttribute("fill", color);
+                    svg.appendChild(barra);
+
+                    const valor = document.createElementNS(svg.namespaceURI, "text");
+                    valor.setAttribute("x", String(inicioBarra + anchoBarra + 12));
+                    valor.setAttribute("y", String(y + 15));
+                    valor.setAttribute("class", "olap-chart-value");
+                    valor.textContent = formato(registro.valor);
+                    svg.appendChild(valor);
+                });
+                tarjeta.appendChild(svg);
+                return tarjeta;
+            }
+
+            function mostrarIndicadores(contenedor, medidas, resultados) {
+                const seccion = document.createElement("section");
+                seccion.className = "dashboard-metrics";
+                const titulo = document.createElement("h3");
+                titulo.textContent = "Indicadores del subconjunto";
+                seccion.appendChild(titulo);
+                const cuadrilla = document.createElement("div");
+                cuadrilla.className = "metric-grid";
+                medidas.forEach((medida) => {
+                    const tarjeta = document.createElement("article");
+                    tarjeta.className = "metric-card";
+                    const etiqueta = document.createElement("span");
+                    etiqueta.textContent = nombresMedida[medida]?.[0] || medida;
+                    const valor = document.createElement("strong");
+                    valor.textContent = formato(resultados[medida]?.total);
+                    const unidad = document.createElement("p");
+                    unidad.textContent = nombresMedida[medida]?.[1] || "unidades";
+                    tarjeta.append(etiqueta, valor, unidad);
+                    cuadrilla.appendChild(tarjeta);
+                });
+                seccion.appendChild(cuadrilla);
+                contenedor.appendChild(seccion);
+            }
+
+            function textoFiltrosActivos(configuracion) {
+                const descripcion = configuracion.filtros.map(
+                    ([dimension, nivel, valores]) =>
+                        `${dimension} · ${nivel} = ${valores.map((valor) => String(valor).replace(/\s+/g, " ").trim()).join(", ")}`
+                );
+                descripcion.push(configuracion.soloCambio ? "Solo cambios de cobertura" : "Incluye permanencias");
+                return descripcion.join(" · ");
+            }
+
+            async function mostrarAnalisisInteractivo(panel, configuracion) {
+                const salida = panel.querySelector("[data-query-output]");
+                salida.replaceChildren();
+                const medida = panel.querySelector("[data-measure]").value;
+                const ejesMatriz = configuracion.ejes.slice(0, 2);
+                if (ejesMatriz.length !== 2 || ejesMatriz[0].join(":") === ejesMatriz[1].join(":")) {
+                    throw new Error("Selecciona dos dimensiones distintas para construir la matriz.");
+                }
+
+                const listaIndicadores = panel.dataset.kpiMeasures.split(",").filter(Boolean);
+                const medidas = [medida, ...listaIndicadores.filter((nombre) => nombre !== medida)].slice(0, 3);
+                const ejeFila = ejesMatriz[0];
+                const ejeColumna = ejesMatriz[1];
+                const promesas = [
+                    consultarModelo(configuracion, medida, ejesMatriz, true),
+                    consultarModelo(configuracion, medida, [ejeFila]),
+                    consultarModelo(configuracion, medida, [ejeColumna]),
+                    ...medidas.slice(1).map((nombre) => consultarModelo(configuracion, nombre, []))
+                ];
+                if (configuracion.ejes.length > 2) {
+                    promesas.push(consultarModelo(configuracion, medida, configuracion.ejes));
+                }
+                const respuestas = await Promise.all(promesas);
+                const matriz = respuestas[0];
+                const totalizadores = {[medida]: matriz};
+                medidas.slice(1).forEach((nombre, indice) => {
+                    totalizadores[nombre] = respuestas[3 + indice];
+                });
+
+                const seleccion = document.createElement("p");
+                seleccion.className = "filter-line";
+                seleccion.textContent = `Selección activa · ${textoFiltrosActivos(configuracion)} · Medida de matriz: ${nombresMedida[medida]?.[0] || medida} (${nombresMedida[medida]?.[1] || ""})`;
+                salida.appendChild(seleccion);
+                mostrarIndicadores(salida, medidas, totalizadores);
+
+                const graficos = document.createElement("section");
+                graficos.className = "dashboard-visualizations";
+                const tituloGraficos = document.createElement("h3");
+                tituloGraficos.textContent = "Visualizaciones actualizadas desde el modelo";
+                graficos.appendChild(tituloGraficos);
+                const cuadrilla = document.createElement("div");
+                cuadrilla.className = "chart-grid";
+                cuadrilla.append(
+                    crearGraficoBarras(respuestas[1], ejeFila, `Distribución por ${ejeFila[0]} · ${ejeFila[1]}`, "#718c72"),
+                    crearGraficoBarras(respuestas[2], ejeColumna, `Distribución por ${ejeColumna[0]} · ${ejeColumna[1]}`, "#d78b55")
+                );
+                graficos.appendChild(cuadrilla);
+                salida.appendChild(graficos);
+
+                const matrizSeccion = document.createElement("section");
+                matrizSeccion.className = "dashboard-matrix";
+                const tituloMatriz = document.createElement("h3");
+                tituloMatriz.textContent = `Matriz · ${ejeFila[0]} (${ejeFila[1]}) × ${ejeColumna[0]} (${ejeColumna[1]}) · ${nombresMedida[medida]?.[1] || ""}`;
+                matrizSeccion.appendChild(tituloMatriz);
+                matrizSeccion.appendChild(tablaPivot(matriz, medida));
+                salida.appendChild(matrizSeccion);
+
+                if (configuracion.ejes.length > 2) {
+                    const detalle = document.createElement("section");
+                    detalle.className = "dashboard-matrix";
+                    const tituloDetalle = document.createElement("h3");
+                    tituloDetalle.textContent = "Detalle adicional";
+                    detalle.append(tituloDetalle, tablaResultados(respuestas[5], configuracion.ejes, medida));
+                    salida.appendChild(detalle);
+                }
+
+                const consulta = document.createElement("details");
+                consulta.className = "query-details";
+                const resumen = document.createElement("summary");
+                resumen.textContent = "Ver consulta SQL y parámetros";
+                consulta.appendChild(resumen);
+                const sql = document.createElement("pre");
+                const codigo = document.createElement("code");
+                codigo.textContent = matriz.sql || "";
+                sql.appendChild(codigo);
+                const parametros = document.createElement("p");
+                parametros.textContent = `Parámetros enlazados: ${JSON.stringify(matriz.parametros || [])}`;
+                consulta.append(sql, parametros);
+                salida.appendChild(consulta);
             }
 
             function mostrarRespuesta(contenedor, datos, configuracion, medida, incluirPivot) {
@@ -1045,8 +1485,26 @@ python dw_verificar.py --origen RUTA</code></pre>
                     return selector ? dividirEje(selector.value) : null;
                 }).filter(Boolean);
                 if (!ejes.length) throw new Error("Selecciona al menos un eje.");
-                const medida = panel.querySelector("[data-measure]").value;
-                const filtros = leerFiltros(panel.querySelector("[data-filters]").value).map((filtro) => [filtro.dimension, filtro.nivel, filtro.valores]);
+                if (new Set(ejes.map((eje) => eje.join(":"))).size !== ejes.length) {
+                    throw new Error("No repitas la misma dimensión y nivel en más de un eje.");
+                }
+                const filtros = [];
+                panel.querySelectorAll("[data-filter]").forEach((selector) => {
+                    if (!selector.value) return;
+                    const [dimension, nivel] = dividirEje(selector.dataset.filter);
+                    filtros.push([dimension, nivel, [selector.value]]);
+                });
+                const filtrosManuales = leerFiltros(panel.querySelector("[data-filters]").value)
+                    .map((filtro) => [filtro.dimension, filtro.nivel, filtro.valores]);
+                const clavesFiltro = new Set(filtros.map(([dimension, nivel]) => `${dimension}:${nivel}`));
+                filtrosManuales.forEach((filtro) => {
+                    const clave = `${filtro[0]}:${filtro[1]}`;
+                    if (clavesFiltro.has(clave)) {
+                        throw new Error(`El filtro ${clave} ya está seleccionado en los controles; no lo repitas en filtros adicionales.`);
+                    }
+                    clavesFiltro.add(clave);
+                    filtros.push(filtro);
+                });
                 return {
                     ejes,
                     filtros,
@@ -1056,21 +1514,99 @@ python dw_verificar.py --origen RUTA</code></pre>
                 };
             }
 
-            document.querySelectorAll("[data-query-panel]").forEach((panel) => {
-                panel.querySelector("[data-run-query]").addEventListener("click", async () => {
-                    const estado = panel.querySelector(".query-status");
-                    const salida = panel.querySelector("[data-query-output]");
-                    salida.replaceChildren();
-                    try {
-                        estado.textContent = "Consultando el modelo…";
-                        const configuracion = leerConfiguracion(panel);
-                        await solicitar(configuracion, [panel.querySelector("[data-measure]").value], salida, "", false);
-                        estado.textContent = "Consulta completada.";
-                    } catch (error) {
-                        estado.textContent = `Error: ${error.message}`;
+            async function ejecutarPanel(panel) {
+                const estado = panel.querySelector(".query-status");
+                const botones = panel.querySelectorAll("[data-run-query], [data-panel-action]");
+                const controles = panel.querySelectorAll(".query-controls select, .query-controls input");
+                botones.forEach((boton) => { boton.disabled = true; });
+                controles.forEach((control) => { control.disabled = true; });
+                try {
+                    estado.textContent = "Consultando indicadores, visualizaciones y matriz…";
+                    const configuracion = leerConfiguracion(panel);
+                    await mostrarAnalisisInteractivo(panel, configuracion);
+                    estado.textContent = "Análisis actualizado con los filtros y niveles seleccionados.";
+                } catch (error) {
+                    panel.querySelector("[data-query-output]").replaceChildren();
+                    estado.textContent = `Error: ${error.message}`;
+                } finally {
+                    botones.forEach((boton) => { boton.disabled = false; });
+                    controles.forEach((control) => { control.disabled = false; });
+                }
+            }
+
+            function ajustarNivelPanel(panel, sentido) {
+                ["row", "column", "extra"].forEach((nombre) => {
+                    const selector = panel.querySelector(`[data-axis="${nombre}"]`);
+                    if (!selector || !selector.value) return;
+                    const eje = dividirEje(selector.value);
+                    const niveles = jerarquias[eje[0]];
+                    const actual = niveles.indexOf(eje[1]);
+                    const siguiente = Math.max(0, Math.min(niveles.length - 1, actual + sentido));
+                    const nuevoValor = `${eje[0]}:${niveles[siguiente]}`;
+                    if (![...selector.options].some((opcion) => opcion.value === nuevoValor)) {
+                        selector.add(new Option(etiquetasNivel[eje[0]][niveles[siguiente]], nuevoValor));
                     }
+                    selector.value = nuevoValor;
+                });
+            }
+
+            function intercambiarEjesPanel(panel) {
+                const fila = panel.querySelector('[data-axis="row"]');
+                const columna = panel.querySelector('[data-axis="column"]');
+                if (!fila || !columna || !fila.value || !columna.value || fila.value === columna.value) {
+                    throw new Error("Pivot requiere dos ejes distintos.");
+                }
+                const valorFila = fila.value;
+                const textoFila = fila.options[fila.selectedIndex].textContent;
+                const valorColumna = columna.value;
+                const textoColumna = columna.options[columna.selectedIndex].textContent;
+                if (![...fila.options].some((opcion) => opcion.value === valorColumna)) {
+                    fila.add(new Option(textoColumna, valorColumna));
+                }
+                if (![...columna.options].some((opcion) => opcion.value === valorFila)) {
+                    columna.add(new Option(textoFila, valorFila));
+                }
+                fila.value = valorColumna;
+                columna.value = valorFila;
+            }
+
+            renderizarConocimientos();
+            const panelesAnalisis = [...document.querySelectorAll("[data-query-panel]")];
+            panelesAnalisis.forEach((panel) => {
+                panel.querySelector("[data-run-query]").addEventListener("click", () => ejecutarPanel(panel));
+                panel.querySelectorAll("[data-filter], [data-axis], [data-measure], [data-solo-cambio]").forEach((control) => {
+                    control.addEventListener("change", () => ejecutarPanel(panel));
+                });
+                panel.querySelectorAll("[data-panel-action]").forEach((boton) => {
+                    boton.addEventListener("click", () => {
+                        try {
+                            if (boton.dataset.panelAction === "drill") ajustarNivelPanel(panel, 1);
+                            if (boton.dataset.panelAction === "roll") ajustarNivelPanel(panel, -1);
+                            if (boton.dataset.panelAction === "pivot") intercambiarEjesPanel(panel);
+                            ejecutarPanel(panel);
+                        } catch (error) {
+                            panel.querySelector(".query-status").textContent = `Error: ${error.message}`;
+                        }
+                    });
                 });
             });
+
+            async function iniciarAnalisis() {
+                try {
+                    await Promise.all(
+                        panelesAnalisis.flatMap((panel) =>
+                            [...panel.querySelectorAll("[data-filter]")].map(cargarOpcionesFiltro)
+                        )
+                    );
+                    await Promise.all(panelesAnalisis.map(ejecutarPanel));
+                } catch (error) {
+                    panelesAnalisis.forEach((panel) => {
+                        panel.querySelector(".query-status").textContent = `No fue posible cargar los filtros: ${error.message}`;
+                    });
+                }
+            }
+
+            iniciarAnalisis();
 
             document.querySelectorAll("[data-guided]").forEach((boton) => {
                 boton.addEventListener("click", async () => {
@@ -1121,7 +1657,10 @@ python dw_verificar.py --origen RUTA</code></pre>
                     const actual = niveles.indexOf(eje[1]);
                     const siguiente = Math.max(0, Math.min(niveles.length - 1, actual + sentido));
                     const nuevoValor = `${eje[0]}:${niveles[siguiente]}`;
-                    if ([...selector.options].some((opcion) => opcion.value === nuevoValor)) selector.value = nuevoValor;
+                    if (![...selector.options].some((opcion) => opcion.value === nuevoValor)) {
+                        selector.add(new Option(etiquetasNivel[eje[0]][niveles[siguiente]], nuevoValor));
+                    }
+                    selector.value = nuevoValor;
                 });
             }
 
