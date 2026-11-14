@@ -1,7 +1,7 @@
 import json
 import os
 
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, url_for
 
 if __package__:
     from .dw_olap import consulta, pivot
@@ -10,6 +10,98 @@ else:
 
 app = Flask(__name__)
 DIRECTORIO = os.path.dirname(os.path.abspath(__file__))
+
+VIDEO_SUSTENTACION_EMBED = None
+VIDEO_SUSTENTACION_ENLACE = None
+REPO_URL = None
+
+HALLAZGOS = {
+    "tema": "Crecimiento urbano y transformación del uso del suelo",
+    "fuente": {
+        "video": "https://www.youtube.com/watch?v=-5PdZK1WO3s",
+        "comentarios": 64,
+        "fecha_extraccion": "2026-08-29",
+    },
+    "supervisado": {
+        "pregunta": "¿Se puede predecir si un comentario del video trata sobre el crecimiento urbano y la transformación del uso del suelo?",
+        "tipo": "Clasificación supervisada de comentarios utilizando técnicas de procesamiento de lenguaje natural.",
+        "objetivo": "Identificar comentarios relacionados con el crecimiento urbano y la transformación del uso del suelo dentro de los comentarios del video.",
+        "predictoras": "Contenido textual de los comentarios procesado mediante limpieza de texto, Bag of Words y representación vectorial.",
+        "datos": "64 comentarios únicos extraídos del video de YouTube.",
+        "validacion": "Validación cruzada estratificada de 5 folds, igual para los tres modelos.",
+        "columnas": [
+            "Accuracy",
+            "F1 promedio",
+            "F1 (temático)",
+            "Recall (temático)",
+            "Temáticos acertados",
+        ],
+        "modelos": [
+            {
+                "nombre": "Naive Bayes",
+                "valores": ["0.891", "0.000", "0.000", "0.000", "0 / 7"],
+                "elegido": False,
+            },
+            {
+                "nombre": "Logistic Regression",
+                "valores": ["0.953", "0.727", "0.727", "0.571", "4 / 7"],
+                "elegido": True,
+            },
+            {
+                "nombre": "Random Forest",
+                "valores": ["0.891", "0.000", "0.000", "0.000", "0 / 7"],
+                "elegido": False,
+            },
+        ],
+        "modelo_elegido": "Logistic Regression",
+        "justificacion": "La Regresión Logística fue el único modelo capaz de identificar correctamente comentarios de la categoría temática. Detectó 4 de los 7 comentarios relacionados con crecimiento urbano, ordenamiento territorial, POT y recursos naturales, obteniendo un Recall de 0.571 y un F1 de 0.727. En comparación, Naive Bayes y Random Forest no lograron clasificar correctamente ningún comentario temático.",
+        "limitaciones": "Solo 7 comentarios tratan directamente el tema frente a 57 comentarios de otras categorías. El tamaño reducido del conjunto de datos y el desbalance entre clases limitan la capacidad de generalización de los modelos y pueden afectar la estabilidad de las métricas.",
+    },
+    "clustering": {
+        "pregunta": "¿Qué perfiles de comentarios aparecen en el video sobre crecimiento urbano y uso del suelo, según su extensión, antigüedad e interacción?",
+        "algoritmo": "k-Means (KMeans++, 10 re-ejecuciones), variables estandarizadas (longitud, palabras, año y likes), k = 2 (silhouette 0,591; con k = 3 a 6 quedó entre 0,43 y 0,46).",
+        "nota": "Se excluyó un comentario atípico (149 likes) porque formaba un grupo de un solo registro. Los tamaños y medias son aproximados.",
+        "grupos": [
+            {
+                "nombre": "Reacciones breves",
+                "desc": "Saludos, emojis, agradecimientos y valoraciones cortas. Son la gran mayoría.",
+                "datos": [
+                    "Comentarios: ≈ 56",
+                    "Palabras (media): ≈ 5",
+                    "Caracteres (media): ≈ 27",
+                    "Likes (media): ≈ 2,3",
+                    "Año (media): ≈ 2021,9",
+                ],
+            },
+            {
+                "nombre": "Comentarios extensos",
+                "desc": "Opiniones y preguntas más elaboradas. Incluyen varios de los comentarios sobre el POT, el gobierno y los recursos naturales. Son pocos y más antiguos.",
+                "datos": [
+                    "Comentarios: ≈ 7",
+                    "Palabras (media): ≈ 31",
+                    "Caracteres (media): ≈ 176",
+                    "Likes (media): ≈ 8,9",
+                    "Año (media): ≈ 2020,4",
+                ],
+            },
+        ],
+        "significancia": "La diferencia en longitud, número de palabras y año es significativa (p ≤ 0,002); la de likes no (p = 0,066).",
+    },
+    "texto": {
+        "resumen": "El análisis de texto de Orange mostró una estructura clara: la mayoría de los comentarios son breves o de tipo escolar, mientras que un conjunto menor refleja intereses sobre el POT, la Ley 388, la propiedad y los recursos naturales. El sentimiento general no es dominante y la evidencia temática está concentrada en unos pocos mensajes más largos y específicos.",
+    },
+    "conclusiones": {
+        "evidencia": [
+            "La mayoría de los comentarios son reacciones breves o de tarea escolar, no opiniones sobre el territorio.",
+            "Solo 7 de 64 comentarios tratan el crecimiento urbano y el uso del suelo, y se publicaron entre 2020 y 2024.",
+        ],
+        "hipotesis": [
+            "Quienes sí opinan sobre el tema podrían tener un interés real por el POT; requiere más videos y más datos.",
+            "El patrón podría cambiar en videos que no sean de uso escolar.",
+        ],
+    },
+}
+
 
 @app.route("/")
 def home():
@@ -48,6 +140,22 @@ def etapa5():
         app.logger.error("verificaciones.json no contiene una lista de comprobaciones.")
         return "El archivo de verificaciones de Etapa 5 no tiene un formato válido.", 500
     return render_template("etapa5.html", verificaciones=verificaciones)
+
+
+@app.route("/etapa6")
+@app.route("/conocimiento-oculto")
+def etapa6():
+    informe_rel = "docs/informe_tecnico.pdf"
+    informe_path = os.path.join(app.static_folder, informe_rel)
+    informe_url = url_for("static", filename=informe_rel) if os.path.isfile(informe_path) else None
+    return render_template(
+        "etapa6.html",
+        h=HALLAZGOS,
+        informe_url=informe_url,
+        video_embed=VIDEO_SUSTENTACION_EMBED,
+        video_enlace=VIDEO_SUSTENTACION_ENLACE,
+        repo_url=REPO_URL,
+    )
 
 
 def _leer_eje(valor):
