@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa6.css') }}">
 </head>
-
+e
 <body>
     <div class="map-background"></div>
     <header class="navbar">
@@ -137,8 +137,9 @@
         <section class="page-header">
             <span class="section-label">ETAPA 6 · ANÁLISIS COMPLEMENTARIO</span>
             <h1>Conocimiento <span>oculto</span></h1>
-            <p>Hallazgos de modelos supervisados, agrupamiento y análisis de comentarios de YouTube sobre
+            <p>Hallazgos de modelos supervisados y agrupamiento de ciudades, junto con el análisis exploratorio de comentarios sobre
                 <strong>{{ h.tema }}</strong>.</p>
+            <p class="co-nota"><strong>Alcance:</strong> {{ h.alcance }}</p>
         </section>
 
         <div class="co-wrap">
@@ -148,17 +149,16 @@
                     <h2>Modelo supervisado</h2>
                 </div>
                 <p><strong>Pregunta:</strong> {{ h.supervisado.pregunta }}</p>
+                <p><strong>Enfoque:</strong> {{ h.supervisado.tipo }}</p>
+                <p><strong>Variable objetivo:</strong> <code>{{ h.supervisado.objetivo }}</code></p>
+                <p><strong>Predictoras:</strong> {{ h.supervisado.predictoras }}</p>
                 <p class="co-nota">{{ h.supervisado.validacion }}</p>
                 <div class="co-table-wrap">
                     <table class="co-table">
                         <thead>
                             <tr>
                                 <th>Modelo</th>
-                                <th>Accuracy</th>
-                                <th>F1 promedio</th>
-                                <th>F1 (temático)</th>
-                                <th>Recall (temático)</th>
-                                <th>Temáticos acertados</th>
+                                {% for columna in h.supervisado.columnas %}<th>{{ columna }}</th>{% endfor %}
                             </tr>
                         </thead>
                         <tbody>
@@ -168,15 +168,27 @@
                                 <td>{{ m.valores[0] }}</td>
                                 <td>{{ m.valores[1] }}</td>
                                 <td>{{ m.valores[2] }}</td>
-                                <td>{{ m.valores[3] }}</td>
-                                <td>{{ m.valores[4] }}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <p><strong>Por qué {{ h.supervisado.modelo_elegido }}:</strong> {{ h.supervisado.justificacion }}</p>
-                <p class="co-nota"><strong>Limitaciones:</strong> {{ h.supervisado.limitaciones }}</p>
+                <h3>Comparación de variables predictoras</h3>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Configuración</th><th>MAE (ha)</th><th>RMSE (ha)</th><th>R²</th></tr></thead>
+                        <tbody>
+                            {% for caso in h.supervisado.comparacion %}
+                            <tr><td>{{ caso.nombre }}</td><td>{{ caso.mae }}</td><td>{{ caso.rmse }}</td><td>{{ caso.r2 }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Hallazgos</h3>
+                <ul>{% for item in h.supervisado.hallazgos %}<li>{{ item }}</li>{% endfor %}</ul>
+                <h3>Limitaciones de la predicción</h3>
+                <ul class="co-nota">{% for item in h.supervisado.limitaciones %}<li>{{ item }}</li>{% endfor %}</ul>
             </section>
 
             <section class="co-card" id="agrupamiento">
@@ -186,6 +198,20 @@
                 </div>
                 <p><strong>Pregunta:</strong> {{ h.clustering.pregunta }}</p>
                 <p>{{ h.clustering.algoritmo }}</p>
+                <p><strong>Variables empleadas:</strong> {{ h.clustering.variables }}</p>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Número de clusters (K)</th><th>Silhouette global</th></tr></thead>
+                        <tbody>
+                            {% for opcion in h.clustering.comparacion_k %}
+                            <tr class="{{ 'co-elegido' if opcion.elegido else '' }}">
+                                <td>{{ opcion.k }}{% if opcion.elegido %}<span class="co-badge">seleccionado</span>{% endif %}</td>
+                                <td>{{ opcion.silhouette }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
                 <div class="co-grid">
                     {% for g in h.clustering.grupos %}
                     <article class="co-group">
@@ -196,10 +222,11 @@
                             <li>{{ dato }}</li>
                             {% endfor %}
                         </ul>
+                        <p><strong>Ciudades representativas:</strong> {{ g.ejemplos }}</p>
                     </article>
                     {% endfor %}
                 </div>
-                <p>{{ h.clustering.significancia }}</p>
+                <p><strong>Lectura estadística:</strong> {{ h.clustering.significancia }}</p>
                 <p class="co-nota">{{ h.clustering.nota }}</p>
             </section>
 
@@ -208,13 +235,28 @@
                     <span class="section-number">03</span>
                     <h2>Comentarios de YouTube</h2>
                 </div>
-                <p>Video analizado:
-                    <a href="{{ h.fuente.video }}" target="_blank" rel="noopener">{{ h.fuente.video }}</a>.
-                    {{ h.fuente.comentarios }} comentarios únicos, extraídos el
-                    {{ h.fuente.fecha_extraccion }} con la YouTube Data API v3.
+                <p><strong>Pregunta:</strong> {{ h.texto.pregunta }}</p>
+                <p>Video analizado: <a href="{{ h.fuente.video }}" target="_blank" rel="noopener">{{ h.fuente.video }}</a>.
+                    {{ h.fuente.comentarios }} comentarios procesados mediante {{ h.fuente.api }}.
+                    {% if h.fuente.fecha_extraccion %}Fecha de extracción: {{ h.fuente.fecha_extraccion }}.{% endif %}
                 </p>
+                <p class="co-nota">{{ h.fuente.nota_fecha }} {{ h.fuente.calidad }}</p>
+                <p><strong>Flujo de Orange:</strong> {{ h.texto.metodo }}</p>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Categoría descriptiva</th><th>Comentarios</th><th>Porcentaje</th></tr></thead>
+                        <tbody>
+                            {% for categoria in h.texto.categorias %}
+                            <tr><td>{{ categoria.nombre }}</td><td>{{ categoria.cantidad }}</td><td>{{ categoria.porcentaje }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
                 <p>{{ h.texto.resumen }}</p>
-                <p class="co-nota">Las opiniones corresponden solo a quienes comentaron en este video y no representan a toda la población.</p>
+                <h3>Hallazgos de los comentarios</h3>
+                <ul>{% for item in h.texto.hallazgos %}<li>{{ item }}</li>{% endfor %}</ul>
+                <h3>Precauciones</h3>
+                <ul class="co-nota">{% for item in h.texto.limitaciones %}<li>{{ item }}</li>{% endfor %}</ul>
             </section>
 
             <section class="co-card" id="conclusiones">
@@ -232,6 +274,7 @@
                         <ul>{% for t in h.conclusiones.hipotesis %}<li>{{ t }}</li>{% endfor %}</ul>
                     </div>
                 </div>
+                <p class="co-nota"><strong>Límite de la integración:</strong> {{ h.conclusiones.limitaciones }}</p>
             </section>
 
             <section class="co-card" id="informe">
