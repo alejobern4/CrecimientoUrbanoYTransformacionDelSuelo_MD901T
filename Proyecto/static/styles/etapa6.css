@@ -1,0 +1,233 @@
+.stage-six-content {
+    width: min(1180px, calc(100% - 112px));
+    max-width: none;
+    margin-left: max(88px, calc((100vw - 1180px) / 2));
+    margin-right: auto;
+    padding-top: 80px;
+}
+
+.stage-six-content .page-header {
+    min-height: 360px;
+    justify-content: center;
+}
+
+.stage-six-content .page-header h1 {
+    max-width: 860px;
+}
+
+.co-wrap {
+    display: grid;
+    gap: 22px;
+    margin: 0 0 30px;
+}
+
+.co-card {
+    min-width: 0;
+    padding: 26px 30px;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid #dce1db;
+    scroll-margin-top: 30px;
+}
+
+.co-card p,
+.co-card li {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.co-card p + p {
+    margin-top: 12px;
+}
+
+.co-card h2 {
+    margin: 0;
+    color: var(--dark);
+    font-size: clamp(21px, 2.4vw, 29px);
+    line-height: 1.35;
+}
+
+.co-card h3 {
+    margin: 0 0 10px;
+    color: var(--blue);
+    font-size: 17px;
+}
+
+.co-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.co-section-heading .section-number {
+    flex: 0 0 34px;
+}
+
+.co-nota {
+    color: var(--muted);
+    font-size: 13px !important;
+}
+
+.co-table-wrap {
+    margin: 18px 0;
+    overflow-x: auto;
+}
+
+.co-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.co-table th,
+.co-table td {
+    min-width: 115px;
+    padding: 12px;
+    border: 1px solid #dce1db;
+    text-align: left;
+    vertical-align: top;
+}
+
+.co-table th {
+    color: var(--dark);
+    background: rgba(113, 140, 114, 0.12);
+}
+
+.co-table tr.co-elegido {
+    color: var(--dark);
+    background: rgba(113, 140, 114, 0.12);
+    font-weight: 700;
+}
+
+.co-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 9px;
+    color: var(--blue);
+    background: rgba(113, 140, 114, 0.16);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.co-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.co-group,
+.co-conclusions > div {
+    min-width: 0;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid #dce1db;
+}
+
+.co-group ul,
+.co-conclusions ul {
+    padding-left: 20px;
+}
+
+.co-group li + li,
+.co-conclusions li + li {
+    margin-top: 6px;
+}
+
+.co-video {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.68);
+    border: 1px solid #dce1db;
+}
+
+.co-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.co-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.co-button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: 1px solid var(--blue);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+.co-button:hover {
+    transform: translateY(-2px);
+}
+
+.co-button-primary {
+    color: var(--white);
+    background: var(--blue);
+}
+
+.co-button-primary:hover {
+    color: var(--white);
+    background: var(--dark);
+}
+
+.co-button-secondary {
+    color: var(--blue);
+    background: transparent;
+}
+
+.co-button-secondary:hover {
+    color: var(--white);
+    background: var(--blue);
+}
+
+.co-card a:not(.co-button) {
+    color: var(--blue);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .co-button {
+        transition: none;
+    }
+
+    .co-button:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .stage-six-content {
+        width: calc(100% - 104px);
+        margin-left: 84px;
+        margin-right: 20px;
+        padding: 60px 18px;
+    }
+
+    .stage-six-content .page-header {
+        min-height: 300px;
+    }
+
+    .co-card {
+        padding: 20px 18px;
+    }
+
+    .co-section-heading {
+        gap: 12px;
+    }
+}

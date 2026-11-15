@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etapa 6 | Conocimiento oculto</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/etapa6.css') }}">
+</head>
+e
+<body>
+    <div class="map-background"></div>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <span class="logo-symbol">⌂</span>
+                TERRITORIO
+            </a>
+            <nav class="main-nav">
+                <a href="{{ url_for('home') }}" class="nav-link">
+                    <span class="nav-number">00</span>
+                    Inicio
+                </a>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa1') }}" class="nav-link explore-button">
+                        <span class="nav-number">01</span>
+                        Explorar proyecto
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 01</small></div>
+                        <a href="{{ url_for('etapa1') }}#problema"><span>01</span><div><strong>Problema y contexto</strong><small>El territorio bajo análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#preguntas"><span>02</span><div><strong>Preguntas de investigación</strong><small>Lo que buscamos comprender</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#necesidades"><span>03</span><div><strong>Necesidades de información</strong><small>Datos necesarios para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#fuentes"><span>04</span><div><strong>Fuentes de datos</strong><small>De dónde proviene la información</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#dataset"><span>05</span><div><strong>Dataset</strong><small>Los datos del territorio</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#diccionario"><span>06</span><div><strong>Diccionario de datos</strong><small>Qué representa cada variable</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#calidad"><span>07</span><div><strong>Calidad de los datos</strong><small>Revisión inicial</small></div></a>
+                        <a href="{{ url_for('etapa1') }}#limitaciones"><span>08</span><div><strong>Limitaciones</strong><small>Consideraciones del análisis</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa2') }}" class="nav-link explore-button">
+                        <span class="nav-number">02</span>
+                        Calidad de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 02</small></div>
+                        <a href="{{ url_for('etapa2') }}#resumen"><span>01</span><div><strong>Resumen del dataset</strong><small>Estado general de los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#proposito"><span>02</span><div><strong>Propósito y estructura</strong><small>Qué contienen los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#requisitos"><span>03</span><div><strong>Requisitos de calidad</strong><small>Qué deben cumplir los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#perfilamiento"><span>04</span><div><strong>Perfilamiento</strong><small>Exploración y diagnóstico</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#dimensiones"><span>05</span><div><strong>Dimensiones de calidad</strong><small>Cómo se evalúan los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#problemas"><span>06</span><div><strong>Problemas detectados</strong><small>Errores y situaciones encontradas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#causas"><span>07</span><div><strong>Causas</strong><small>Origen de los problemas</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#integracion"><span>08</span><div><strong>Integración de datos</strong><small>Preparación para el análisis</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#tratamiento"><span>09</span><div><strong>Plan de tratamiento</strong><small>Acciones para mejorar los datos</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#comparacion"><span>10</span><div><strong>Antes y después</strong><small>Cambios aplicados al dataset</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#resumen-calidad"><span>11</span><div><strong>Resumen de calidad</strong><small>Resultado de la evaluación</small></div></a>
+                        <a href="{{ url_for('etapa2') }}#referencias"><span>12</span><div><strong>Referencias</strong><small>Fuentes consultadas</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa3') }}" class="nav-link explore-button">
+                        <span class="nav-number">03</span>
+                        Tratamiento de datos
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 03</small></div>
+                        <a href="{{ url_for('etapa3') }}#flujo-control"><span>01</span><div><strong>Flujo de control</strong><small>Secuencia del paquete SSIS</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#staging"><span>02</span><div><strong>Carga a staging</strong><small>Copias de trabajo</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#global"><span>03</span><div><strong>Tratamiento global</strong><small>Preparación de Global_Ciudades</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#nacional"><span>04</span><div><strong>Tratamiento nacional</strong><small>Clasificación de periodos</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#regional"><span>05</span><div><strong>Tratamiento regional</strong><small>Preparación de Sabana Centro</small></div></a>
+                        <a href="{{ url_for('etapa3') }}#recursos"><span>06</span><div><strong>Demostración en video</strong><small>Recorrido audiovisual</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa4') }}" class="nav-link explore-button">
+                        <span class="nav-number">04</span>
+                        Análisis Power BI
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 04</small></div>
+                        <a href="{{ url_for('etapa4') }}#base-analisis"><span>00</span><div><strong>Datos y modelo</strong><small>Alcance y controles</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#informe-powerbi"><span>01</span><div><strong>Informe interactivo</strong><small>Tablero de Power BI</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-1"><span>02</span><div><strong>Composición</strong><small>Coberturas 1985–2024</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-2"><span>03</span><div><strong>Comparación municipal</strong><small>Los 11 municipios</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-3"><span>04</span><div><strong>Evolución temporal</strong><small>Ganancia urbana anual</small></div></a>
+                        <a href="{{ url_for('etapa4') }}#tablero-4"><span>05</span><div><strong>Análisis multivariado</strong><small>Orígenes y casos atípicos</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa5') }}" class="nav-link explore-button">
+                        <span class="nav-number">05</span>
+                        Análisis multidimensional
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 05</small></div>
+                        <a href="#objetivo"><span>01</span><div><strong>Objetivo y continuidad</strong><small>Alcance y unidad de análisis</small></div></a>
+                        <a href="#diseno"><span>02</span><div><strong>Diseño del modelo</strong><small>Hecho, dimensiones y medidas</small></div></a>
+                        <a href="#carga"><span>03</span><div><strong>Implementación y carga</strong><small>Procedimiento reproducible</small></div></a>
+                        <a href="#verificacion"><span>04</span><div><strong>Verificación</strong><small>Contraste con los datos tratados</small></div></a>
+                        <a href="#preguntas"><span>05</span><div><strong>Preguntas de análisis</strong><small>Consultas multidimensionales</small></div></a>
+                        <a href="#operaciones"><span>06</span><div><strong>Operaciones OLAP</strong><small>Drill-down, roll-up, slice, dice y pivot</small></div></a>
+                        <a href="#limitaciones"><span>07</span><div><strong>Limitaciones y decisiones</strong><small>Alcance de las conclusiones</small></div></a>
+                    </div>
+                </div>
+                <div class="explore-menu">
+                    <a href="#top" class="nav-link active explore-button" aria-current="page">
+                        <span class="nav-number">06</span>
+                        Conocimiento oculto
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 06</small></div>
+                        <a href="#modelo-supervisado"><span>01</span><div><strong>Modelo supervisado</strong><small>Clasificación y desempeño</small></div></a>
+                        <a href="#agrupamiento"><span>02</span><div><strong>Agrupamiento</strong><small>Patrones identificados</small></div></a>
+                        <a href="#comentarios"><span>03</span><div><strong>Comentarios de YouTube</strong><small>Opiniones analizadas</small></div></a>
+                        <a href="#conclusiones"><span>04</span><div><strong>Conclusiones integradas</strong><small>Evidencia e hipótesis</small></div></a>
+                        <a href="#informe"><span>05</span><div><strong>Informe técnico</strong><small>Documento PDF</small></div></a>
+                        <a href="#sustentacion"><span>06</span><div><strong>Video de sustentación</strong><small>Presentación del análisis</small></div></a>
+                        {% if repo_url %}
+                        <a href="#reproducibilidad"><span>07</span><div><strong>Reproducibilidad</strong><small>Código y recursos</small></div></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="content stage-six-content" id="top">
+        <section class="page-header">
+            <span class="section-label">ETAPA 6 · ANÁLISIS COMPLEMENTARIO</span>
+            <h1>Conocimiento <span>oculto</span></h1>
+            <p>Hallazgos de modelos supervisados y agrupamiento de ciudades, junto con el análisis exploratorio de comentarios sobre
+                <strong>{{ h.tema }}</strong>.</p>
+            <p class="co-nota"><strong>Alcance:</strong> {{ h.alcance }}</p>
+        </section>
+
+        <div class="co-wrap">
+            <section class="co-card" id="modelo-supervisado">
+                <div class="co-section-heading">
+                    <span class="section-number">01</span>
+                    <h2>Modelo supervisado</h2>
+                </div>
+                <p><strong>Pregunta:</strong> {{ h.supervisado.pregunta }}</p>
+                <p><strong>Enfoque:</strong> {{ h.supervisado.tipo }}</p>
+                <p><strong>Variable objetivo:</strong> <code>{{ h.supervisado.objetivo }}</code></p>
+                <p><strong>Predictoras:</strong> {{ h.supervisado.predictoras }}</p>
+                <p class="co-nota">{{ h.supervisado.validacion }}</p>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead>
+                            <tr>
+                                <th>Modelo</th>
+                                {% for columna in h.supervisado.columnas %}<th>{{ columna }}</th>{% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for m in h.supervisado.modelos %}
+                            <tr class="{{ 'co-elegido' if m.elegido else '' }}">
+                                <td>{{ m.nombre }}{% if m.elegido %}<span class="co-badge">elegido</span>{% endif %}</td>
+                                <td>{{ m.valores[0] }}</td>
+                                <td>{{ m.valores[1] }}</td>
+                                <td>{{ m.valores[2] }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Por qué {{ h.supervisado.modelo_elegido }}:</strong> {{ h.supervisado.justificacion }}</p>
+                <h3>Comparación de variables predictoras</h3>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Configuración</th><th>MAE (ha)</th><th>RMSE (ha)</th><th>R²</th></tr></thead>
+                        <tbody>
+                            {% for caso in h.supervisado.comparacion %}
+                            <tr><td>{{ caso.nombre }}</td><td>{{ caso.mae }}</td><td>{{ caso.rmse }}</td><td>{{ caso.r2 }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Hallazgos</h3>
+                <ul>{% for item in h.supervisado.hallazgos %}<li>{{ item }}</li>{% endfor %}</ul>
+                <h3>Limitaciones de la predicción</h3>
+                <ul class="co-nota">{% for item in h.supervisado.limitaciones %}<li>{{ item }}</li>{% endfor %}</ul>
+            </section>
+
+            <section class="co-card" id="agrupamiento">
+                <div class="co-section-heading">
+                    <span class="section-number">02</span>
+                    <h2>Agrupamiento (clustering)</h2>
+                </div>
+                <p><strong>Pregunta:</strong> {{ h.clustering.pregunta }}</p>
+                <p>{{ h.clustering.algoritmo }}</p>
+                <p><strong>Variables empleadas:</strong> {{ h.clustering.variables }}</p>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Número de clusters (K)</th><th>Silhouette global</th></tr></thead>
+                        <tbody>
+                            {% for opcion in h.clustering.comparacion_k %}
+                            <tr class="{{ 'co-elegido' if opcion.elegido else '' }}">
+                                <td>{{ opcion.k }}{% if opcion.elegido %}<span class="co-badge">seleccionado</span>{% endif %}</td>
+                                <td>{{ opcion.silhouette }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="co-grid">
+                    {% for g in h.clustering.grupos %}
+                    <article class="co-group">
+                        <h3>{{ g.nombre }}</h3>
+                        <p>{{ g.desc }}</p>
+                        <ul>
+                            {% for dato in g.datos %}
+                            <li>{{ dato }}</li>
+                            {% endfor %}
+                        </ul>
+                        <p><strong>Ciudades representativas:</strong> {{ g.ejemplos }}</p>
+                    </article>
+                    {% endfor %}
+                </div>
+                <p><strong>Lectura estadística:</strong> {{ h.clustering.significancia }}</p>
+                <p class="co-nota">{{ h.clustering.nota }}</p>
+            </section>
+
+            <section class="co-card" id="comentarios">
+                <div class="co-section-heading">
+                    <span class="section-number">03</span>
+                    <h2>Comentarios de YouTube</h2>
+                </div>
+                <p><strong>Pregunta:</strong> {{ h.texto.pregunta }}</p>
+                <p>Video analizado: <a href="{{ h.fuente.video }}" target="_blank" rel="noopener">{{ h.fuente.video }}</a>.
+                    {{ h.fuente.comentarios }} comentarios procesados mediante {{ h.fuente.api }}.
+                    {% if h.fuente.fecha_extraccion %}Fecha de extracción: {{ h.fuente.fecha_extraccion }}.{% endif %}
+                </p>
+                <p class="co-nota">{{ h.fuente.nota_fecha }} {{ h.fuente.calidad }}</p>
+                <p><strong>Flujo de Orange:</strong> {{ h.texto.metodo }}</p>
+                <div class="co-table-wrap">
+                    <table class="co-table">
+                        <thead><tr><th>Categoría descriptiva</th><th>Comentarios</th><th>Porcentaje</th></tr></thead>
+                        <tbody>
+                            {% for categoria in h.texto.categorias %}
+                            <tr><td>{{ categoria.nombre }}</td><td>{{ categoria.cantidad }}</td><td>{{ categoria.porcentaje }}</td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <p>{{ h.texto.resumen }}</p>
+                <h3>Hallazgos de los comentarios</h3>
+                <ul>{% for item in h.texto.hallazgos %}<li>{{ item }}</li>{% endfor %}</ul>
+                <h3>Precauciones</h3>
+                <ul class="co-nota">{% for item in h.texto.limitaciones %}<li>{{ item }}</li>{% endfor %}</ul>
+            </section>
+
+            <section class="co-card" id="conclusiones">
+                <div class="co-section-heading">
+                    <span class="section-number">04</span>
+                    <h2>Conclusiones integradas</h2>
+                </div>
+                <div class="co-grid co-conclusions">
+                    <div>
+                        <h3>Respaldado por evidencia</h3>
+                        <ul>{% for t in h.conclusiones.evidencia %}<li>{{ t }}</li>{% endfor %}</ul>
+                    </div>
+                    <div>
+                        <h3>Hipótesis por validar</h3>
+                        <ul>{% for t in h.conclusiones.hipotesis %}<li>{{ t }}</li>{% endfor %}</ul>
+                    </div>
+                </div>
+                <p class="co-nota"><strong>Límite de la integración:</strong> {{ h.conclusiones.limitaciones }}</p>
+            </section>
+
+            <section class="co-card" id="informe">
+                <div class="co-section-heading">
+                    <span class="section-number">05</span>
+                    <h2>Informe técnico</h2>
+                </div>
+                {% if informe_url %}
+                <p class="co-actions">
+                    <a class="co-button co-button-primary" href="{{ informe_url }}" target="_blank" rel="noopener">Ver informe (PDF)</a>
+                    <a class="co-button co-button-secondary" href="{{ informe_url }}" download>Descargar</a>
+                </p>
+                {% else %}
+                <p class="co-nota">El informe estará disponible próximamente.</p>
+                {% endif %}
+            </section>
+
+            <section class="co-card" id="sustentacion">
+                <div class="co-section-heading">
+                    <span class="section-number">06</span>
+                    <h2>Video de sustentación</h2>
+                </div>
+                {% if video_embed %}
+                <div class="co-video">
+                    <iframe src="{{ video_embed }}" title="Video de sustentación" allowfullscreen loading="lazy"></iframe>
+                </div>
+                {% elif video_enlace %}
+                <p><a href="{{ video_enlace }}" target="_blank" rel="noopener">Ver el video de sustentación</a></p>
+                {% else %}
+                <p class="co-nota">El video estará disponible próximamente.</p>
+                {% endif %}
+            </section>
+
+            {% if repo_url %}
+            <section class="co-card" id="reproducibilidad">
+                <div class="co-section-heading">
+                    <span class="section-number">07</span>
+                    <h2>Reproducibilidad</h2>
+                </div>
+                <p>Flujos de Orange, código de extracción de comentarios y datos de apoyo en el
+                    <a href="{{ repo_url }}" target="_blank" rel="noopener">repositorio</a>.
+                </p>
+            </section>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer>
+        <p>PROYECTO DE ANÁLISIS TERRITORIAL · ETAPA 6</p>
+    </footer>
+</body>
+</html>

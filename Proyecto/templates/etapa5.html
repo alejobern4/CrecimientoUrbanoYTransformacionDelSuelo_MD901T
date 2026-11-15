@@ -112,6 +112,25 @@
                         <a href="#limitaciones"><span>07</span><div><strong>Limitaciones y decisiones</strong><small>Alcance de las conclusiones</small></div></a>
                     </div>
                 </div>
+                <div class="explore-menu">
+                    <a href="{{ url_for('etapa6') }}" class="nav-link explore-button">
+                        <span class="nav-number">06</span>
+                        Conocimiento oculto
+                        <span class="arrow">+</span>
+                    </a>
+                    <div class="explore-panel">
+                        <div class="panel-header"><span>RECORRIDO DEL ANÁLISIS</span><small>ETAPA 06</small></div>
+                        <a href="#modelo-supervisado"><span>01</span><div><strong>Modelo supervisado</strong><small>Clasificación y desempeño</small></div></a>
+                        <a href="#agrupamiento"><span>02</span><div><strong>Agrupamiento</strong><small>Patrones identificados</small></div></a>
+                        <a href="#comentarios"><span>03</span><div><strong>Comentarios de YouTube</strong><small>Opiniones analizadas</small></div></a>
+                        <a href="#conclusiones"><span>04</span><div><strong>Conclusiones integradas</strong><small>Evidencia e hipótesis</small></div></a>
+                        <a href="#informe"><span>05</span><div><strong>Informe técnico</strong><small>Documento PDF</small></div></a>
+                        <a href="#sustentacion"><span>06</span><div><strong>Video de sustentación</strong><small>Presentación del análisis</small></div></a>
+                        {% if repo_url %}
+                        <a href="#reproducibilidad"><span>07</span><div><strong>Reproducibilidad</strong><small>Código y recursos</small></div></a>
+                        {% endif %}
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
