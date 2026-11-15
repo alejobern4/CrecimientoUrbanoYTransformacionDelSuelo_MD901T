@@ -1,7 +1,7 @@
 import json
 import os
 
-from flask import Flask, jsonify, render_template, request, url_for
+from flask import Flask, jsonify, render_template, request, send_from_directory, url_for
 
 if __package__:
     from .dw_olap import consulta, pivot
@@ -11,9 +11,9 @@ else:
 app = Flask(__name__)
 DIRECTORIO = os.path.dirname(os.path.abspath(__file__))
 
-# Completar con los enlaces públicos cuando estén disponibles.
-VIDEO_SUSTENTACION_EMBED = None
-VIDEO_SUSTENTACION_ENLACE = None
+# Video de sustentación de la etapa 6.
+VIDEO_SUSTENTACION_EMBED = "https://www.youtube.com/embed/BhUZSzEa7DA"
+VIDEO_SUSTENTACION_ENLACE = "https://youtu.be/BhUZSzEa7DA"
 REPO_URL = None
 
 HALLAZGOS = {
@@ -167,12 +167,17 @@ def etapa5():
     return render_template("etapa5.html", verificaciones=verificaciones)
 
 
+@app.route("/informe-etapa6")
+def informe_etapa6():
+    """Sirve el PDF almacenado junto a app.py, en doc/Informe_etapa6.pdf."""
+    return send_from_directory(os.path.join(DIRECTORIO, "doc"), "Informe_etapa6.pdf")
+
+
 @app.route("/etapa6")
 @app.route("/conocimiento-oculto")
 def etapa6():
-    informe_rel = "docs/informe_tecnico.pdf"
-    informe_path = os.path.join(app.static_folder, informe_rel)
-    informe_url = url_for("static", filename=informe_rel) if os.path.isfile(informe_path) else None
+    informe_path = os.path.join(DIRECTORIO, "doc", "Informe_etapa6.pdf")
+    informe_url = url_for("informe_etapa6") if os.path.isfile(informe_path) else None
     return render_template(
         "etapa6.html", h=HALLAZGOS, informe_url=informe_url,
         video_embed=VIDEO_SUSTENTACION_EMBED,
